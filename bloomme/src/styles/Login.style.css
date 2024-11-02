@@ -1,0 +1,28 @@
+.login-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10%;
+}
+#email-login, #password-login{
+  display: block;
+  width: 50%;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #661D90;
+  font-size: 2.5em;
+  margin-bottom: 5%;
+  background-color: transparent;
+  text-align: center;
+  border-radius: 20px;
+}
+.button-form-login{
+  background-color: blue;
+  width: 200px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 2.5em;
+}
+.label-email-login, .label-password-login{
+ font-size: 3em;
+}
