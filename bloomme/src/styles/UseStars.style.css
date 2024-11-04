@@ -1,22 +1,22 @@
 /* Fondo de la página */
-body {
+/* body {
   overflow: hidden;
   position: relative;
-}
+} */
 
 /* Fondo del formulario */
-.login-form {
+/* .login-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 3%;
   background-color: #FFCFDC;
-  padding: 10% 40%;
+  padding: 10% 40%; *
   position: relative; /* Mantener su posición */
-  /* z-index: 1; Asegura que las estrellas estén detrás */
-}
+  /* z-index: 1; /*Asegura que las estrellas estén detrás */
+/* } */
 /* Estilo de los inputs y el botón */
-#email-login, #password-login {
+/* #email-login, #password-login {
   display: block;
   width: 350%;
   padding: 10px;
@@ -40,10 +40,10 @@ body {
   
 .label-email-login, .label-password-login {
   font-size: 3em;
-}
+} */
 
 /* Estilos para las estrellas */
-.star {
+/* .star {
   position: absolute;
   width: 4px;
   height: 4px;
@@ -60,4 +60,4 @@ body {
   50% {
       opacity: 1;
   }
-}
+} */

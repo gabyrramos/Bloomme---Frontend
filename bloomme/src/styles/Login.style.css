@@ -1,15 +1,102 @@
-.login-form{
+.container-main-login{
+  color: white;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: end;
+  margin-right: 10%;
+  padding-top: 10%;
+  display: grid; 
+  grid-gap: 20px; /* Espacio entre elementos */
+}
+.login-form {
+  position: relative;
+}
+#email-login, #password-login{
+  display: block;
+  /* padding: 20px; */
+  border: none;
+  border-bottom: 2px solid #fff;
+  font-size: 2.5em;
+  margin-bottom: 2%;
+  background-color: transparent;
+}
+#password-login {
+  padding-right: 25px; /* Añade esta propiedad para hacer espacio para el icono */
+}
+#email-login::placeholder, #password-login::placeholder {
+  position: relative;
+  right: 8%;
+  color: #fff;
+  text-align: center;
+}
+.icon-user{
+  width: 10%;
+  position: absolute;
+  top: 10px;
+  transition: opacity 0.3s;
+}
+
+.iconArrowLeft {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-100%);
+  /* transform: translateX(-100%); */
+  /* right: 10px; */
+  z-index: 1;
+}
+
+.button-form-login{
+  background-color: #CADBF3;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 2.5em;
+  margin-top: 2%;
+  width: 100%;
+  color: white;
+  text-align: center;
+  justify-content: center;
+  /* padding: 10px 20px; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .login-form{
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 3%;
   background-color: #FFCFDC;
   padding: 10% 40%;
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-53%, 5%);
-  margin-bottom: 10%; */
 }
 #email-login, #password-login{
   display: block;
@@ -25,8 +112,6 @@
 }
 .button-form-login{
   background-color: #A5E0E1;
-  /* width: 150%; */
-  /* width: 200px; */
   border-radius: 10px;
   cursor: pointer;
   font-size: 2.5em;
@@ -49,4 +134,4 @@
     font-size: 1.5em;
     margin-top: 50%;
   }
-}
+} */
