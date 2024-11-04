@@ -1,57 +1,91 @@
 .container-main-login{
   color: white;
-  flex-direction: row-reverse;
-  align-items: center;
-  justify-content: end;
-  margin-right: 10%;
-  padding-top: 10%;
   display: grid; 
-  grid-gap: 20px; /* Espacio entre elementos */
+  grid-gap: 2%; /* Espacio entre elementos */
+  /* align-items: center; */
+  justify-content: end;
+  /* flex-direction: row-reverse; */
+  /* margin-right: 10%; */
+  /* padding-top: 10%; */
+}
+.container-main-login-link{
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+.container-main-login-text, .container-main-login-title{
+  text-align: center;
+}
+.container-login-image{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+  margin-top: 5%;
+}
+.icon-google-login{
+  width: 50px;
 }
 .login-form {
   position: relative;
 }
-#email-login, #password-login{
-  display: block;
-  /* padding: 20px; */
+#email-login{
+  /* display: block; */
+  padding: 20px;
   border: none;
   border-bottom: 2px solid #fff;
   font-size: 2.5em;
-  margin-bottom: 2%;
+  margin-bottom: 10%;
   background-color: transparent;
-}
-#password-login {
-  padding-right: 25px; /* Añade esta propiedad para hacer espacio para el icono */
-}
-#email-login::placeholder, #password-login::placeholder {
-  position: relative;
-  right: 8%;
-  color: #fff;
   text-align: center;
 }
-.icon-user{
+#password-login{
+  display: block;
+  padding: 20px;
+  border: none;
+  border-bottom: 2px solid #fff;
+  font-size: 2.5em;
+  margin-bottom: 8%;
+  background-color: transparent;
+  padding-right: 25px;
+  text-align: center;
+}
+/* #password-login {
+} */
+#email-login::placeholder {
+  color: #fff;
+  background-image: url(../assets/User.svg);
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+#password-login::placeholder {
+  color: #fff;
+  background-image: url(../assets/Password.svg);
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+/* .icon-user-login{
   width: 10%;
   position: absolute;
   top: 10px;
   transition: opacity 0.3s;
 }
-
 .iconArrowLeft {
   position: absolute;
   top: 50%;
   transform: translateY(-100%);
-  /* transform: translateX(-100%); */
-  /* right: 10px; */
   z-index: 1;
-}
-
+} */
 .button-form-login{
   background-color: #CADBF3;
   border-radius: 40px;
   cursor: pointer;
-  font-size: 2.5em;
-  margin-top: 2%;
+  font-size: 2em;
+  margin-top: 8%;
   width: 100%;
+  height: 20%;
   color: white;
   text-align: center;
   justify-content: center;
@@ -59,8 +93,34 @@
 }
 
 
+@media (min-width: 1024px) {
+  .container-main-login {
+    margin-right: 5%;
+    padding-top: 5%;
+  }
+}
+
+/* @media (min-width: 1440px) {
+  .container-main-login {
+    margin-right: 15%;
+  }
+} */
+/* Para dispositivos móviles */
 
 
+/* #email-login::placeholder {ESTILOS PARA EL ICONO
+  color: #fff;
+  background-image: url(../assets/User.svg);
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+#password-login::placeholder {
+  position: relative;
+  color: #fff;
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900;
+} */
 
 
 
