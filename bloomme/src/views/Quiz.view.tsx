@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Menu } from "../components/Menu.component";
 import { useStars } from "../hooks/UseStars.hook";
+import avatar from '../assets/avatar.svg';
 import '../styles/Quiz.style.css';
 
 export const Quiz = () => {
@@ -9,7 +10,7 @@ export const Quiz = () => {
   return(
     <div className="container-quiz">
       <div className="container-quiz-menu">
-        <Menu />
+        <Menu title="Ana Maria" avatarUrl={avatar} />
       </div>
       <div className="container-quiz-title">
         <h1>Quiz</h1>
@@ -39,3 +40,20 @@ export const Quiz = () => {
     </div>
   );
 };
+
+
+/*
+PARA EL AVATAR
+import React from 'react';
+import { MenuProps } from './Menu.types';
+
+const Menu = ({ nombre, avatar }: MenuProps) => {
+  const imagenAvatar = `data:image/jpeg;base64,${avatar}`;
+
+  return (
+    <div>
+      <img src={imagenAvatar} alt={nombre} />
+    </div>
+  );
+};
+*/
