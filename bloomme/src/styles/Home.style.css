@@ -1,0 +1,68 @@
+.container-home{
+  position: relative;
+  height: 100vh;
+  color: white;
+}
+.container-home-sections{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.container-home-sections-welcome{
+  margin: 4% ;
+  background-color: #E699AC;
+  padding: 12%;
+  text-align: center;
+}
+.home-text{
+  margin-top: -15%;
+}
+.container-home-subsections {
+  display: flex;
+  gap: 10px;
+  /* align-items: center; */
+  justify-content: space-between;
+  margin-top: -23%;
+  padding: 0 4%;
+}
+.home-sections-profile, .home-sections-module, .home-sections-day {
+  background-color: #e98ba2;
+  color: aqua;
+  padding: 10px;
+  width: 30%;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  /* margin: 0 40%; */
+}
+.container-home-quiz{
+  display: flex;
+  margin: 2% 15%;
+  margin-left: -2%;
+  padding: 10%;
+  width: 100%;
+}
+.container-home-sections-quiz{
+  background-color: #E699AC;
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+  margin-left: -5%;
+  width: 50%;
+  height: 50vh;
+  margin-top: -8%;
+}
+.container-home-sections-assistent {
+  text-align: end;
+  /* flex: 0 0 auto; */
+  margin-left: 15%;
+  width: 20%;
+}
+
+/* 
+position: absolute y position: fixed ignoran el valor de display.
+position: relative y position: sticky respetan el valor de display.
+ */
