@@ -1,8 +1,9 @@
 import { useLoginConnection} from '../services/Login.service';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import './../styles/Login.style.css';
-import sing from '../assets/sing.svg';
 import background from '../assets/SignIn.svg';
 import google from '../assets/Google.svg';
 import facebook from '../assets/Facebook.svg';
@@ -54,7 +55,8 @@ export const Login = () => {
           <p> Forgot your password?</p>
           {/* <input type="password" name="password-login" id='password-login' required placeholder=' Password' value={password} onChange={(e) => setPassword(e.target.value)}/> */}
           {error && <p className="error-message">{error}</p>}
-          <button type="submit" className='button-form-login' onClick={hadleLogin}> SIGN IN NOW </button>
+          <button type="submit" className='button-form-login' onClick={hadleLogin}> SIGN IN NOW <FontAwesomeIcon icon={faChevronRight} className='arrow-search'/> </button>
+
         </form>
       </main>
     </>

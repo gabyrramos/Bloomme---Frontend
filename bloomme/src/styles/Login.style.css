@@ -1,7 +1,7 @@
 .container-main-login{
   color: white;
   display: grid; 
-  grid-gap: 2%; /* Espacio entre elementos */
+  grid-gap: 5%; /* Espacio entre elementos */
   /* align-items: center; */
   justify-content: end;
   /* flex-direction: row-reverse; */
@@ -21,7 +21,8 @@
   align-items: center;
   justify-content: center;
   justify-content: space-around;
-  margin-top: 5%;
+  margin-top: 5%; 
+  padding: 0 100px;/* HACER EL CONTENEDOR PEQUEÑO Y MOVER LOS ICONOS google*/
 }
 .icon-google-login{
   width: 50px;
@@ -34,7 +35,7 @@
   padding: 20px;
   border: none;
   border-bottom: 2px solid #fff;
-  font-size: 2.5em;
+  font-size: 2em;
   margin-bottom: 10%;
   background-color: transparent;
   text-align: center;
@@ -44,10 +45,10 @@
   padding: 20px;
   border: none;
   border-bottom: 2px solid #fff;
-  font-size: 2.5em;
+  font-size: 2em;
   margin-bottom: 8%;
   background-color: transparent;
-  padding-right: 25px;
+  padding-right: 20px;
   text-align: center;
 }
 /* #password-login {
@@ -66,18 +67,6 @@
   background-repeat: no-repeat;
   background-position: left center;
 }
-/* .icon-user-login{
-  width: 10%;
-  position: absolute;
-  top: 10px;
-  transition: opacity 0.3s;
-}
-.iconArrowLeft {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-100%);
-  z-index: 1;
-} */
 .button-form-login{
   background-color: #CADBF3;
   border-radius: 40px;
