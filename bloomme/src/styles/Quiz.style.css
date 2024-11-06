@@ -21,15 +21,16 @@
   flex-wrap: wrap;
   width: 90%;
   align-items: center;
-  font-size: 2.5em;
+  font-size: 2em;
   justify-content: space-between;
   margin-top: 2%;
+  margin-bottom: 2%;
 }
 .button-quiz-star{
   font-size: 0.8em;
   border-radius: 8px;
   padding: 5px 15px;
-  transform: translateY(50%);
+  transform: translateY(100%);
   cursor: pointer;
   background-color: #FFDADA;
   color: #E6889F;
@@ -39,7 +40,7 @@
   font-size: 0.8em;
   border-radius: 8px;
   padding: 5px 15px;
-  transform: translateY(50%);
+  transform: translateY(100%);
   cursor: pointer;
   background-color: #FFDADA;
   color: #E6889F;

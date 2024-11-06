@@ -6,13 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faArrowRightFromBracket, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 
-
 export const Menu = ({title, avatarUrl}: IMenu) => {
   const [profileOpen, setProfileOpen] = useState(false);
-  // const menuItems: MenuItem[] = [
-  //   { label: 'Historia Nueva', href: '/story' },
-  //   { label: 'Cerrar Sesión', href: '/' },
-  // ];
   const handleProfileClick = () => {
     setProfileOpen(!profileOpen);
   };
