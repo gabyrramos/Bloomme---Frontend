@@ -10,6 +10,11 @@
   font-size: 1.5em; 
   color: white;
 }
+.container-menu-logo{/*PROVISIONAL DEL TAMAÑO PARA EL LOGO*/
+  margin-left: 5px;
+  width: 180px;
+  height: 10vh;  
+}
 .container-menu-theme{
   margin-right: 25%;
   justify-content: space-between;
@@ -17,9 +22,20 @@
   display: flex;
   gap: 40px; /* Espacio entre los elementos internos */
 }
-.menu-theme-quiz, .menu-theme-progres, .menu-theme-paths, .menu-theme-safeZone{
+.menu-theme-quiz, .menu-theme-paths, .menu-theme-safeZone {
   text-decoration: none;
   color: white;
+}
+
+.menu-theme-quiz:hover, .menu-theme-paths:hover, .menu-theme-safeZone:hover {
+  background-color: rgba(255, 254, 254, 0.5);
+  border-radius: 5px;
+}
+
+.selected {
+  background-color: white;
+  color: #F29FB3;
+  border-radius: 5px;
 }
 .container-menu-perfil{
   display: flex;
