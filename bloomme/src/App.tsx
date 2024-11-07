@@ -5,14 +5,14 @@ import { Login } from './views/Login.view';
 import { Quiz } from './views/Quiz.view';
 import { QuizQuestion } from './views/QuizQuestion.view';
 import { Search } from './views/Search.view';
-import { FrontPageView } from './views/FrontPage.view';
+import { LandingPageView } from './views/LandingPage.view';
 import './App.css';
 
 const App: React.FC = () => {
   return (
     <Router>
       <Routes>
-        <Route path='/home' element={<FrontPageView/>}/>
+        <Route path='/landing' element={<LandingPageView/>}/>
         <Route path='/' element={<div className="body-home"><Home/></div>}/>
         <Route path='/login' element={<div className="body-login"><Login/></div>}/>
         <Route path='/quiz' element={<div className="body-quiz"><Quiz/></div>} />

@@ -1,10 +1,10 @@
 // VirtualAssistant.tsx
 import React from 'react';
-import '../../styles/FrontPage/VirtualAssistant.style.css';
+import '../../styles/FrontPage/LandingVirtualAssistant.style.css';
 
-const VirtualAssistant: React.FC = () => {
+const LandingVirtualAssistant: React.FC = () => {
     return (
-        <section className="virtual-assistant" id="assistant">
+        <section className="landingassistant" id="assistant">
             <h2>Your Virtual Assistant</h2>
             <p>Briefly explain how the virtual assistant can respond to questions about topics like:</p>
             <ul>
@@ -20,4 +20,4 @@ const VirtualAssistant: React.FC = () => {
     );
 };
 
-export default VirtualAssistant;
+export default LandingVirtualAssistant;

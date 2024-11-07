@@ -1,0 +1,27 @@
+/* Our Services */
+.landingservices {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.landingservices h2 {
+  font-size: 2em;
+  color: #7c8eb2;
+  margin-bottom: 20px;
+}
+
+.landingservice-item {
+  display: inline-block;
+  width: 200px;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  background-color: #ffe0e9;
+  color: #333;
+  text-align: center;
+}
+
+.landingservice-item h3 {
+  font-size: 1.5em;
+  color: #7c8eb2;
+}
