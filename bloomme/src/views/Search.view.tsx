@@ -83,26 +83,21 @@ export const Search = () => {
             </label>
           </div>
           <div className="container-checkbox-filter-button">
-            <div className='container-search-buttons'>
-              <button type="button" id='button-filter-check'>
-                <span className="search-span">Quiz</span> {/*<FontAwesomeIcon icon={faAngleDown} onClick={handleProfileClick} className='arrow-search'/> */}
-              </button>
-              <button type="button" id='button-filter-check'>
-                <span className="search-span">Routes</span> {/*<FontAwesomeIcon icon={faAngleDown} onClick={handleProfileClick} className='arrow-search'/> */}
-              </button>
-              {profileOpen && (
+            {/* <div className='container-search-buttons'> */}
+            {/* <button type="button" id='button-filter-check'> */}
+            {/* <span className="search-span">Quiz</span> <FontAwesomeIcon icon={faAngleDown} onClick={handleProfileClick} className='arrow-search'/> */}
+            {/* </button> */}
+            {/* <button type="button" id='button-filter-check'> */}
+            {/* <span className="search-span">Routes</span>  */}
+            {/* </button> */}
+            {/* {profileOpen && (
                 <div className="search-dropdown">
-                  {/* <ul className="search-ul">
+                  <ul className="search-ul">
                     <li><Link to="#" onClick={() => console.log("1")}>Know yourself</Link></li>
-                    <li><Link to="#" onClick={() => console.log("2")}>Myths</Link></li>
-                    <li><Link to="#" onClick={() => console.log("3")}>What would happen if...?</Link></li>
-                    <li><Link to="#" onClick={() => console.log("4")}>Diversity and Identity</Link></li>
-                    <li><Link to="#" onClick={() => console.log("5")}>Moral Dilemma</Link></li>
-                    <li><Link to="#" onClick={() => console.log("6")}>Empathy Test</Link></li>
-                  </ul> */}
+                  </ul>
                 </div>
-              )}
-            </div>
+              )} */}
+            {/* </div> */}
           </div>
         </div>
         <div className='container-search-result'>
