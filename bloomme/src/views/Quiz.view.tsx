@@ -4,17 +4,9 @@ import avatar from '../assets/avatar.svg';
 import quiz from '../assets/quiz.svg';
 // import diamond from '../assets/diamond.svg';
 import '../styles/Quiz.style.css';
-import { useEffect } from "react";
 import { Title } from "../components/Title.component";
 
 export const Quiz = () => {
-  // const navigate = useNavigate();
-  useEffect (() => {
-    document.body.style.backgroundColor ='#E6889F';
-    return() => {
-      document.body.style.backgroundColor = "";
-    };
-  }, []);
   return(
     <div className="container-quiz">
       <div className="container-quiz-menu">

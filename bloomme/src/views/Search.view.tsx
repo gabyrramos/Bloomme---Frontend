@@ -1,8 +1,7 @@
 import { useEffect, useState, ChangeEvent } from "react";
-import { Link } from 'react-router-dom';
 import { Menu } from "../components/Menu.component";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown, faFileAlt } from '@fortawesome/free-solid-svg-icons';
+import { /*faAngleDown,*/ faFileAlt } from '@fortawesome/free-solid-svg-icons';
 import { IStory } from "../models/Search.model";
 import avatar from '../assets/avatar.svg';
 import '../styles/Search.style.css';
@@ -41,9 +40,9 @@ export const Search = () => {
   };
   useEffect (() => {
     handleSearch(); // Llama a la función al cargar la página
-    document.body.style.backgroundColor ='#F29FB3';
+    // document.body.style.backgroundColor ='#F29FB3';
     return() => {
-      document.body.style.backgroundColor = "";
+      // document.body.style.backgroundColor = "";
     };
   }, []);
   return(
