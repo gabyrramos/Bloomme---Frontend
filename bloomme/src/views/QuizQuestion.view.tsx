@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import { Title } from "../components/Title.component";
 import { Questions } from "../components/Questions.component";
 import { Modal } from "../components/Modal.component";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faChevronRight, faArrowRightFromBracket} from '@fortawesome/free-solid-svg-icons';
 
 export const QuizQuestion = () =>{
   const navigate = useNavigate();
@@ -84,7 +86,7 @@ export const QuizQuestion = () =>{
               </div>
             ))}
             <div className="container-quizQuestion-button">
-              <button className="quizQuestion-button-next" onClick={handleNextQuestion}>Next</button>
+              <button className="quizQuestion-button-next" onClick={handleNextQuestion}>Next<FontAwesomeIcon icon={faChevronRight}/></button>
               {isOpen && (
                 <Modal>
                   <h1>Result</h1>
@@ -92,7 +94,7 @@ export const QuizQuestion = () =>{
                   <button onClick={handleClose} className="modalQuiz-button">Send results</button>
                 </Modal>
               )}
-              <button className="quizQuestion-button-leave" onClick={handleClose}>Leave</button>
+              <button className="quizQuestion-button-leave" onClick={handleClose}>Leave <FontAwesomeIcon icon={faArrowRightFromBracket} className="quiz-arrow-arc"/> </button>
             </div>
           </div>
         </div>
