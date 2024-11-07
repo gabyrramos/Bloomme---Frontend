@@ -63,44 +63,44 @@ export const Search = () => {
         <div className="container-search-filters-select">
           <div className="checkbox-filter">
             <label>
-              <input type="checkbox" id="sexuality" name="sexuality" value="sexuality" checked={isChecked.sexuality} onChange={handleCheckboxChange} />
+              <input type="radio" id="sexuality" name="sexuality" value="sexuality" checked={isChecked.sexuality} onChange={handleCheckboxChange} />
               <span>Sexuality</span>
             </label>
             <label>
-              <input type="checkbox" id="methods" name="methods" value="methods" checked={isChecked.methods} onChange={handleCheckboxChange} />
+              <input type="radio" id="methods" name="methods" value="methods" checked={isChecked.methods} onChange={handleCheckboxChange} />
               <span>Contraceptive methods</span>
             </label>
             <label>
-              <input type="checkbox" id="menstruation" name="menstruation" value="menstruation" checked={isChecked.menstruation} onChange={handleCheckboxChange} />
+              <input type="radio" id="menstruation" name="menstruation" value="menstruation" checked={isChecked.menstruation} onChange={handleCheckboxChange} />
               <span>Menstruation</span>
             </label>
             <label>
-              <input type="checkbox" id="ets" name="ets" value="ets" checked={isChecked.ets} onChange={handleCheckboxChange} />
+              <input type="radio" id="ets" name="ets" value="ets" checked={isChecked.ets} onChange={handleCheckboxChange} />
               <span>ETS</span>
             </label>
             <label>
-              <input type="checkbox" id="hygiene" name="hygiene" value="hygiene" checked={isChecked.hygiene} onChange={handleCheckboxChange} />
+              <input type="radio" id="hygiene" name="hygiene" value="hygiene" checked={isChecked.hygiene} onChange={handleCheckboxChange} />
               <span>Menstrual Hygiene</span>
             </label>
           </div>
           <div className="container-checkbox-filter-button">
             <div className='container-search-buttons'>
               <button type="button" id='button-filter-check'>
-                <span className="search-span">Quiz</span> <FontAwesomeIcon icon={faAngleDown} onClick={handleProfileClick} className='arrow-search'/>
+                <span className="search-span">Quiz</span> {/*<FontAwesomeIcon icon={faAngleDown} onClick={handleProfileClick} className='arrow-search'/> */}
               </button>
               <button type="button" id='button-filter-check'>
-                <span className="search-span">Routes</span><FontAwesomeIcon icon={faAngleDown} onClick={handleProfileClick} className='arrow-search'/>
+                <span className="search-span">Routes</span> {/*<FontAwesomeIcon icon={faAngleDown} onClick={handleProfileClick} className='arrow-search'/> */}
               </button>
               {profileOpen && (
                 <div className="search-dropdown">
-                  <ul className="search-ul">
+                  {/* <ul className="search-ul">
                     <li><Link to="#" onClick={() => console.log("1")}>Know yourself</Link></li>
                     <li><Link to="#" onClick={() => console.log("2")}>Myths</Link></li>
                     <li><Link to="#" onClick={() => console.log("3")}>What would happen if...?</Link></li>
                     <li><Link to="#" onClick={() => console.log("4")}>Diversity and Identity</Link></li>
                     <li><Link to="#" onClick={() => console.log("5")}>Moral Dilemma</Link></li>
                     <li><Link to="#" onClick={() => console.log("6")}>Empathy Test</Link></li>
-                  </ul>
+                  </ul> */}
                 </div>
               )}
             </div>
