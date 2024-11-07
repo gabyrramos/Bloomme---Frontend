@@ -6,6 +6,7 @@ import { Quiz } from './views/Quiz.view';
 import { QuizQuestion } from './views/QuizQuestion.view';
 import { Search } from './views/Search.view';
 import { FrontPageView } from './views/FrontPage.view';
+import './App.css';
 
 const App: React.FC = () => {
   return (
@@ -14,9 +15,9 @@ const App: React.FC = () => {
         <Route path='/home' element={<FrontPageView/>}/>
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
-        <Route path='/quiz' element={<Quiz/>}/>
+        <Route path='/quiz' element={<div className="body-quiz"><Quiz/></div>} />
         <Route path='/quizQuestion/:category' element={<QuizQuestion/>}/>
-        <Route path='/search' element={<Search/>}/>
+        <Route path='/search' element={<div className="body-search"><Search/></div>}/>
       </Routes>
     </Router>
   );
