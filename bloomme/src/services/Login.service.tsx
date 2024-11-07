@@ -21,7 +21,8 @@ export const useLoginConnection = () => {
       }
       const data = await response.json();
       console.log("🚀 ~ loginConnection ~ data:", data);
-      localStorage.setItem("username", data.email);//SE GUARDA EN LOCAL  para mantener la sesión del usuario activa
+      // localStorage.setItem("username", data.email);//SE GUARDA EN LOCAL  para mantener la sesión del usuario activa
+      localStorage.setItem("username", email);//SE GUARDA EN LOCAL  para mantener la sesión del usuario activa,
       navigate("/"); // A DONDE TE VA A MANDAR
     }
     catch (error) {
