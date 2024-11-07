@@ -30,32 +30,32 @@ export const Quiz = () => {
         <div className="quiz-star-know">
           <img src={quiz} alt="quiz background" />
           <p>Know yourself</p>
-          <button className="button-quiz-star">Start Quiz</button>
+          <button className="button-quiz-star"><Link to='/quizQuestion' className="quiz-link"> Start Quiz </Link></button>
         </div>
         <div className="quiz-star-know">
           <img src={quiz} alt="quiz background" />
           <p>Myths</p>
-          <button className="button-quiz-star">Start Quiz</button>
+          <button className="button-quiz-star"><Link to='/quizQuestion' className="quiz-link"> Start Quiz </Link></button>
         </div>
         <div className="quiz-star-know">
           <img src={quiz} alt="quiz background" />
           <p>What would happen if...?</p>
-          <button className="button-quiz-if">Start Quiz</button>
+          <button className="button-quiz-if"><Link to='/quizQuestion' className="quiz-link"> Start Quiz </Link></button>
         </div>
         <div className="quiz-star-know">
           <img src={quiz} alt="quiz background" />
           <p>Diversity and Identity</p>
-          <button className="button-quiz-star">Start Quiz</button>
+          <button className="button-quiz-star"><Link to='/quizQuestion' className="quiz-link"> Start Quiz </Link></button>
         </div>
         <div className="quiz-star-know">
           <img src={quiz} alt="quiz background" />
           <p>Moral Dilemma</p>
-          <button className="button-quiz-star"> <Link to='/quizQuestion'> Start Quiz </Link></button>
+          <button className="button-quiz-star"> <Link to='/quizQuestion' className="quiz-link"> Start Quiz </Link></button>
         </div>
         <div className="quiz-star-know">
           <img src={quiz} alt="quiz background" />
           <p>Empathy Test</p>
-          <button className="button-quiz-star">Start Quiz</button>
+          <button className="button-quiz-star"><Link to='/quizQuestion' className="quiz-link"> Start Quiz </Link></button>
         </div>
       </div>
     </div>
