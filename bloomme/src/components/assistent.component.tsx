@@ -1,4 +1,4 @@
-import rabitt from './../assets/rabbit.png';
+import rabitt from '../assets/rabbit.png';
 
 export const Assistent = () =>{
   return(

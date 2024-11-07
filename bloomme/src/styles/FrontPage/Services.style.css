@@ -1,0 +1,28 @@
+/* Our Services */
+.services {
+    text-align: center;
+    margin: 50px 0;
+  }
+  
+  .services h2 {
+    font-size: 2em;
+    color: #7c8eb2;
+    margin-bottom: 20px;
+  }
+  
+  .service-item {
+    display: inline-block;
+    width: 200px;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: #ffe0e9;
+    color: #333;
+    text-align: center;
+  }
+  
+  .service-item h3 {
+    font-size: 1.5em;
+    color: #7c8eb2;
+  }
+  
