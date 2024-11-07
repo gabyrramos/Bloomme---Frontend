@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';//USELOCATION es un hook proporcionado por react-router-dom que devuelve el objeto location actual de la aplicación
 import logo from '../assets/logo.svg';
 import '../styles/Menu.style.css';
 import { IMenu } from '../models/Menu.model';
@@ -8,6 +8,7 @@ import { useState } from 'react';
 
 export const Menu = ({title, avatarUrl}: IMenu) => {
   const location = useLocation();
+  const navigate = useNavigate();
   // const [selected, setSelected] = useState<string | null>(null);
   const [profileOpen, setProfileOpen] = useState(false);
   const handleProfileClick = () => {
@@ -27,8 +28,10 @@ export const Menu = ({title, avatarUrl}: IMenu) => {
         <div className='menu-theme-quiz'> <Link to='/safe' className={`menu-theme-safeZone ${isSelected('Safe area') ? 'selected' : ''}`}> Safe area </Link></div>
         {/* <div className='menu-theme-quiz'> <Link to='/safe' className={`menu-theme-safeZone ${selected === 'Safe area' ? 'selected' : ''}`} onClick={() => handleClick('Safe area')}> Safe area </Link></div> */}
       </div>
-      <div className='container-menu-perfil' >
-        <Link to='/search'> <FontAwesomeIcon icon={faMagnifyingGlass} className='menu-perfil-search'/> </Link>
+      <div className='container-menu-perfil' >{/*startsWith: si la ruta actual comienza con */}
+        {location.pathname !== '/search' && !location.pathname.startsWith('/quizQuestion') && (//SI LA RUTA ACTUAL ES DIFERENTE DE SEARCH, RENDERIZA EL ICONO DE LUPA
+          <Link to='/search'> <FontAwesomeIcon icon={faMagnifyingGlass} className='menu-perfil-search'/> </Link>
+        )}
         <div className='container-menu-perfil-name'> {title} </div>
         {/* <div className='container-menu-perfil-avatar'> {avatarUrl} </div> */}
         <div className='container-menu-perfil-avatar'>
@@ -37,7 +40,11 @@ export const Menu = ({title, avatarUrl}: IMenu) => {
           {profileOpen && (
             <div className="menu-dropdown">
               <ul>
-                <li><Link to="/" className='menu-text-hover'> Log Out <FontAwesomeIcon icon={faArrowRightFromBracket}/></Link></li>
+                <li>
+                  <Link to="/login" replace>
+                    <span>Log Out</span><FontAwesomeIcon icon={faArrowRightFromBracket} />
+                  </Link>
+                </li>
                 <li><Link to="#" onClick={() => console.log("Configuración")}>Profile</Link></li>
               </ul>
             </div>
@@ -47,3 +54,17 @@ export const Menu = ({title, avatarUrl}: IMenu) => {
     </div>
   );
 };
+
+
+
+
+/*
+El objeto location contiene información sobre la ruta actual, incluyendo:
+pathname: la ruta actual (por ejemplo, /search)
+search: la cadena de consulta (por ejemplo, ?query=abc)
+state: el estado asociado con la ruta actual (opcional)
+hash: el fragmento de la URL (por ejemplo, #anchor)
+
+location.pathname devuelve la ruta actual sin la cadena de consulta ni el fragmento.
+
+*/

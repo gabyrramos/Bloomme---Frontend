@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { Title } from "../components/Title.component";
 
 export const Quiz = () => {
+  // const navigate = useNavigate();
   useEffect (() => {
     document.body.style.backgroundColor ='#E6889F';
     return() => {
@@ -30,51 +31,34 @@ export const Quiz = () => {
         <div className="quiz-star-know">
           <img src={quiz} alt="quiz background" />
           <p>Know yourself</p>
-          <button className="button-quiz-star"><Link to='/quizQuestion' className="quiz-link"> Start Quiz </Link></button>
+          <button className="button-quiz-star"><Link to={`/quizQuestion/Know yourself`} className="quiz-link"> Start Quiz </Link></button>
         </div>
         <div className="quiz-star-know">
           <img src={quiz} alt="quiz background" />
           <p>Myths</p>
-          <button className="button-quiz-star"><Link to='/quizQuestion' className="quiz-link"> Start Quiz </Link></button>
+          <button className="button-quiz-star"><Link to={`/quizQuestion/Myths`} className="quiz-link"> Start Quiz </Link></button>
         </div>
         <div className="quiz-star-know">
           <img src={quiz} alt="quiz background" />
           <p>What would happen if...?</p>
-          <button className="button-quiz-if"><Link to='/quizQuestion' className="quiz-link"> Start Quiz </Link></button>
+          <button className="button-quiz-if"><Link to={`/quizQuestion/What would happen if...?`} className="quiz-link"> Start Quiz </Link></button>
         </div>
         <div className="quiz-star-know">
           <img src={quiz} alt="quiz background" />
           <p>Diversity and Identity</p>
-          <button className="button-quiz-star"><Link to='/quizQuestion' className="quiz-link"> Start Quiz </Link></button>
+          <button className="button-quiz-star"><Link to={`/quizQuestion/Diversity and Identity`} className="quiz-link"> Start Quiz </Link></button>
         </div>
         <div className="quiz-star-know">
           <img src={quiz} alt="quiz background" />
           <p>Moral Dilemma</p>
-          <button className="button-quiz-star"> <Link to='/quizQuestion' className="quiz-link"> Start Quiz </Link></button>
+          <button className="button-quiz-star"> <Link to={`/quizQuestion/Moral Dilemma`} className="quiz-link"> Start Quiz </Link></button>
         </div>
         <div className="quiz-star-know">
           <img src={quiz} alt="quiz background" />
           <p>Empathy Test</p>
-          <button className="button-quiz-star"><Link to='/quizQuestion' className="quiz-link"> Start Quiz </Link></button>
+          <button className="button-quiz-star"><Link to={`/quizQuestion/Empathy Test`} className="quiz-link"> Start Quiz </Link></button>
         </div>
       </div>
     </div>
   );
 };
-
-
-/*
-PARA EL AVATAR
-import React from 'react';
-import { MenuProps } from './Menu.types';
-
-const Menu = ({ nombre, avatar }: MenuProps) => {
-  const imagenAvatar = `data:image/jpeg;base64,${avatar}`;
-
-  return (
-    <div>
-      <img src={imagenAvatar} alt={nombre} />
-    </div>
-  );
-};
-*/

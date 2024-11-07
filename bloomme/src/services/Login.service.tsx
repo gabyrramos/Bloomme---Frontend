@@ -5,8 +5,8 @@ export const useLoginConnection = () => {
   const navigate = useNavigate();
   const loginUser = async({email, password}: ILogin) => {
     try {
-      const response = await fetch('http://localhost:4000/user/login', {//SOLICITUD AL BACK
-        method: 'POST', //VERBO DE PETCIÓN
+      const response = await fetch('https://bloomme.free.beeceptor.com/users', {
+        method: 'POST',
         // mode: 'cors',
         headers: {
           "Content-Type": "application/json",
@@ -21,8 +21,8 @@ export const useLoginConnection = () => {
       }
       const data = await response.json();
       console.log("🚀 ~ loginConnection ~ data:", data);
-      localStorage.setItem("username", data.email);//SE GUARDA EN LOCAL
-      navigate("/home"); // A DONDE TE VA A MANDAR
+      localStorage.setItem("username", data.email);//SE GUARDA EN LOCAL  para mantener la sesión del usuario activa
+      navigate("/"); // A DONDE TE VA A MANDAR
     }
     catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Error inesperado';
