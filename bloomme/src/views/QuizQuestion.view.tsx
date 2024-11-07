@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Assistent } from "../components/assistent.component";
 import { Menu } from "../components/Menu.component";
 import avatar from '../assets/avatar.svg';
@@ -10,6 +10,7 @@ import { ModalQuiz } from "../components/ModalQuiz.component";
 
 export const QuizQuestion = () =>{
   const navigate = useNavigate();
+  const { category } = useParams();
   const [currentQuestion, setCurrentQuestion] = useState(0);//QUE PREGUNTA VA EL USARIO
   const [score, setScore] = useState(0);//ACUMULAR LOS PUNTOS
   const [isFinished, setIsFinished] = useState(false);//COMPLETO O NO
@@ -51,10 +52,6 @@ export const QuizQuestion = () =>{
   const handleOpenModal = () => {
     setIsOpen(true);
   };
-
-  const handleCloseModal = () => {
-    setIsOpen(false);
-  };
   const handleClose = () => {
     navigate('/', { replace: true }); // Reemplaza la ruta actual en el historial
   };
@@ -71,7 +68,7 @@ export const QuizQuestion = () =>{
           <Menu title="Maria Belen" avatarUrl={avatar}/>
         </div>
         <div className="quizQuestion-titleComponent">
-          <Title title="Know yourself"/>
+          <Title title={category || "not found"}/>
         </div>
         <div className="container-quizQuestion-star">
           <div className="container-quizQuestion-title">
@@ -88,7 +85,7 @@ export const QuizQuestion = () =>{
             ))}
             <div className="container-quizQuestion-button">
               <button className="quizQuestion-button-next" onClick={handleNextQuestion}>Next</button>
-              <ModalQuiz isOpen={isOpen} onClose={handleCloseModal}>
+              <ModalQuiz isOpen={isOpen}>
                 <h1>Result</h1>
                 <p>Total de puntos {score} {isFinished}</p>
               </ModalQuiz>
