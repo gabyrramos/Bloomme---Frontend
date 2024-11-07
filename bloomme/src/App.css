@@ -1,1 +1,17 @@
-
+.body-login{
+  background-image: url(./assets/SignIn.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+  display: flex;
+}
+.body-quiz{
+  background-color: #E6889F;
+}
+.body-search{
+    background-color: #F29FB3;
+}
+.body-home{
+  
+}

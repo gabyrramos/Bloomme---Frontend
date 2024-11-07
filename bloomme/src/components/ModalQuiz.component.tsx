@@ -4,7 +4,6 @@ import '../styles/ModalQuiz.style.css';
 
 interface ModalProps {
   isOpen: boolean;
-  onClose: () => void;
   children: React.ReactNode;
 }
 
@@ -18,8 +17,10 @@ export const ModalQuiz: React.FC<ModalProps> = ({ isOpen, children }) => {
     <div className="modal-overlay" data-backdrop="static">
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         {children}
-        <button className="modalQuiz-button" onClick={handleClose}>Send results</button>
+        <button onClick={handleClose} className="modalQuiz-button">Send results</button>
       </div>
     </div>
   );
 };
+
+//mejor uso componente modal
