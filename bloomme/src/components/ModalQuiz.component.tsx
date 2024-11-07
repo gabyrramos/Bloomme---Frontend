@@ -22,3 +22,5 @@ export const ModalQuiz: React.FC<ModalProps> = ({ isOpen, children }) => {
     </div>
   );
 };
+
+//mejor uso componente modal

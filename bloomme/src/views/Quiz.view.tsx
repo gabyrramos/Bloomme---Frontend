@@ -48,7 +48,7 @@ export const Quiz = () => {
         <div className="quiz-star-know">
           <img src={quiz} alt="quiz background" />
           <p>Empathy Test</p>
-          <button className="button-quiz-star"><Link to={`/quizQuestion/Empathy Test`} className="quiz-link"> Start Quiz </Link></button>
+          <button type="button" className="button-quiz-star"><Link to={`/quizQuestion/Empathy Test`} className="quiz-link"> Start Quiz </Link></button>
         </div>
       </div>
     </div>
