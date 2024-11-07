@@ -5,13 +5,13 @@ import { Login } from './views/Login.view';
 import { Quiz } from './views/Quiz.view';
 import { QuizQuestion } from './views/QuizQuestion.view';
 import { Search } from './views/Search.view';
-import { FrontPageView } from './views/FrontPage.view';
+import { LandingPageView } from './views/LandingPage.view';
 
 const App: React.FC = () => {
   return (
     <Router>
       <Routes>
-        <Route path='/home' element={<FrontPageView/>}/>
+        <Route path='/landing' element={<LandingPageView/>}/>
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/quiz' element={<Quiz/>}/>

@@ -1,17 +1,17 @@
 // Services.tsx
 import React from 'react';
-import '../../styles/FrontPage/Services.style.css';
+import '../../styles/FrontPage/LandingServices.style.css';
 
 const ServiceItem: React.FC<{ title: string; description: string; color: string }> = ({ title, description, color }) => (
-    <div className="service-item" style={{ backgroundColor: color }}>
+    <div className="landingservice-item" style={{ backgroundColor: color }}>
         <h3>{title}</h3>
         <p>{description}</p>
     </div>
 );
 
-const Services: React.FC = () => {
+const LandingServices: React.FC = () => {
     return (
-        <section className="services" id="services">
+        <section className="landingservices" id="services">
             <h2>Our Services</h2>
             <div className="services-list">
                 <ServiceItem title="Quiz" description="Lorem ipsum dolor sit amet..." color="#ffd1dc" />
@@ -23,4 +23,4 @@ const Services: React.FC = () => {
     );
 };
 
-export default Services;
+export default LandingServices;

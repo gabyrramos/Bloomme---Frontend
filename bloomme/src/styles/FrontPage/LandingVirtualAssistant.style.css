@@ -1,0 +1,26 @@
+/* Virtual Assistant Section */
+.landingassistant {
+  text-align: center;
+  padding: 50px;
+  background-color: #f4f9fd;
+}
+
+.landingassistant h2 {
+  font-size: 2em;
+  color: #7c8eb2;
+  margin-bottom: 20px;
+}
+
+.landingassistant p {
+  font-size: 1em;
+  color: #7c8eb2;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.landingassistant .icon {
+  display: inline-block;
+  font-size: 1.2em;
+  color: #ff7a85;
+  margin-right: 10px;
+}

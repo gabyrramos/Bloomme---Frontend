@@ -1,33 +1,32 @@
 /* Hero section */
 .hero {
-    text-align: left justify;
-    padding: 100px 20px;
-    background: linear-gradient(to bottom, rgb(244, 187, 211), #ebc0c0);
-    color: #fff;
-  }
-  
-  .hero h1 {
-    font-size: 3em;
-    font-weight:500;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    margin-left: 40px;
-    color: #fff;
-  }
-  
-  .hero p {
-    max-width: 600px; /* Ajusta el ancho máximo del párrafo para una mejor lectura */
-    margin-left: 20px; /* Alineado a la izquierda */
-    padding: 20px;
-    color: #ffffff;
-    margin-bottom: 40px;
-    text-align: justify; /* Justificación del texto */
-    line-height: 1.5; /* Espaciado entre líneas para mejorar la legibilidad */
-    font-size: 17px; /* Tamaño de fuente */
-  }
-  
-  .hero img {
-    max-width: 100%;
-    border-radius: 50%;
-  }
-  
+  text-align: left justify;
+  padding: 100px 20px;
+  background: linear-gradient(to bottom, rgb(244, 187, 211), #ebc0c0);
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 3em;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-left: 40px;
+  color: #fff;
+}
+
+.hero p {
+  max-width: 600px; /* Ajusta el ancho máximo del párrafo para una mejor lectura */
+  margin-left: 20px; /* Alineado a la izquierda */
+  padding: 20px;
+  color: #ffffff;
+  margin-bottom: 40px;
+  text-align: justify; /* Justificación del texto */
+  line-height: 1.5; /* Espaciado entre líneas para mejorar la legibilidad */
+  font-size: 17px; /* Tamaño de fuente */
+}
+
+.hero img {
+  max-width: 100%;
+  border-radius: 50%;
+}

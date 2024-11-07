@@ -1,0 +1,47 @@
+/* Header */
+.landingHeader {
+  display: flex;
+  align-items: center; /* Alinea verticalmente los elementos del header */
+  padding: 30px;
+  background-color: rgb(244, 187, 211);
+  justify-content: space-between; /* Distribuye los elementos en el eje principal */
+}
+
+.landingLogo {
+  /* No es necesario cambiar esta sección */
+  width: 300px; 
+  height: 100px; 
+  object-fit: contain; 
+  margin-right: 20px;
+}
+
+.landingMenuContainer {
+  display: flex;
+  align-items: center;
+}
+
+.landingMenu {
+  display: flex;
+  gap: 15px; /* Espacio entre los enlaces */
+}
+
+.landingRegisterOptions {
+  display: flex;
+  gap: 15px; /* Espacio entre los enlaces */
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.landingMenu a, .landingRegisterOptions a {
+  color: white; 
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 16px; 
+  border-radius: 20px; 
+  transition: background-color 0.3s, color 0.3s; 
+}
+
+.landingMenu a:hover, .landingRegisterOptions a:hover {
+  background-color: white; 
+  color: #fdbec8; 
+}
