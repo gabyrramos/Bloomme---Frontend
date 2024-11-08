@@ -3,22 +3,21 @@
   display: flex;
   align-items: center; /* Alinea verticalmente los elementos del header */
   padding: 30px;
-  background-color: rgb(244, 187, 211);
+  background-color: #f29fb4;
   justify-content: space-between; /* Distribuye los elementos en el eje principal */
 }
 
 .landingLogo {
-  /* No es necesario cambiar esta sección */
   width: 300px; 
   height: 100px; 
   object-fit: contain; 
   margin-right: 20px;
 }
 
-.landingMenuContainer {
+/* .landingMenuContainer {
   display: flex;
   align-items: center;
-}
+} */
 
 .landingMenu {
   display: flex;
@@ -44,4 +43,8 @@
 .landingMenu a:hover, .landingRegisterOptions a:hover {
   background-color: white; 
   color: #fdbec8; 
+}
+.landingRegisterOptions a.active {
+  background-color: white;
+  color: #fdbec8;
 }

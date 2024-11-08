@@ -16,6 +16,7 @@ export const LandingPage: React.FC = () => {
               <LandingServices />
               <LandingVirtualAssistant/>
             </div>
+            <div className="clearfix"></div>
             <Footer />
         </div>
     );
