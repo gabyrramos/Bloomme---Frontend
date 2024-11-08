@@ -7,3 +7,11 @@
 .landingpage-body {
   background-color: white;
 }
+
+.landingpage-container {
+  position: relative;
+}
+
+.clearfix {
+  clear: both;
+}

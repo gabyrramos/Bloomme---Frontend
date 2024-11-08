@@ -2,8 +2,10 @@
 .hero {
   text-align: left justify;
   padding: 100px 20px;
-  background: linear-gradient(to bottom, rgb(244, 187, 211), #ebc0c0);
+  padding-bottom: 150px;
+  background: linear-gradient(to bottom, rgba(242,159,180,255), #ebc0c0);
   color: #fff;
+  position: relative; /* Agrega posición relativa para absoluta */
 }
 
 .hero h1 {
@@ -11,13 +13,13 @@
   font-weight: 500;
   margin-top: 20px;
   margin-bottom: 30px;
-  margin-left: 40px;
+  margin-left: 70px;
   color: #fff;
 }
 
 .hero p {
   max-width: 600px; /* Ajusta el ancho máximo del párrafo para una mejor lectura */
-  margin-left: 20px; /* Alineado a la izquierda */
+  margin-left: 50px; /* Alineado a la izquierda */
   padding: 20px;
   color: #ffffff;
   margin-bottom: 40px;
@@ -26,7 +28,26 @@
   font-size: 17px; /* Tamaño de fuente */
 }
 
-.hero img {
-  max-width: 100%;
-  border-radius: 50%;
+.hero-images {
+  position: absolute; /* Posición absoluta para colocar sobre la elipse */
+  top: 50%; /* Ajusta la posición vertical */
+  right: 0; /* Ajusta la posición horizontal */
+  margin-right: 140px;
+  transform: translateY(-60%); /* Ajusta la posición vertical */
+}
+
+.hero-ellipse {
+  width: 350px; /* Ajusta el ancho de la elipse */
+  height: 410px; /* Ajusta la altura de la elipse */
+  border-radius: 10%; /* Hace la elipse circular */
+  z-index: 1; /* Ajusta el orden de apilamiento */
+}
+
+.hero-character {
+  position: absolute; /* Posición absoluta para colocar sobre la elipse */
+  top: 0%; /* Ajusta la posición vertical */
+  left: 50%; /* Ajusta la posición horizontal */
+  transform: translateX(-60%); /* Ajusta la posición horizontal */
+  width: 450px; /* Ajusta el ancho del personaje */
+  z-index: 2; /* Ajusta el orden de apilamiento */
 }
