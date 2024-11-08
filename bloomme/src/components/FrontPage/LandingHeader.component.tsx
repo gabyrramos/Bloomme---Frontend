@@ -1,14 +1,21 @@
 // Header.tsx
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import BlueLogo from '../../assets/BlueLogo.png';
 import '../../styles/FrontPage/LandingHeader.style.css';
 
 
 const LandingHeader: React.FC = () => {
+
     const [activeLink, setActiveLink] = useState('sign-up');
-  
+    const navigate = useNavigate();
     const handleClick = (link: string) => {
       setActiveLink(link);
+      if (link === 'sign-in') {
+        navigate('/login');
+      } else if (link === 'sign-up') {
+        // Aquí puedes agregar la navegación para sign-up si es necesario
+      }
     };
   
     return (
