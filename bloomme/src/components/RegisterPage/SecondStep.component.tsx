@@ -14,7 +14,7 @@ function SecondStep() {
               transform="translate(100 100)"
             />
           </svg>
-          <img src="src/assets/RegisterPage/gato.png" alt="" />
+          <img src="src/assets/RegisterPage/cat.png" alt="" />
         </div>
         <div className="assistant-img assistant-selected magicpattern">
           <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -25,7 +25,7 @@ function SecondStep() {
               transform="translate(100 100)"
             />
           </svg>
-          <img src="src/assets/RegisterPage/conejo.png" alt="" />
+          <img src="src/assets/RegisterPage/bunny.png" alt="" />
         </div>
       </div>
       <h3 className="headline-assistant-register">It will be your partner during this adventure</h3>
