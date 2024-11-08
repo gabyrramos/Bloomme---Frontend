@@ -7,6 +7,8 @@ import { QuizQuestion } from './views/QuizQuestion.view';
 import { Search } from './views/Search.view';
 import { LandingPageView } from './views/LandingPage.view';
 import './App.css';
+import Register from './views/Register.view';
+import Chat from './views/Chat.view';
 
 const App: React.FC = () => {
   return (
@@ -18,6 +20,8 @@ const App: React.FC = () => {
         <Route path='/quiz' element={<div className="body-quiz"><Quiz/></div>} />
         <Route path='/quizQuestion/:category' element={<div className="body-quizQuestion"><QuizQuestion/></div>}/>
         <Route path='/search' element={<div className="body-search"><Search/></div>}/>
+        <Route path='/register' element={<Register />} />
+        <Route path='/chat' element={<Chat />} />
       </Routes>
     </Router>
   );
