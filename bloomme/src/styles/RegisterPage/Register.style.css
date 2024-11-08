@@ -1,0 +1,176 @@
+.main-register {
+  background-color: aliceblue;
+  height: 100vh;
+  display: flex;
+  color: white;
+}
+
+.main-register .left-sidebar {
+  flex: 1;
+}
+
+.main-register .right-sidebar {
+  background-color: #f29fb3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2.5rem;
+  position: relative;
+  max-width: 520px;
+  width: 50%;
+  z-index: 9999;
+}
+
+.right-sidebar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 128px;
+  width: 100%;
+  height: 100%;
+  background: url("src/assets/RegisterPage/wave-register.png") no-repeat;
+  background-size: contain;
+  z-index: -1;
+}
+
+.choose-assistant-input-button {
+  z-index: 19;
+}
+
+.register-social-icons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.register-button-submit {
+  width: 100%;
+  background-color: #cadbf3;
+  color: white;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.form-register-container {
+  width: 100%;
+  padding: 1rem 4rem;
+}
+
+.form-register-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.right-sidebar .input-container {
+  position: relative;
+  width: 100%;
+}
+
+.right-sidebar .assistant-form input,
+.right-sidebar .form-register-container form input {
+  width: 100%;
+  padding: 0.5rem 0.5rem 0.5rem 2.5rem; /* espacio para el ícono */
+  border: none;
+  font-size: 18px;
+  background-color: transparent;
+  border-bottom: 1px solid white;
+  color: white;
+  outline: none;
+}
+
+.right-sidebar .assistant-form input::placeholder,
+.right-sidebar .form-register-container form input::placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+/* Posiciona el ícono dentro del input */
+.right-sidebar .input-icon {
+  position: absolute;
+  top: 50%;
+  left: 0.5rem;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  color: white;
+  opacity: 0.7;
+}
+
+/* Estilo de focus sofisticado */
+.right-sidebar .assistant-form input:focus,
+.right-sidebar .form-register-container form input:focus {
+  border-bottom: 2px solid #cadbf3;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease-in-out;
+}
+
+.assistant-img-container-register {
+  width: 100%;
+  display: flex;
+  height: 180px;
+}
+
+.right-sidebar .magicpattern {
+  width: 100%;
+  height: 100%;
+  /* background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 1000 1000%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3CclipPath id=%22a%22%3E%3Cpath fill=%22currentColor%22 d=%22M853.5 663.5q-26.5 163.5-190 250t-300-27Q227 773 130 636.5t-5-278q92-141.5 233.5-219t272 11q130.5 88.5 190 219t33 294Z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3Cg clip-path=%22url(%23a)%22%3E%3Cpath fill=%22%23444cf7%22 d=%22M853.5 663.5q-26.5 163.5-190 250t-300-27Q227 773 130 636.5t-5-278q92-141.5 233.5-219t272 11q130.5 88.5 190 219t33 294Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"); */
+}
+
+.assistant-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.assistant-img img {
+  position: absolute;
+  cursor: pointer;
+}
+
+.assistant-img .change {
+  cursor: pointer;
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+.assistant-img:hover .change {
+  fill: rgb(255 246 229);
+  stroke: white;
+}
+
+.assistant-img.assistant-selected .change {
+  fill: #c9d6f7;
+  stroke: #5787ff;
+}
+
+.choose-assistant-input-button{
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 2rem;
+}
+
+.headline-assistant-register{
+    padding-top: 2rem;
+}
+
+.assistant-register-title{
+    padding-bottom: 2rem;
+    text-align: center;
+}
+
+.assistant-register-footer p {
+    font-size: small;
+    color: #EAEAEA;
+    text-align: center;
+}
