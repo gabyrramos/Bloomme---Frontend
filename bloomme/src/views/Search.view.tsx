@@ -1,14 +1,18 @@
-import { useEffect, useState, ChangeEvent } from "react";
+import { useState, ChangeEvent } from "react";
 import { Menu } from "../components/Menu.component";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { /*faAngleDown,*/ faFileAlt } from '@fortawesome/free-solid-svg-icons';
+import { /*faAngleDown,*/ faFilter } from '@fortawesome/free-solid-svg-icons';
 import { IStory } from "../models/Search.model";
+import { useSearchConnection } from "../services/Search.service";
 import avatar from '../assets/avatar.svg';
+import rabitt from '../assets/rabbit.png';
 import '../styles/Search.style.css';
 
 export const Search = () => {
-  const [stories, setStories] = useState<IStory[]>([]); // Aquí se guardarán las historias
-  const [profileOpen, setProfileOpen] = useState(false);
+  const [modules, setModules] = useState<IStory[]>([]); // Aquí se guardarán
+  const [ title, setTitle] = useState('');
+  const {searchApi} = useSearchConnection();
+  // const [profileOpen, setProfileOpen] = useState(false);
   const [isChecked, setIsChecked] = useState({
     sexuality: false,
     methods: false,
@@ -16,9 +20,10 @@ export const Search = () => {
     ets: false,
     hygiene: false,
   });
-  const handleProfileClick = () => {
-    setProfileOpen(!profileOpen);
-  };
+  // const handleProfileClick = () => {
+  //   setProfileOpen(!profileOpen);
+  // };
+
   // Función que maneja el cambio del estado del checkbox
   const handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
     setIsChecked((prevStates) => ({
@@ -29,22 +34,16 @@ export const Search = () => {
   const handleSearch = () => {
     // Simulación de búsqueda
     const searchResults: IStory[] = [
-      { title: "¿A qué edad suele venir la menstruación? " },
+      { title: "¿A qué edad suele venir la menstruación?" },
       { title: "¿Cuál es la causa de la menstruación?"},
       { title: "¿Cómo se relaciona la ovulación con la menstruación?" },
       { title: "¿Las menstruaciones son regulares cuando una niña empieza a menstruar?"},
       { title: "¿Se puede quedar embarazada una niña en cuanto empieza a tener la menstruación? " },
       { title: "¿Cuánto dura la menstruación?"},
     ];
-    setStories(searchResults); //estado con las historias encontradas
+    // const searchResults = await searchApi(title);
+    setModules(searchResults); //estado con las historias encontradas
   };
-  useEffect (() => {
-    handleSearch(); // Llama a la función al cargar la página
-    // document.body.style.backgroundColor ='#F29FB3';
-    return() => {
-      // document.body.style.backgroundColor = "";
-    };
-  }, []);
   return(
     <>
       <div className="container-search">
@@ -52,10 +51,10 @@ export const Search = () => {
           <Menu title="Juanita Lopez" avatarUrl={avatar}/>
         </div>
         <div className="container-search-filters">
-          <input type="text" name="text-search" id='text-search' required placeholder='    Search for topics or questions...' />
+          <input type="text" name="text-search" id='text-search' required onChange={(e) => setTitle(e.target.value)} placeholder='    Search for topics or questions...' />
           {/* <input type="text" name="text-search-filter" id='text-search-filter' placeholder='   Filter' /> */}
-          <button type="button" className='button-filter-check'>
-            <span className="search-span">Quiz</span> <FontAwesomeIcon icon={faFileAlt} onClick={handleProfileClick} className='filter-search'/>
+          <button type="button" className='button-filter-check' title={title} onClick={handleSearch}>
+            <FontAwesomeIcon icon={faFilter} className='filter-search'/> <span className="search-span">Filter</span>
           </button>
           <hr/>
         </div>
@@ -102,12 +101,16 @@ export const Search = () => {
         </div>
         <div className='container-search-result'>
           <div className='container-search-result-ind'>
-            {stories.map((story, index) =>(
-              <div key={index} className="story-card">
-                <h3>{story.title}</h3>
+            {modules.map((path, index) =>(
+              <div key={index} className="search-card">
+                <h3>{path.title}</h3>
               </div>
             ))}
           </div>
+        </div>
+        <div className="container-assistent">
+          <span >Si tienes dudas puedes preguntarme</span>
+          <img src={rabitt} alt="rabbit assistent" />
         </div>
       </div>
     </>

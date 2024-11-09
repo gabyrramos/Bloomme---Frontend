@@ -1,5 +1,5 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';//USELOCATION es un hook proporcionado por react-router-dom que devuelve el objeto location actual de la aplicación
-import logo from '../assets/logo.svg';
+import { Link, useLocation } from 'react-router-dom';//USELOCATION es un hook proporcionado por react-router-dom que devuelve el objeto location actual de la aplicación
+import logo from '../assets/BlueLogo.png';
 import '../styles/Menu.style.css';
 import { IMenu } from '../models/Menu.model';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 export const Menu = ({title, avatarUrl}: IMenu) => {
   const location = useLocation();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   // const [selected, setSelected] = useState<string | null>(null);
   const [profileOpen, setProfileOpen] = useState(false);
   const handleProfileClick = () => {
@@ -23,7 +23,7 @@ export const Menu = ({title, avatarUrl}: IMenu) => {
       <div className='container-menu-logo'> <img src={logo} alt="Logo" className='container-menu-logo' /> </div>
       <div className='container-menu-theme'>
         <div className='menu-theme-quiz'> <Link to='/quiz' className={`menu-theme-paths ${isSelected('/quiz') ? 'selected' : ''}`}> Quiz </Link></div>
-        <div className='menu-theme-quiz'> <Link to='/progres' className={`menu-theme-paths ${isSelected('/My progres') ? 'selected' : ''}`}> My progres </Link></div>
+        <div className='menu-theme-quiz'> <Link to='/progress' className={`menu-theme-paths ${isSelected('/My progres') ? 'selected' : ''}`}> My progress </Link></div>
         <div className='menu-theme-quiz'> <Link to='/routes' className={`menu-theme-paths ${isSelected('Routes') ? 'selected' : ''}`}> Routes </Link></div>
         <div className='menu-theme-quiz'> <Link to='/safe' className={`menu-theme-safeZone ${isSelected('Safe area') ? 'selected' : ''}`}> Safe area </Link></div>
         {/* <div className='menu-theme-quiz'> <Link to='/safe' className={`menu-theme-safeZone ${selected === 'Safe area' ? 'selected' : ''}`} onClick={() => handleClick('Safe area')}> Safe area </Link></div> */}

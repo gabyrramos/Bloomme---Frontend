@@ -10,8 +10,13 @@
   background-color: #E6889F;
 }
 .body-search{
-    background-color: #F29FB3;
+  background-color: #F29FB3;
+  min-height: 100vh;
 }
 .body-home{
-  
+  min-height: 100vh;
+}
+.body-progress{
+  background-color: #F29FB3;
+  min-height: 100vh;
 }

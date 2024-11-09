@@ -13,6 +13,7 @@
 }
 .container-main-login-text, .container-main-login-title{
   text-align: center;
+  margin-top: 15%;
 }
 .container-login-image{
   display: flex;
@@ -32,7 +33,7 @@
   padding: 20px;
   border: none;
   border-bottom: 2px solid #fff;
-  font-size: 2em;
+  font-size: 1.6em;
   margin-bottom: 10%;
   background-color: transparent;
   text-align: center;
@@ -42,7 +43,7 @@
   padding: 20px;
   border: none;
   border-bottom: 2px solid #fff;
-  font-size: 2em;
+  font-size: 1.6em;
   margin-bottom: 8%;
   background-color: transparent;
   padding-right: 20px;
@@ -51,22 +52,23 @@
 #email-login::placeholder {
   color: #fff;
   background-image: url(../assets/User.svg);
-  background-size: 50px 50px;
+  background-size: 40px 40px;
   background-repeat: no-repeat;
   background-position: left center;
 }
 #password-login::placeholder {
   color: #fff;
   background-image: url(../assets/Password.svg);
-  background-size: 50px 50px;
+  background-size: 40px 40px;
   background-repeat: no-repeat;
   background-position: left center;
 }
 .button-form-login{
   background-color: #CADBF3;
   border-radius: 40px;
+  border: none;
   cursor: pointer;
-  font-size: 2em;
+  font-size: 1.6em;
   margin-top: 8%;
   width: 80%;
   height: 20%;
@@ -75,9 +77,33 @@
   justify-content: center;
 }
 
-@media (min-width: 1024px) {
-  .container-main-login {
-    margin-right: 5%;
-    padding-top: 5%;
+/* @media (min-width: 1024px) {
+  .container-main-login{
+    margin-left: -5%;
   }
-}
+  #email-login{
+    font-size: 1.5em;
+  }
+  #password-login{
+    padding: 20px;
+    font-size: 1.5em;
+    margin-bottom: 8%;
+    padding-right: 20px;
+  }
+  #email-login::placeholder {
+    color: #fff;
+    background-image: url(../assets/User.svg);
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    background-position: left center;
+  }
+  #password-login::placeholder {
+    background-size: 40px 40px;
+  }
+  .button-form-login{
+    font-size: 1.8em;
+    margin-top: 8%;
+    width: 80%;
+    height: 20%;
+  }
+} */
