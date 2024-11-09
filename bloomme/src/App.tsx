@@ -1,15 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Importa 'Routes' en lugar de 'Switch'
-import { Home } from './views/Home.view';
-import { Login } from './views/Login.view';
-import { Quiz } from './views/Quiz.view';
-import { QuizQuestion } from './views/QuizQuestion.view';
-import { Search } from './views/Search.view';
-import { LandingPageView } from './views/LandingPage.view';
-import { MyProgress } from './views/myProgress.view';
 import './App.css';
-import Register from './views/Register.view';
-import Chat from './views/Chat.view';
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Importa 'Routes' en lugar de 'Switch'
+import { Paths, Quiz, Home, LandingPageView, Login, QuizQuestion, Search, Chat, Register, PathModules, MyProgress} from './views';
 
 const App: React.FC = () => {
   return (
@@ -24,6 +17,8 @@ const App: React.FC = () => {
         <Route path='/progress' element={<div className="body-progress"><MyProgress/></div>}/>
         <Route path='/register' element={<Register />} />
         <Route path='/chat' element={<Chat />} />
+        <Route path='/paths' element={<Paths />} />
+        <Route path='/paths/:id' element={<PathModules />} />
       </Routes>
     </Router>
   );

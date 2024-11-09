@@ -24,7 +24,7 @@ export const Menu = ({title, avatarUrl}: IMenu) => {
       <div className='container-menu-theme'>
         <div className='menu-theme-quiz'> <Link to='/quiz' className={`menu-theme-paths ${isSelected('/quiz') ? 'selected' : ''}`}> Quiz </Link></div>
         <div className='menu-theme-quiz'> <Link to='/progress' className={`menu-theme-paths ${isSelected('/My progres') ? 'selected' : ''}`}> My progress </Link></div>
-        <div className='menu-theme-quiz'> <Link to='/routes' className={`menu-theme-paths ${isSelected('Routes') ? 'selected' : ''}`}> Routes </Link></div>
+        <div className='menu-theme-quiz'> <Link to='/paths' className={`menu-theme-paths ${isSelected('/paths') ? 'selected' : ''}`}> Paths </Link></div>
         <div className='menu-theme-quiz'> <Link to='/safe' className={`menu-theme-safeZone ${isSelected('Safe area') ? 'selected' : ''}`}> Safe area </Link></div>
         {/* <div className='menu-theme-quiz'> <Link to='/safe' className={`menu-theme-safeZone ${selected === 'Safe area' ? 'selected' : ''}`} onClick={() => handleClick('Safe area')}> Safe area </Link></div> */}
       </div>
