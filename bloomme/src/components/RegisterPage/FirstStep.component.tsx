@@ -7,45 +7,143 @@ import {
   FaLock,
 } from "react-icons/fa"; // Importamos los íconos
 import { GrInstagram } from "react-icons/gr";
+import Swal from "sweetalert2";
 
+interface IRegister {
+  username: string;
+  email: string;
+  password: string;
+  age: string;
+  country: string;
+}
 
-function FirstStep() {
+function FirstStep({ setData }: { setData: (data: IRegister) => void }) {
+  const validateForm = (data: IRegister) => {
+    if (data.username === "") {
+      return [false, "Username is required"];
+    }
+
+    if (data.email === "") {
+      return [false, "Email is required"];
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.email)) {
+      return [false, "Email is not valid"];
+    }
+
+    if (data.age === "") {
+      return [false, "Age is required"];
+    }
+
+    if (data.country === "") {
+      return [false, "Country is required"];
+    }
+
+    if (data.password === "") {
+      return [false, "Password is required"];
+    }
+    return [true, ""];
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const data = {
+      username: formData.get("username"),
+      email: formData.get("email"),
+      age: formData.get("age"),
+      country: formData.get("country"),
+      password: formData.get("password"),
+    };
+
+    const validate = validateForm(data as IRegister);
+
+    if (!validate[0]) {
+      Swal.fire({
+        title: "Error!",
+        text: validate[1] as string,
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
+
+      return;
+    }
+
+    setData(data);
+  };
+
   return (
     <>
-      <h1>Sign Up</h1>
-      <h3>
-        Already have an account?
-        <a> Sign In</a>
-      </h3>
-      <div className="register-social-icons">
-        <FaGoogle size={24} className="social-icon" />
-        <FaFacebookF size={24} className="social-icon" />
-        <GrInstagram size={24} className="social-icon" />
+      <h1 className="text-4xl text-white">Sign Up</h1>
+      <h3 className="text-slate-500">Already have an account? Sign in</h3>
+      <div className="flex gap-10 text-white">
+        <FaGoogle size={24} />
+        <FaFacebookF size={24} />
+        <GrInstagram size={24} />
       </div>
-      <div className="form-register-container">
-        <form>
-          <div className="input-container">
-            <FaUser className="input-icon" />
-            <input type="text" placeholder="Username" />
+      <div className="py-10 w-full">
+        <form
+          id="form"
+          onSubmit={(event) => handleSubmit(event)}
+          className="flex flex-col gap-3 items-center"
+        >
+          <div className="relative mb-4 w-full">
+            <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            <input
+              name="username"
+              type="text"
+              placeholder="username"
+              autoComplete="off"
+              className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+            />
           </div>
-          <div className="input-container">
-            <FaEnvelope className="input-icon" />
-            <input type="email" placeholder="Email" />
+          <div className="relative mb-4 w-full">
+            <FaEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            <input
+              name="email"
+              type="email"
+              placeholder="email"
+              autoComplete="off"
+              className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+            />
           </div>
-          <div className="input-container">
-            <FaBirthdayCake className="input-icon" />
-            <input type="number" placeholder="Age" />
+          <div className="relative mb-4 w-full">
+            <FaBirthdayCake className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            <input
+              name="age"
+              type="number"
+              placeholder="age"
+              autoComplete="off"
+              className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+            />
           </div>
-          <div className="input-container">
-            <FaGlobe className="input-icon" />
-            <input type="text" placeholder="Country" />
+          <div className="relative mb-4 w-full">
+            <FaGlobe className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            <input
+              name="country"
+              type="text"
+              placeholder="country"
+              autoComplete="off"
+              className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+            />
           </div>
-          <div className="input-container">
-            <FaLock className="input-icon" />
-            <input type="password" placeholder="Password" />
+          <div className="relative mb-4 w-full">
+            <FaLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            <input
+              name="password"
+              type="password"
+              placeholder="password"
+              autoComplete="off"
+              className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+            />
           </div>
-          <button className="register-button-submit" type="submit">
-            Next
+          <button
+            className="register-button-submit mt-10 max-w-56"
+            type="submit"
+          >
+            next
           </button>
         </form>
       </div>

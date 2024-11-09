@@ -86,15 +86,14 @@ interface Module {
 
 function Card({ module, index }: { module: Module; index: number }) {
   const colSpan = index % 4 === 0 || index % 4 === 3 ? 4 : 8;
-  const randomColor =
-    "#" + myColors[Math.floor(Math.random() * myColors.length)];
+  const randomColor = "#" + myColors[Math.floor(Math.random() * myColors.length)];
 
   return (
     <div
-      className={`h-32 rounded-2xl col-span-${colSpan} flex items-center justify-center cursor-pointer shadow-lg shadow-red-500/40`}
+      className={`h-32 rounded-2xl flex items-center justify-center cursor-pointer shadow-lg shadow-red-500/40 ${colSpan === 4 ? 'col-span-4' : 'col-span-8'}`}
       style={{ backgroundColor: randomColor }}
     >
-      {module.title}
+      {module.title + "  " +  colSpan}
     </div>
   );
 }

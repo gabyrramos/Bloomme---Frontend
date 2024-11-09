@@ -2,6 +2,7 @@ export { default as Chat } from './Chat.view';
 export { default as Paths } from './Paths.view';
 export { default as Register } from './Register.view';
 export { default as PathModules } from './PathModules.view';
+export { default as Module } from './Module.view';
 export * from './Quiz.view';
 export * from './Home.view';
 export * from './LandingPage.view';
