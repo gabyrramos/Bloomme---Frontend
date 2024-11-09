@@ -6,6 +6,7 @@ import { Quiz } from './views/Quiz.view';
 import { QuizQuestion } from './views/QuizQuestion.view';
 import { Search } from './views/Search.view';
 import { LandingPageView } from './views/LandingPage.view';
+import { MyProgress } from './views/myProgress.view';
 import './App.css';
 
 const App: React.FC = () => {
@@ -18,6 +19,7 @@ const App: React.FC = () => {
         <Route path='/quiz' element={<div className="body-quiz"><Quiz/></div>} />
         <Route path='/quizQuestion/:category' element={<div className="body-quizQuestion"><QuizQuestion/></div>}/>
         <Route path='/search' element={<div className="body-search"><Search/></div>}/>
+        <Route path='/progress' element={<div className="body-progress"><MyProgress/></div>}/>
       </Routes>
     </Router>
   );

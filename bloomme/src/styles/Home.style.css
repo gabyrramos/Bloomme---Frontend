@@ -1,83 +1,12 @@
-/* .container-home{
-  position: relative;
-  height: 100vh;
-  color: white;
-}
-.container-home-sections{
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.container-home-sections-welcome{
-  margin: 4% ;
-  background-color: #E699AC;
-  padding: 12%;
-  text-align: center;
-}
-.home-text{
-  margin-top: -15%;
-}
-.container-home-subsections {
-  display: flex;
-  gap: 10px;
-  justify-content: space-between;
-  margin-top: -23%;
-  padding: 0 4%;
-}
-.home-sections-profile, .home-sections-module, .home-sections-day {
-  background-color: #e98ba2;
-  color: aqua;
-  padding: 10px;
-  width: 30%;
-  height: 40vh;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-}
-.container-home-quiz{
-  display: flex;
-  margin: 2% 15%;
-  margin-left: -2%;
-  padding: 10%;
-  width: 100%;
-}
-.container-home-sections-quiz{
-  background-color: #E699AC;
-  flex: 1;
-  padding: 20px;
-  text-align: center;
-  margin-left: -5%;
-  width: 50%;
-  height: 50vh;
-  margin-top: -8%;
-}
-.container-home-sections-assistent {
-  text-align: end;
-  margin-left: 15%;
-  width: 20%;
-} */
-
-/* 
-position: absolute y position: fixed ignoran el valor de display.
-position: relative y position: sticky respetan el valor de display.
- */
-
- /* Estilos generales */
 .container-home {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ffe4e1; /* Fondo rosa suave */
-  font-family: Arial, sans-serif;
-  color: #555; /* Color de texto general */
+  color: white;
 }
-
 .container-home-menu {
   width: 100%;
 }
-
 .container-home-sections {
   width: 90%;
   max-width: 1200px;
@@ -89,10 +18,15 @@ position: relative y position: sticky respetan el valor de display.
   text-align: center;
   margin-bottom: 20px;
 }
+.container-home-welcome{
+  background-color: #E699AC;
+  height: 50vh;
+}
 
 .home-text {
   font-size: 1.5rem;
   color: white; /* Color de texto de bienvenida */
+  margin-top: 10px;
 }
 
 /* Subsecciones principales */
@@ -104,11 +38,11 @@ position: relative y position: sticky respetan el valor de display.
 }
 
 .home-sections-profile, .home-sections-module, .home-sections-day {
-  background-color: #E699AC; /* Fondo de subsecciones */
   padding: 20px;
   border-radius: 10px;
   text-align: center;
   width: 32%;
+  height: 40vh;
 }
 
 /* Estilos específicos de subsecciones */
@@ -116,6 +50,61 @@ position: relative y position: sticky respetan el valor de display.
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px;
+}
+.avatar-card1{
+  background-color: #F2D694; /* Inner background color */
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.avatar1{
+  width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.name1{
+  margin-top: 10px;
+    font-weight: bold;
+    color: #000;
+}
+.background-selector {
+  text-align: center;
+}
+.background-selector p {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #FFF;
+}
+
+.home-colors {
+  display: flex;
+  gap: 10px;
+}
+/* Circle color options */
+.home-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.home-color.white { background-color: #FFF; }
+.home-color.yellow { background-color: #F2D694; }
+.home-color.blue { background-color: #8ED2FF; }
+.home-color.purple { background-color: #D1A1FF; }
+.home-color.green { background-color: #A5E6C6; }
+
+/* Selected color border */
+.color.selected {
+  border-color: #FFF;
 }
 
 .home-sections-profile p {
@@ -123,43 +112,99 @@ position: relative y position: sticky respetan el valor de display.
 }
 
 .home-sections-module {
-  /* Personaliza el contenedor del módulo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
+/* Title styling */
+.title2 {
+  color: #FFF;
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Modules styling */
+.modules2 {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Individual module styling */
+.module2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.circle2 {
+  background-color: #C2E1F2; /* Circle background color */
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.circle2 img {
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.module-name2 {
+  color: #FFF;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Arrow styling */
+.arrow2 {
+  font-size: 30px;
+  color: #FFF;
+}
+
+/* Continue button styling */
+.continue-button2 {
+  background-color: #F2DADA; /* Button background color */
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: #FFF;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+
+
 
 .home-sections-day {
   font-size: 1.2rem;
   font-style: italic;
-  color: #ff9aaf;
+  color: white;
+  justify-items: center; 
 }
-
-/* Estilos de la sección de quizzes */
-.container-home-quiz {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  align-items: flex-start;
-  margin-top: 20px;
+.home-sections-day-back{
+  background-color: white;
+  border-radius: 20px;
+  width: 90%;
+  height: 30vh;
+  margin-top: 10px;
 }
-
-.container-home-sections-quiz {
-  background-color: #fcd5df;
-  padding: 20px;
-  border-radius: 10px;
-  width: 75%;
+.home-phrases{
+  margin-top: 10px;
+  width: 200px;
+  height: 200px;
 }
-
-.container-home-sections-quiz p {
-  font-weight: bold;
-  color: #ff6f8f;
-}
-
-.container-home-sections-assistent {
-  width: 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 /* Fondo de los colores de perfil */
 .home-sections-profile .background-color-option {
   width: 20px;
@@ -167,6 +212,98 @@ position: relative y position: sticky respetan el valor de display.
   border-radius: 50%;
   display: inline-block;
   margin-right: 5px;
+}
+/* Estilos de la sección de quizzes */
+.container-home-quiz {
+  /* display: flex; */
+  flex-wrap: wrap;
+  width: 70%;
+  /* height: 50vh; */
+  margin-top: 20px;
+  background-color: #E699AC;
+    /* padding: 20px;
+    border-radius: 15px;
+    text-align: center; */
+}
+/* Cards container */
+.quiz-cards4 {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  gap: 20px;
+}
+
+/* Individual quiz card styling */
+.quiz-card4 {
+  background-color: #FFF7F0; /* Card background color */
+  border-radius: 10px;
+  padding: 15px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Quiz image styling */
+.quiz-card4 img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Quiz title styling */
+.quiz-title4 {
+  color: #AD5C51;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 10px 0;
+  text-align: center;
+}
+
+/* Start Quiz button styling */
+.quiz-button4 {
+  background-color: #F2DADA; /* Button background color */
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  color: #AD5C51;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.quiz-button4:hover {
+  background-color: #E8B6B6; /* Button hover color */
+}
+
+
+
+
+.container-home-sections-quiz {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+.home-quiz{
+  text-align: center;
+}
+.home-sections-quiz{
+  background-color: #fcd5df;
+  /* width: 20%; */
+  /* margin: 10px; */
+  /* display: inline-block; */
+  /* vertical-align: top; */
+}
+.home-sections-quiz-subsection{
+  margin-top: 10px;
+}
+.quiz-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 /* Asistente estilo (ejemplo, dependiendo de su componente) */
@@ -177,4 +314,11 @@ position: relative y position: sticky respetan el valor de display.
   background-image: url('/path/to/assistent-image.png'); /* Imagen del asistente */
   background-size: cover;
 }
+.container-home-sections-assistent {
+  /* width: 20%; */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
 

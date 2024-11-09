@@ -28,19 +28,6 @@ export const Login = () => {
     // Llama a la función handleLogin aquí
     handleLogin();
   };
-  // useEffect(()=> {
-  //   // document.body.style.backgroundImage =`url(${background})`;
-  //   // document.body.style.backgroundRepeat="no-repeat";
-  //   // document.body.style.backgroundSize = "cover";
-  //   // document.body.style.backgroundPosition = "center center";
-  //   // document.body.style.height = "100vh"; // Asegura que el body ocupe toda la altura de la ventana
-  //   // // document.body.style.overflow = "hidden"; // Evita el scroll si la imagen es más grande
-  //   return () => {
-  //     // document.body.style.backgroundImage = "";
-  //     // document.body.style.height = "auto";
-  //     // document.body.style.overflow = "auto";
-  //   };
-  // }, []);
   return(
     <>
       <main className='container-main-login'>
