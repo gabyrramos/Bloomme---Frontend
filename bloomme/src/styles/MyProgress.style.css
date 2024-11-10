@@ -128,26 +128,6 @@
   opacity: 0.3; /* Aparece bloqueado */
 }
 
-/* Sección del asistente */
-.assistant-section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 80%;
-  margin-top: 20px;
-  position: relative;
-}
-
-.assistant-message {
-  background-color: white;
-  padding: 10px 15px;
-  border-radius: 15px;
-  font-size: 14px;
-  color: #333;
-  position: absolute;
-  right: 20px;
-}
-
 
 
 

@@ -1,22 +1,40 @@
 .container-assistent-component {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translate(0, 280%);
-  text-align: center;
+  position: fixed;
+  bottom: 30px; /* Ajusta el margen inferior */
+  right: 30px;  /* Ajusta el margen derecho */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000; /* Asegura que el asistente esté siempre encima */
+}
+.assistant-image-component {
+  width: 120px;
+  height: 120px;
+  margin-right: 100%;
+  margin-top: -10px;
 }
 
-.container-assistent-component span {
-  font-size: 18px;
-  font-weight: bold;
+.assistant-message-component {
+  background-color: white;
+  padding: 10px 15px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 1em;
   color: #333;
-  display: block;
-  margin-bottom: 10px;
-  background-color: aqua;
-  border-radius: 28px;
+  position: relative; /* Necesario para el pseudo-elemento */
 }
 
-.container-assistent-component img {
-  width: 100px;
-  height: 100px;
+/* Agrega el "piquito" */
+.assistant-message-component::before {
+  content: "";
+  position: absolute;
+  bottom: -9px; /* Ajusta para mover el "piquito" hacia abajo */
+  left: 20px; /* Ajusta la posición horizontal del "piquito" */
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

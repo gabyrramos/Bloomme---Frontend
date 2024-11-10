@@ -12,17 +12,27 @@
   max-width: 1200px;
   margin-top: 20px;
 }
-
 /* Estilo de bienvenida */
+.container-home-welcome{
+  background-color: #E699AC;
+  height: 55vh;
+  border-radius: 10px;
+  position: relative;
+}
+.container-home-welcome:before,
+.container-home-welcome:after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  height: 60%;
+  width: 2px;
+  background-color: white;
+  left: 350px;
+}
 .container-home-sections-welcome {
   text-align: center;
   margin-bottom: 20px;
 }
-.container-home-welcome{
-  background-color: #E699AC;
-  height: 50vh;
-}
-
 .home-text {
   font-size: 1.5rem;
   color: white; /* Color de texto de bienvenida */
@@ -44,6 +54,15 @@
   width: 32%;
   height: 40vh;
 }
+/* Fondo de los colores de perfil */
+.home-sections-profile .background-color-option {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
 
 /* Estilos específicos de subsecciones */
 .home-sections-profile {
@@ -52,7 +71,10 @@
   align-items: center;
   padding: 20px;
 }
-.avatar-card1{
+.home-sections-profile p {
+  margin-top: 10px;
+}
+.home-avatar-card{
   background-color: #F2D694; /* Inner background color */
   padding: 20px;
   border-radius: 20px;
@@ -64,12 +86,12 @@
   margin-bottom: 20px;
 }
 
-.avatar1{
+.home-avatar{
   width: 80px;
     height: 80px;
     border-radius: 50%;
 }
-.name1{
+.home-name{
   margin-top: 10px;
     font-weight: bold;
     color: #000;
@@ -103,12 +125,8 @@
 .home-color.green { background-color: #A5E6C6; }
 
 /* Selected color border */
-.color.selected {
+.color.home-selected {
   border-color: #FFF;
-}
-
-.home-sections-profile p {
-  margin-top: 10px;
 }
 
 .home-sections-module {
@@ -118,7 +136,7 @@
   padding: 20px;
 }
 /* Title styling */
-.title2 {
+.home-title {
   color: #FFF;
   font-size: 16px;
   margin-bottom: 20px;
@@ -126,20 +144,21 @@
 }
 
 /* Modules styling */
-.modules2 {
+.home-modules {
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
   gap: 20px;
 }
 
 /* Individual module styling */
-.module2 {
+.home-module {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.circle2 {
+.home-circle {
   background-color: #C2E1F2; /* Circle background color */
   border-radius: 50%;
   width: 100px;
@@ -150,14 +169,17 @@
   overflow: hidden;
 }
 
-.circle2 img {
-  width: 90%;
-  height: 90%;
+.home-circle img {
+  width: 75%;
+  height: 75%;
   border-radius: 50%;
   object-fit: cover;
 }
+.homeOne{
+  margin-top: -51px;
+}
 
-.module-name2 {
+.home-module-name {
   color: #FFF;
   font-size: 14px;
   font-weight: bold;
@@ -166,13 +188,14 @@
 }
 
 /* Arrow styling */
-.arrow2 {
+.home-arrow {
   font-size: 30px;
   color: #FFF;
+  margin-top: -60px;
 }
 
 /* Continue button styling */
-.continue-button2 {
+.home-continue-button {
   background-color: #F2DADA; /* Button background color */
   border: none;
   border-radius: 20px;
@@ -184,14 +207,25 @@
   margin-top: 10px;
 }
 
-
-
-
 .home-sections-day {
   font-size: 1.2rem;
   font-style: italic;
   color: white;
-  justify-items: center; 
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  position: relative;
+}
+
+.home-sections-day:before,
+.home-sections-day:after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  height: 80%;
+  width: 2px;
+  background-color: white;
+  left: 10px;
 }
 .home-sections-day-back{
   background-color: white;
@@ -199,62 +233,57 @@
   width: 90%;
   height: 30vh;
   margin-top: 10px;
+  display: flex;
+  justify-content: center;
 }
 .home-phrases{
   margin-top: 10px;
   width: 200px;
   height: 200px;
 }
-/* Fondo de los colores de perfil */
-.home-sections-profile .background-color-option {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 5px;
-}
 /* Estilos de la sección de quizzes */
 .container-home-quiz {
-  /* display: flex; */
+  border-radius: 10px;
   flex-wrap: wrap;
   width: 70%;
-  /* height: 50vh; */
   margin-top: 20px;
   background-color: #E699AC;
-    /* padding: 20px;
-    border-radius: 15px;
-    text-align: center; */
 }
 /* Cards container */
-.quiz-cards4 {
+.home-quiz-cards {
   display: flex;
   justify-content: center;
   margin-top: 40px;
   margin-bottom: 40px;
   gap: 20px;
+  justify-content: space-around;
+  /* gap: 80px; */
 }
 
 /* Individual quiz card styling */
-.quiz-card4 {
+.home-quiz-card {
   background-color: #FFF7F0; /* Card background color */
   border-radius: 10px;
   padding: 15px;
-  width: 150px;
+  width: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 5%;
 }
 
 /* Quiz image styling */
-.quiz-card4 img {
+.home-quiz-card img {
   width: 100%;
+  height: 130px;
   border-radius: 10px;
   object-fit: cover;
 }
 
 /* Quiz title styling */
-.quiz-title4 {
+.home-quiz-title {
   color: #AD5C51;
   font-size: 14px;
   font-weight: bold;
@@ -263,8 +292,8 @@
 }
 
 /* Start Quiz button styling */
-.quiz-button4 {
-  background-color: #F2DADA; /* Button background color */
+.home-quiz-button {
+  background-color: #FFDADA; /* Button background color */
   border: none;
   border-radius: 20px;
   padding: 8px 16px;
@@ -273,52 +302,22 @@
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s;
-}
+  transform: translate(0, 30px);
+  }
 
-.quiz-button4:hover {
+.home-quiz-button:hover {
   background-color: #E8B6B6; /* Button hover color */
 }
-
-
-
 
 .container-home-sections-quiz {
   width: 100%;
   text-align: center;
   justify-content: center;
+  margin-top: 40px;
 }
 .home-quiz{
   text-align: center;
-}
-.home-sections-quiz{
-  background-color: #fcd5df;
-  /* width: 20%; */
-  /* margin: 10px; */
-  /* display: inline-block; */
-  /* vertical-align: top; */
-}
-.home-sections-quiz-subsection{
-  margin-top: 10px;
-}
-.quiz-container{
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
-
-/* Asistente estilo (ejemplo, dependiendo de su componente) */
-.assistent {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  background-image: url('/path/to/assistent-image.png'); /* Imagen del asistente */
-  background-size: cover;
-}
-.container-home-sections-assistent {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 200px;
-}
-
 

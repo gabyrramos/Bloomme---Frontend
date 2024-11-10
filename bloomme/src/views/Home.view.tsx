@@ -1,4 +1,4 @@
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Menu } from '../components/Menu.component';
 import { Assistent } from '../components/Assistent.component';
 import avatar from '../assets/avatar.svg';
@@ -6,8 +6,13 @@ import rabitt from '../assets/rabbit.png';
 import day from '../assets/phrases.svg';
 import quiz from '../assets/quiz.svg';
 import '../styles/Home.style.css';
+import { Link } from 'react-router-dom';
 
 export const Home = () => {
+  useEffect(() => {
+    document.body.style.backgroundImage = "";
+    document.body.style.backgroundColor = "white"; // color de fondo por defecto
+  }, []);
   return (
     <>
       <div className='container-home'>
@@ -21,15 +26,15 @@ export const Home = () => {
             </div>
             <div className="container-home-subsections">
               <div className="home-sections-profile">
-                <div className="avatar-card1">
-                  <img src={avatar} alt="Avatar" className="avatar1"/>
-                  <p className="name1">Ana María</p>
+                <div className="home-avatar-card">
+                  <img src={avatar} alt="Avatar" className="home-avatar"/>
+                  <p className="home-name">Ana María</p>
                 </div>
                 <div className="background-selector">
                   <p>Background</p>
                   <div className="home-colors">
                     <span className="home-color white"></span>
-                    <span className="home-color yellow selected"></span>
+                    <span className="home-color yellow home-selected"></span>
                     <span className="home-color blue"></span>
                     <span className="home-color purple"></span>
                     <span className="home-color green"></span>
@@ -37,21 +42,21 @@ export const Home = () => {
                 </div>
               </div>
               <div className="home-sections-module">
-                <p className="title2">Continue in the module where you left off.</p>
-                <div className="modules2">
-                  <div className="module2">
-                    <div className="circle2">
+                <p className="home-title">Continue in the module where you left off</p>
+                <div className="home-modules">
+                  <div className="home-module">
+                    <div className="home-circle homeOne">
                       <img src={quiz} alt="Know yourself"/>
                     </div>
-                    <p className="module-name2">Know yourself</p>
+                    <p className="home-module-name">Know yourself</p>
                   </div>
-                  <div className="arrow2">&gt;</div>
-                  <div className="module2">
-                    <div className="circle2">
+                  <div className="home-arrow">&gt;</div>
+                  <div className="home-module">
+                    <div className="home-circle">
                       <img src={quiz} alt="Know yourself"/>
                     </div>
-                    <p className="module-name2">Know yourself</p>
-                    <button className="continue-button2">Continue</button>
+                    <p className="home-module-name">Know yourself</p>
+                    <Link to='/paths'><button className="home-continue-button">Continue</button></Link>
                   </div>
                 </div>
               </div>
@@ -67,26 +72,26 @@ export const Home = () => {
             <div className="container-home-sections-quiz">
               <p className='home-quiz'> Recommended quizzes</p>
             </div>
-            <div className="quiz-cards4">
-              <div className="quiz-card4">
+            <div className="home-quiz-cards">
+              <div className="home-quiz-card">
                 <img src={quiz} alt="Quiz Image"/>
-                <p className="quiz-title4">Know yourself</p>
-                <button className="quiz-button4">Start Quiz</button>
+                <p className="home-quiz-title">Know yourself</p>
+                <button className="home-quiz-button">Start Quiz</button>
               </div>
-              <div className="quiz-card4">
+              <div className="home-quiz-card">
                 <img src={quiz} alt="Quiz Image"/>
-                <p className="quiz-title4">Mitos</p>
-                <button className="quiz-button4">Start Quiz</button>
+                <p className="home-quiz-title">Mitos</p>
+                <button className="home-quiz-button">Start Quiz</button>
               </div>
-              <div className="quiz-card4">
+              <div className="home-quiz-card">
                 <img src={quiz} alt="Quiz Image"/>
-                <p className="quiz-title4">Diversidad e Identidad</p>
-                <button className="quiz-button4">Start Quiz</button>
+                <p className="home-quiz-title">Diversidad e Identidad</p>
+                <button className="home-quiz-button">Start Quiz</button>
               </div>
             </div>
           </div>
           <div className="container-home-sections-assistent">
-            <Assistent rabbitUrl={rabitt}/>
+            <Assistent text='¿En que puedo ayudarte?' rabbitUrl={rabitt}/>
           </div>
         </div>
       </div>

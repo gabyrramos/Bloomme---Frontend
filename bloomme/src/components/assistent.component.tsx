@@ -1,12 +1,11 @@
-// import '../styles/Assistent.style.css';
+import { Link } from 'react-router-dom';
+import '../styles/Assistent.style.css';
 
-export const Assistent = ({ rabbitUrl }: { rabbitUrl: string }) =>{
+export const Assistent = ({text, rabbitUrl }: { text:string, rabbitUrl: string }) =>{
   return(
     <div className="container-assistent-component">
-      <div>
-        <span className="">!Hola, en que te puedo ayudar el día de hoy!</span>
-        <img src={rabbitUrl} alt="rabbit assistent" />
-      </div>
+      <div className="assistant-message-component">{text}</div>
+      <Link to='/chat' className="assistant-image-component"><img src={rabbitUrl} alt="rabbit assistent" /></Link>
     </div>
   );
 };
