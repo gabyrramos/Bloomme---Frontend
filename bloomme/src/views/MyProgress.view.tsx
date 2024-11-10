@@ -1,7 +1,7 @@
 import { Menu } from '../components/Menu.component';
 import { Title } from '../components/Title.component';
 import avatar from '../assets/avatar.svg';
-import { Assistent } from '../components/Assistent.component';
+import { Assistant } from '../components/Assistant.component';
 import rabbit from '../assets/rabbit.png';
 import '../styles/MyProgress.style.css';
 
@@ -56,7 +56,7 @@ export const MyProgress = () => {
           </div>
         </div>
         <div className="progress-assistant-section">
-          <Assistent text="¿En que puedo ayudarte?" rabbitUrl={rabbit} />
+          <Assistant text="¿En que puedo ayudarte?" rabbitUrl={rabbit} />
         </div>
       </div>
     </>
