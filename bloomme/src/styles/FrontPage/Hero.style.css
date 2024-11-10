@@ -3,7 +3,7 @@
   text-align: left justify;
   padding: 100px 20px;
   padding-bottom: 150px;
-  background: linear-gradient(to bottom, rgba(242,159,180,255), #ebc0c0);
+  background: linear-gradient(to bottom, rgba(242,159,180,255), #ebc0c0);/*color para vistas
   color: #fff;
   position: relative; /* Agrega posición relativa para absoluta */
 }
