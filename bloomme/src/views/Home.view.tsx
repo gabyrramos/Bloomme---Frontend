@@ -133,7 +133,7 @@ export const Home = ({title}: {title:string}) => {
 /*
 import { useEffect } from 'react';
 import { Menu } from '../components/Menu.component';
-import { Assistent } from '../components/Assistent.component';
+import { Assistant } from '../components/Assistant.component';
 import avatar from '../assets/avatar.svg';
 import rabitt from '../assets/rabbit.png';
 import day from '../assets/phrases.svg';
@@ -224,7 +224,7 @@ export const Home = () => {
             </div>
           </div>
           <div className="container-home-sections-assistent">
-            <Assistent text='¿En que puedo ayudarte?' rabbitUrl={rabitt}/>
+            <Assistant text='¿En que puedo ayudarte?' rabbitUrl={rabitt}/>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { Assistent } from "../components/Assistent.component";
+import { Assistant } from "../components/Assistant.component";
 import { Menu } from "../components/Menu.component";
 import avatar from '../assets/avatar.svg';
 import rabbit from '../assets/rabbit.png';
@@ -101,7 +101,7 @@ export const QuizQuestion = () =>{
           </div>
         </div>
       </div>
-      <Assistent text="¿Necesitas ayuda con algo?" rabbitUrl={rabbit}/>
+      <Assistant text="¿Necesitas ayuda con algo?" rabbitUrl={rabbit}/>
     </>
   );
 };
