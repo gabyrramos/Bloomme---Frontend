@@ -2,6 +2,7 @@ import { Menu } from '../components/Menu.component';
 import { Title } from '../components/Title.component';
 import avatar from '../assets/avatar.svg';
 import { Assistent } from '../components/Assistent.component';
+import rabbit from '../assets/rabbit.png';
 import '../styles/MyProgress.style.css';
 
 export const MyProgress = () => {
@@ -54,9 +55,8 @@ export const MyProgress = () => {
             </div>
           </div>
         </div>
-        <div className="assistant-section">
-          <Assistent rabbitUrl={avatar} />
-          {/* <div className="assistant-message">¿Cómo te sientes hoy?</div> */}
+        <div className="progress-assistant-section">
+          <Assistent text="¿En que puedo ayudarte?" rabbitUrl={rabbit} />
         </div>
       </div>
     </>

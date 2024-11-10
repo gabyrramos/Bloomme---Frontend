@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Assistent } from "../components/Assistent.component";
 import { Menu } from "../components/Menu.component";
 import avatar from '../assets/avatar.svg';
+import rabbit from '../assets/rabbit.png';
 import '../styles/QuizQuestion.style.css';
 import { useEffect, useState } from "react";
 import { Title } from "../components/Title.component";
@@ -55,7 +56,8 @@ export const QuizQuestion = () =>{
     setIsOpen(true);
   };
   const handleClose = () => {
-    navigate('/', { replace: true }); // Reemplaza la ruta actual en el historial
+    navigate('/');
+    // navigate('/', { replace: true }); // Reemplaza la ruta actual en el historial
   };
   useEffect (() =>{
     document.body.style.backgroundImage = "linear-gradient(24deg, #fff 50%, #F29FB3 50%)";
@@ -99,7 +101,7 @@ export const QuizQuestion = () =>{
           </div>
         </div>
       </div>
-      <Assistent/>
+      <Assistent text="¿Necesitas ayuda con algo?" rabbitUrl={rabbit}/>
     </>
   );
 };

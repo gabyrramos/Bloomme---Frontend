@@ -7,6 +7,7 @@ import { useSearchConnection } from "../services/Search.service";
 import avatar from '../assets/avatar.svg';
 import rabitt from '../assets/rabbit.png';
 import '../styles/Search.style.css';
+import { Assistent } from "../components/Assistent.component";
 
 export const Search = () => {
   const [modules, setModules] = useState<IStory[]>([]); // Aquí se guardarán
@@ -109,8 +110,7 @@ export const Search = () => {
           </div>
         </div>
         <div className="container-assistent">
-          <span >Si tienes dudas puedes preguntarme</span>
-          <img src={rabitt} alt="rabbit assistent" />
+          <Assistent text="¿No encuentras lo que buscabas? Yo te ayudo" rabbitUrl={rabitt}/>
         </div>
       </div>
     </>
