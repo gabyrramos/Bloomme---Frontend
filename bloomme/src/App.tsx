@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Importa 'Routes' en lugar de 'Switch'
-import { Paths, Quiz, Home, LandingPageView, Login, QuizQuestion, Search, Chat, Register, PathModules, MyProgress, SafeAreaMainView} from './views';
+import { Paths, Quiz, Home, LandingPageView, Login, QuizQuestion, Search, Chat, Register, PathModules, MyProgress, Module, SafeAreaMainView} from './views';
 
 const App: React.FC = () => {
   return (
@@ -20,6 +20,7 @@ const App: React.FC = () => {
         <Route path='/paths' element={<Paths />} />
         <Route path='/paths/:id' element={<PathModules />} />
         <Route path='/safearea' element={<SafeAreaMainView/>}/>
+        <Route path='/module/:id' element={<Module />} />
       </Routes>
     </Router>
   );
