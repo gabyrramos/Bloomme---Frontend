@@ -1,0 +1,22 @@
+.container-assistent-component {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(0, 280%);
+  text-align: center;
+}
+
+.container-assistent-component span {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 10px;
+  background-color: aqua;
+  border-radius: 28px;
+}
+
+.container-assistent-component img {
+  width: 100px;
+  height: 100px;
+}

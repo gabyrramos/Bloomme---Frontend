@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { Assistent } from "../components/assistent.component";
+import { Assistent } from "../components/Assistent.component";
 import { Menu } from "../components/Menu.component";
 import avatar from '../assets/avatar.svg';
 import '../styles/QuizQuestion.style.css';
