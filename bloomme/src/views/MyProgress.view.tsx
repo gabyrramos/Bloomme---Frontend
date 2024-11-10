@@ -4,8 +4,14 @@ import avatar from '../assets/avatar.svg';
 import { Assistent } from '../components/Assistent.component';
 import rabbit from '../assets/rabbit.png';
 import '../styles/MyProgress.style.css';
+// import { useState } from 'react';
 
 export const MyProgress = () => {
+  // const [point, setPoint] = useState(0);
+  // const handlePoint = () => {
+  //   console.log("hola");
+  //   // setPoint(point + 1);
+  // };
   return (
     <>
       <div className="container-progress">
@@ -23,7 +29,7 @@ export const MyProgress = () => {
           </div>
           <div className="progress-stats-section">
             <div className="progress-stat-item">
-              <p className="progress-stat-value">1020</p>
+              <p className="progress-stat-value">0</p>
               <p className="progress-stat-label">Points</p>
             </div>
             <div className="progress-stat-item">
