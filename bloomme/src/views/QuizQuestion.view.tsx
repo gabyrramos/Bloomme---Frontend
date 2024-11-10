@@ -56,7 +56,7 @@ export const QuizQuestion = () =>{
     setIsOpen(true);
   };
   const handleClose = () => {
-    navigate('/');
+    navigate('/home');
     // navigate('/', { replace: true }); // Reemplaza la ruta actual en el historial
   };
   useEffect (() =>{
