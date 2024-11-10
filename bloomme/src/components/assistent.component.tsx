@@ -1,10 +1,11 @@
-import rabitt from '../assets/rabbit.png';
+// import '../styles/Assistent.style.css';
 
-export const Assistent = () =>{
+export const Assistent = ({ rabbitUrl }: { rabbitUrl: string }) =>{
   return(
-    <div className="container-assistent">
+    <div className="container-assistent-component">
       <div>
-        <img src={rabitt} alt="rabbit assistent" />
+        <span className="">!Hola, en que te puedo ayudar el día de hoy!</span>
+        <img src={rabbitUrl} alt="rabbit assistent" />
       </div>
     </div>
   );

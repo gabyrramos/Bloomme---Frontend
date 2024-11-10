@@ -315,10 +315,10 @@
   background-size: cover;
 }
 .container-home-sections-assistent {
-  /* width: 20%; */
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
 }
 
 

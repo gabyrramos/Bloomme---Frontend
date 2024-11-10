@@ -1,11 +1,11 @@
 // import { useEffect } from 'react';
 import { Menu } from '../components/Menu.component';
+import { Assistent } from '../components/Assistent.component';
 import avatar from '../assets/avatar.svg';
-import { Assistent } from '../components/assistent.component';
+import rabitt from '../assets/rabbit.png';
 import day from '../assets/phrases.svg';
 import quiz from '../assets/quiz.svg';
 import '../styles/Home.style.css';
-
 
 export const Home = () => {
   return (
@@ -86,7 +86,7 @@ export const Home = () => {
             </div>
           </div>
           <div className="container-home-sections-assistent">
-            <Assistent/>
+            <Assistent rabbitUrl={rabitt}/>
           </div>
         </div>
       </div>
