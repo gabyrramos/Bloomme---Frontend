@@ -26,7 +26,7 @@ function Chat() {
   const [inputValue, setInputValue] = useState("");
 
   // Función asincrónica para enviar el mensaje
-  const handleSendMessage = async() => {
+  const handleSendMessage = async () => {
     if (inputValue.trim() === "") return;
 
     const newMessage: Message = {
@@ -36,6 +36,7 @@ function Chat() {
     };
 
     setMessages((prevMessages) => [...prevMessages, newMessage]);
+    setTimeout(() => scrollToBottomAnimated("chat-window"), 100);
     setInputValue("");
 
     // Esperar 1 segundo y luego agregar la respuesta del asistente
@@ -44,7 +45,7 @@ function Chat() {
     setMessages((prevMessages) => [...prevMessages, response]);
 
     // Ejecutar scroll al final después de agregar el mensaje de respuesta
-    scrollToBottomAnimated("chat-window");
+    setTimeout(() => scrollToBottomAnimated("chat-window"), 100);
   };
 
   return (
@@ -57,13 +58,13 @@ function Chat() {
 
         <section
           id="chat-window"
-          className="bg-white w-full max-w-4xl rounded-lg p-10 flex flex-col gap-6 h-[400px] max-h-[500px] overflow-auto pb-28"
+          className="bg-white w-full max-w-4xl rounded-lg p-10 flex flex-col gap-6 h-[400px] max-h-[500px] overflow-auto"
         >
           {messages.map((msg, index) => (
             <div
               key={index}
-              className={`flex flex-col items-${
-                msg.type === "user" ? "end" : "start"
+              className={`flex flex-col ${
+                msg.type === "user" ? "items-end" : "items-start"
               }`}
             >
               <span className="text-sm text-gray-600 font-bold mb-1">
