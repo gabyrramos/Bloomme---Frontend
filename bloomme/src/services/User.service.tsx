@@ -38,13 +38,35 @@ export const useUserConnection = () => {
         throw new Error(`Error ${response.status}: ${response.statusText}`);
       }
       const data = await response.json();
-      console.log("🚀 ~ userIdApi ~ data:", data)
       return data;
     }
     catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Error inesperado';
       throw new Error(errorMessage);
     }
+  };
+  const userApiPoint = async() => {
+    try {
+      const token = localStorage.getItem('token');
+      const url = `https://bloomme-backend.onrender.com/api/points-reward`;
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error ${response.status}: ${response.statusText}`);
+      }
+      const data = await response.json();
+      return data;
+    }
+    catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Error inesperado';
+      throw new Error(errorMessage);
+    };
   };
   const userUpdate = async({email, password, avatar, username}: IUser) => {
     try {
@@ -70,5 +92,5 @@ export const useUserConnection = () => {
     }
   };
 
-  return { userApi, userIdApi, userUpdate };
+  return { userApi, userIdApi, userUpdate, userApiPoint };
 };
