@@ -25,7 +25,7 @@ export const useUserConnection = () => {
   const userIdApi = async() => {
     try {
       const token = localStorage.getItem('token');
-      const url = `https://bloomme-backend.onrender.com/api/user/score`;
+      const url = `https://bloomme-backend.onrender.com/api/profile`;
       const response = await fetch(url, {
         method: "GET",
         headers: {
@@ -38,6 +38,7 @@ export const useUserConnection = () => {
         throw new Error(`Error ${response.status}: ${response.statusText}`);
       }
       const data = await response.json();
+      console.log("🚀 ~ userIdApi ~ data:", data)
       return data;
     }
     catch (error) {
@@ -60,6 +61,8 @@ export const useUserConnection = () => {
         throw new Error('Error al actualizar el avatar');
       }
       const data = await response.json();
+      console.log("🚀 ~ userUpdate ~ data:", data);
+      console.log("🚀 ~ userUpdate ~ data:", data.user.current_avatar);
       localStorage.setItem('avatar', data.user.current_avatar);
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Error inesperado';

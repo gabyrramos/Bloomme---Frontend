@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Menu } from "../components/Menu.component";
-import avatar from '../assets/avatar.svg';
 import quiz from '../assets/quiz.svg';
 import '../styles/Quiz.style.css';
 import { Title } from "../components/Title.component";
@@ -21,7 +20,7 @@ export const Quiz = () => {
   return(
     <div className="container-quiz">
       <div className="container-quiz-menu">
-        <Menu title="Ana Maria" avatarUrl={avatar} />
+        <Menu/>
       </div>
       <div className="container-quiz-title">
         <Title title="Quiz"/>
@@ -33,7 +32,7 @@ export const Quiz = () => {
             <img src={quiz} alt="quiz background" />
             <p>{item.name}</p>
             <button className={`button-quiz-star ${item.name === 'What would happen if...?' ? 'button-quiz-if' : ''}`}>
-              <Link to={`/quizQuestion/${item.quiz_id}`} className="quiz-link"> Start Quiz </Link>
+              <Link to={`/quizQuestion/${item.name}`} className="quiz-link"> Start Quiz </Link>
             </button>
           </div>
         ))}
