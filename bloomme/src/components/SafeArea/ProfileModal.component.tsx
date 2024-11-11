@@ -19,10 +19,10 @@ const ProfileModal: React.FC<ProfileModalProps> = ({ isOpen, onClose }) => {
         <h2>Profile</h2>
         <img src={servicesarrow} alt="servicearrow" />
         <div className="profile-form">
-          {/* <div className="profileform-group">
+          <div className="profileform-group">
             <label>Username</label>
             <input type="text" placeholder="Username" />
-          </div> */}
+          </div> 
           <div className="profileform-group">
             <label>Age</label>
             <input type="text" placeholder="Age" />

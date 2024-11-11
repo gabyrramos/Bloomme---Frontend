@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProfileModal from "./ProfileModal.component";
 import { useNavigate } from "react-router-dom";
 import BlueLogo from "../../assets/BlueLogo.png";
@@ -11,6 +11,7 @@ import "../../styles/SafeArea/profilemodal.style.css";
 
 const SafeAreaHeader: React.FC = () => {
   const [activeLink, setActiveLink] = useState("safearea");
+  const [name, setName] = useState("")
   const [profileOpen, setProfileOpen] = useState(false);
   const [showProfileModal, setShowProfileModal] = useState(false);
   const navigate = useNavigate();
@@ -20,9 +21,13 @@ const SafeAreaHeader: React.FC = () => {
     navigate(`/${link}`);
   };
 
-  const handleProfileClick = () => {
-    setProfileOpen(!profileOpen);
-  };
+  useEffect(() => {
+    const username = localStorage.getItem("username");
+    setName(username || "Guest") 
+  },[])
+  // const handleProfileClick = () => {
+  //   setProfileOpen(!profileOpen);
+  // };
 
   const handleProfileModal = () => {
     setShowProfileModal(true);
@@ -62,7 +67,7 @@ const SafeAreaHeader: React.FC = () => {
       </nav>
       <div className="safeareaProfile">
         <div className="safeareaProfileContainer">
-          <span className="safeareaProfileName">Gabriela</span>
+          <span className="safeareaProfileName">{name}</span>
           <div
             className="safeareaProfileAvatar active"
             onClick={() => setProfileOpen(!profileOpen)}

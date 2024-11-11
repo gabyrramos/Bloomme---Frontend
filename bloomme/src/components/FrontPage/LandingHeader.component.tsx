@@ -12,7 +12,7 @@ const LandingHeader: React.FC = () => {
     if (link === "sign-in") {
       navigate("/login", { state: { replace: true } });
     } else if (link === "sign-up") {
-      // Aquí puedes agregar la navegación para sign-up si es necesario
+      navigate("/register", { state: { replace: true } });// Aquí puedes agregar la navegación para sign-up si es necesario
     }
   };
 
@@ -34,7 +34,6 @@ const LandingHeader: React.FC = () => {
           Sign In
         </a>
         <a
-          href="#sign-up"
           className={activeLink === "sign-up" ? "active" : ""}
           onClick={() => handleClick("sign-up")}
         >
