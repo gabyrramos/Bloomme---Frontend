@@ -11,42 +11,28 @@ import { useEffect, useState } from 'react';
 
 export const MyProgress = () => {
   const [name, setName] = useState("");
+  // const [avatar, setAvatar] = useState("");
   const [point, setPoint] = useState(0);
+  const [quiz, setQuiz] = useState(0);
   const {userIdApi} = useUserConnection();
-  // const token: string = localStorage.getItem('token') || '';
-
-  // const { userIdApi} = useUserConnection();
-  // const { id } = useParams();
-  // const { quizApi } = useQuizConnection();
-
-  // const handleQuiz = () => {
-  //   console.log(quizApi);
-  // };
-
-  // useEffect(() => {
-  //   // if (id !== undefined) {
-  //     const handlePoint = async() => {
-  //       // const userId = parseInt(id ?? '0');
-  //       // const getUsers = await userIdApi(userId);
-  //       const userPoints = getUsers[0].total_point;
-  //       setPoint(userPoints);
-  //     };
-  //     handlePoint();
-  //   }
-  // }, []);
   useEffect(()=>{
+    // const token: string = localStorage.getItem('token') || '';
     const name = localStorage.getItem('username');
+    // const avatarUrl = localStorage.getItem('avatar');
     setName(name || '');
+    // setAvatar(avatarUrl || '');
   }, []);
 
   useEffect(() => {
-    const handlePoint = async() => {
+    const handleUserData = async() => {
       const getUsers = await userIdApi();
-      const userPoints = getUsers;
+      const userPoints = getUsers.total_point;
+      const userQuiz = getUsers.quiz_completed;
       setPoint(userPoints);
+      setQuiz(userQuiz);
     };
-    handlePoint();
-  },[userIdApi]);
+    handleUserData();
+  },[]);
   return (
     <>
       <div className="container-progress">
@@ -68,7 +54,7 @@ export const MyProgress = () => {
               <p className="progress-stat-label">Total points</p>
             </div>
             <div className="progress-stat-item">
-              <p className="progress-stat-value">4</p>
+              <p className="progress-stat-value">{quiz}</p>
               <p className="progress-stat-label">Quizzes Completes</p>
             </div>
             <div className="vertical-line"></div>
