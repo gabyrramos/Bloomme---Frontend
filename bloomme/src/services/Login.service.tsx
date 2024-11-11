@@ -7,10 +7,8 @@ export const useLoginConnection = () => {
     try {
       const response = await fetch('https://bloomme-backend.onrender.com/api/login', {
         method: 'POST',
-        // mode: 'cors',
         headers: {
           "Content-Type": "application/json",
-          // "Authorization": `Bearer ${token}`
         },
         body: JSON.stringify({email, password}), //LOS DATOS SE ENVIAN COMO JSON EN EL CUERPO DE LA SOLICITUD
       });

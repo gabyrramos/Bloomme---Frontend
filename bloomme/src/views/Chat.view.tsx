@@ -4,6 +4,7 @@ import bunnyIcon from "../assets/ChatPage/bunny-chat.png";
 import { Menu } from "../components/Menu.component";
 import avatar from "../assets/avatar.svg";
 import { scrollToBottomAnimated } from "../helper/scroll.helper";
+import { chatPost } from "../services/Chat.service";
 
 // Define una interfaz para el tipo de mensaje
 interface Message {
@@ -12,21 +13,16 @@ interface Message {
   type: "user" | "assistant";
 }
 
-const responses: Message[] = [
-  { id: "1", text: "Hola, ¿cómo estás?", type: "assistant" },
-  {
-    id: "2",
-    text: "Encantado de conocerte! ¿Necesitas algo?",
-    type: "assistant",
-  },
-];
+
 
 function Chat() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState("");
+  const token: string = localStorage.getItem('token') || '';
+
 
   // Función asincrónica para enviar el mensaje
-  const handleSendMessage = async () => {
+  const handleSendMessage = async() => {
     if (inputValue.trim() === "") return;
 
     const newMessage: Message = {
@@ -39,13 +35,23 @@ function Chat() {
     setTimeout(() => scrollToBottomAnimated("chat-window"), 100);
     setInputValue("");
 
-    // Esperar 1 segundo y luego agregar la respuesta del asistente
-    const response = responses[Math.floor(Math.random() * responses.length)];
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setMessages((prevMessages) => [...prevMessages, response]);
+    try {
+      // Envía el mensaje al servidor y espera la respuesta
+      const response = await chatPost(inputValue, token);
+      const assistantMessage: Message = {
+        id: Date.now().toString(),
+        text: response.reply,
+        type: "assistant",
+      };
 
-    // Ejecutar scroll al final después de agregar el mensaje de respuesta
-    setTimeout(() => scrollToBottomAnimated("chat-window"), 100);
+      // Agrega el mensaje de respuesta del asistente al chat
+      setMessages((prevMessages) => [...prevMessages, assistantMessage]);
+
+      // Ejecuta el scroll para mostrar el último mensaje del asistente
+      setTimeout(() => scrollToBottomAnimated("chat-window"), 100);
+    } catch (error) {
+      console.error("Error al enviar el mensaje:", error);
+    }
   };
 
   return (
