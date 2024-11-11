@@ -1,13 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import EmergencyModal from "./EmergencyModal.component";
 import "../../styles/SafeArea/safeareabody.style.css";
 import "../../styles/SafeArea/safeareatask.style.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import sadbunny from "../../assets/safearea/sadbunny.png";
+import { generateTaskByExercises } from "../../services/safeArea.service";
 
 const SafeAreaTaskBody: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
-  
+  const [message, setMessage]= useState("");
+  const {exercises, task} = useParams()
+  useEffect(()=>{
+    const fetchEmotions = async () =>{
+     try {
+       const response = await generateTaskByExercises(exercises||"", task||"");
+       console.log(response);
+      setMessage(response.text)
+     } catch (error) {
+       console.log(error);
+       
+     }
+    } 
+    fetchEmotions();
+   },[])
   const handleEmergencyClick = () => {
     setShowModal(true);
     console.log("Emergency button clicked, showModal is:", showModal);
@@ -29,8 +44,7 @@ const SafeAreaTaskBody: React.FC = () => {
         </h2>
         <div className="safehome-message-box">
           <p className="safehome-message">
-            /* Aquí irá el mensaje de la IA */ "Te recomiendo realizar un
-            ejercicio de respiración profunda para calmar tus nervios."
+           {message}
           </p>
         </div>
         <div className="safehometask-categories">

@@ -23,7 +23,7 @@ const App: React.FC = () => {
         <Route path='/safearea/:exercises' element={<SafeAreaExercisesView/>}/>
         <Route path='/safearea/:exercises/:task' element={<SafeAreaTaskView/>}/>
         <Route path='/module/:id' element={<Module />} />
-        <Route path="*" element={<Navigate to="/landing" />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
   );
