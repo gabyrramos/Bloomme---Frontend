@@ -21,7 +21,8 @@ export const useLoginConnection = () => {
       console.log("🚀 ~ loginConnection ~ data:", data);
       const token = data.tokenUser; // OBTIENE EL TOKEN DESPUÉS DE LA AUTENTICACIÓN
       localStorage.setItem("token", token); // GUARDA EL TOKEN EN LOCALSTORAGE
-      localStorage.setItem("username", email);
+      localStorage.setItem("email", data.user.email);
+      localStorage.setItem("username", data.user.username);
       navigate("/home"); // A DONDE TE VA A MANDAR
     }
     catch (error) {
