@@ -1,0 +1,82 @@
+.emergency-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .emergencymodal-content {
+    background-color: #f0a3a3;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 820px;
+    height: 300px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .sosclose-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .siren-icon {
+    width: 60px;
+    margin-bottom: 10px;
+  }
+  
+  .emergency-title {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .emergency-text {
+    margin-bottom: 20px;
+    color: white;
+  }
+  
+  .contact-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .soswsp-icon {
+    width: 30px;
+    margin-right: 10px;
+  }
+  
+  .phone-number-box {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 10px;
+    background-color: #fff;
+    border-radius: 4px;
+    color: #333;
+  }
+  
+  .sos-bunny {
+    width: 150px;
+    position: absolute;
+    bottom: 15px;
+    right: 5px;
+  }
+  

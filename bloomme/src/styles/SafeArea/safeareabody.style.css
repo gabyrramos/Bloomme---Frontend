@@ -44,13 +44,14 @@
 .safehome-categories {
     display: flex;
     justify-content: space-around;
-    gap: 20px;
+    gap: 70px;
 }
 
 .safehome-category-column {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 45px;
+    text-align: center;
 }
 
 .safehome-category-btn {
@@ -76,18 +77,24 @@
     left: 30px;
     background-color: #fca6d1; /* Rosa oscuro */
     color: #FFFFFF;
+    box-shadow: 0px 4px 8px rgba(245, 109, 132, 0.5);
     border: none;
-    padding: 20px;
-    border-radius: 100%;
+    width: 140px; /* Ajusta el valor según tus necesidades */
+    height: 140px; /* Ajusta el valor según tus necesidades */
+    border-radius: 50%; /* Cambia a 50% */
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column; /* Agrega esto */
+    justify-content: center;
+    align-items: center;
 }
 .safehome-emergency-btn:hover {
-    background-color: #f76bb1; /* Fondo rosado al hacer hover */
-    color: #FFFFFF; /* Texto blanco al hacer hover */
-}
+    background-color: #ffffff; /* Cambia a blanco al hacer hover */
+    color: #ffd1dc; /* Cambia el texto a rosa claro */
+    box-shadow: 0px 4px 12px rgba(245, 109, 132, 0.7); /* Sombra más oscura al hacer hover */
+  }
 
 
 .safehome-right {

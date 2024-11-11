@@ -1,32 +1,37 @@
 import React, { useState } from "react";
+import ProfileModal from "./ProfileModal.component";
 import { useNavigate } from "react-router-dom";
 import BlueLogo from "../../assets/BlueLogo.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faAngleDown,
-  faArrowRightFromBracket,
-} from "@fortawesome/free-solid-svg-icons";
-import "../../styles/FrontPage/LandingHeader.style.css";
 import Avatar from "../../assets/avatar.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDown,faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import "../../styles/FrontPage/LandingHeader.style.css";
+import "../../styles/SafeArea/profilemodal.style.css";
+
 
 const SafeAreaHeader: React.FC = () => {
   const [activeLink, setActiveLink] = useState("safearea");
   const [profileOpen, setProfileOpen] = useState(false);
+  const [showProfileModal, setShowProfileModal] = useState(false);
   const navigate = useNavigate();
 
   const handleClick = (link: string) => {
-    if (link !== "safearea") {
-      setActiveLink(link);
-      navigate(`/${link}`);
-    }
+    setActiveLink(link);
+    navigate(`/${link}`);
   };
 
   const handleProfileClick = () => {
     setProfileOpen(!profileOpen);
   };
 
+  const handleProfileModal = () => {
+    setShowProfileModal(true);
+    setProfileOpen(false);
+  };
+
+
   return (
-    <header className="safeareaHeader">
+    <><header className="safeareaHeader">
       <img src={BlueLogo} alt="Bloom me logo" className="safeareaLogo" />
       <nav className="safeareaMenu">
         <a
@@ -47,7 +52,12 @@ const SafeAreaHeader: React.FC = () => {
         >
           Routes
         </a>
-        <a className="active">Safe Area</a>{" "}
+        <a
+          onClick={() => handleClick("safearea")}
+          className={activeLink === "safearea" ? "active" : ""}
+        >
+          Safe Area
+        </a>
         {/* "Safe Area" link is always active */}
       </nav>
       <div className="safeareaProfile">
@@ -55,20 +65,19 @@ const SafeAreaHeader: React.FC = () => {
           <span className="safeareaProfileName">Gabriela</span>
           <div
             className="safeareaProfileAvatar active"
-            onClick={handleProfileClick}
+            onClick={() => setProfileOpen(!profileOpen)}
           >
             <img
               src={Avatar}
               alt="Avatar"
-              className="safeareaProfileAvatarImg"
-            />
+              className="safeareaProfileAvatarImg" />
             <FontAwesomeIcon icon={faAngleDown} className="arrow-menu" />
           </div>
           {profileOpen && (
             <div className="safeareaDropdown">
               <ul>
                 <li>
-                  <a href="/profile">Profile</a>
+                <a onClick={handleProfileModal}>Profile</a>
                 </li>
                 <li>
                   <a href="/login">
@@ -82,6 +91,10 @@ const SafeAreaHeader: React.FC = () => {
         </div>
       </div>
     </header>
+    {showProfileModal && (
+      <ProfileModal isOpen={showProfileModal} onClose={() => setShowProfileModal(false)} />
+    )}
+    </>
   );
 };
 

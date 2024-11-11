@@ -3,6 +3,8 @@ export { default as Paths } from './Paths.view';
 export { default as Register } from './Register.view';
 export { default as PathModules } from './PathModules.view';
 export { default as SafeAreaMainView } from './SafeAreaMain.view';
+export { default as SafeAreaExercisesView} from './SafeAreaExercises.view';
+export { default as SafeAreaTaskView } from './SafeAreaTask.view';
 export { default as Module } from './Module.view';
 export * from './Quiz.view';
 export * from './Home.view';
