@@ -3,10 +3,8 @@ export const useUserConnection = () => {
     try {
       const response = await fetch('https://bloomme-backend.onrender.com/api/user', {
         method: 'GET',
-        // mode: 'cors',
         headers: {
           "Content-Type": "application/json",
-          // "Authorization": `Bearer ${token}`
         },
       });
       if(!response.ok) {
@@ -22,13 +20,15 @@ export const useUserConnection = () => {
     }
   };
 
-  const userIdApi = async(userId: number) => {
+  const userIdApi = async() => {
     try {
-      const url = `https://bloomme-backend.onrender.com/api/user/${userId}`;
+      const token = localStorage.getItem('token');
+      const url = `https://bloomme-backend.onrender.com/api/user/score`;
       const response = await fetch(url, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
         },
       });
 
@@ -37,6 +37,8 @@ export const useUserConnection = () => {
       }
 
       const data = await response.json();
+      console.log(data);
+      // localStorage.setItem('score', data.user.total_point);
       return data;
     }
     catch (error) {

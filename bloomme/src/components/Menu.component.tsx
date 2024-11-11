@@ -5,35 +5,36 @@ import { IMenu } from '../models/Menu.model';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faArrowRightFromBracket, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
-import { useUserConnection } from '../services/User.service';
-import { useParams } from 'react-router-dom';
+// import { useUserConnection } from '../services/User.service';
+// import { useParams } from 'react-router-dom';
 
-export const Menu = ({title, avatarUrl}: IMenu) => {
-  const { userIdApi } = useUserConnection();
-  const [userId, setUserId] = useState(0);
-  const { id } = useParams(); // Obtener el ID del usuario desde la URL
+export const Menu = ({avatarUrl}: IMenu) => {
+  const [name, setName] = useState("");
+  // const { userIdApi } = useUserConnection();
+  // const [userId, setUserId] = useState(0);
+  // const { id } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
-  // const [selected, setSelected] = useState<string | null>(null);
   const [profileOpen, setProfileOpen] = useState(false);
   const handleProfileClick = () => {
     setProfileOpen(!profileOpen);
   };
-  useEffect(() => {
-    const handleUserId = async() => {
-      const userId = parseInt(id ?? '0'); // Convertir id a número
-      const user = await userIdApi(userId); // Llamar a userIdApi con el ID del usuario
-      setUserId(user.id);
-    };
-    handleUserId();
-  }, [userIdApi, id]);
+  useEffect(()=>{
+    const name = localStorage.getItem('username');
+    setName(name || '');
+  }, []);
+  // useEffect(() => {
+  //   const handleUserId = async() => {
+  //     const userId = parseInt(id ?? '0');
+  //     const user = await userIdApi(userId);
+  //     setUserId(user.id);
+  //   };
+  //   handleUserId();
+  // }, [userIdApi, id]);
 
   const handleNavigate = () => {
-    navigate(`/progress/${userId}`);
+    navigate(`/progress/`);
   };
-  // const handleClick = (option: string) => {
-  //   setSelected(option);
-  // };
   const isSelected = (path:string) => location.pathname === path;
   return(
     <div className="container-menu">
@@ -43,16 +44,14 @@ export const Menu = ({title, avatarUrl}: IMenu) => {
         <div className='menu-theme-quiz'> <button onClick={handleNavigate} className={`menu-theme-paths ${isSelected('/My progres') ? 'selected' : ''}`}> My progress </button></div>
         <div className='menu-theme-quiz'> <Link to='/paths' className={`menu-theme-paths ${isSelected('/paths') ? 'selected' : ''}`}> Paths </Link></div>
         <div className='menu-theme-quiz'> <Link to='/safearea' className={`menu-theme-safeZone ${isSelected('Safe area') ? 'selected' : ''}`}> Safe area </Link></div>
-        {/* <div className='menu-theme-quiz'> <Link to='/safe' className={`menu-theme-safeZone ${selected === 'Safe area' ? 'selected' : ''}`} onClick={() => handleClick('Safe area')}> Safe area </Link></div> */}
       </div>
       <div className='container-menu-perfil' >{/*startsWith: si la ruta actual comienza con */}
         {location.pathname !== '/search' && !location.pathname.startsWith('/quizQuestion') && (//SI LA RUTA ACTUAL ES DIFERENTE DE SEARCH, RENDERIZA EL ICONO DE LUPA
           <Link to='/search'> <FontAwesomeIcon icon={faMagnifyingGlass} className='menu-perfil-search'/> </Link>
         )}
-        <div className='container-menu-perfil-name'> {title} </div>
-        {/* <div className='container-menu-perfil-avatar'> {avatarUrl} </div> */}
+        <div className='container-menu-perfil-name'> {name} </div>
         <div className='container-menu-perfil-avatar'>
-          <img src={avatarUrl} alt={title} className='menu-perfil-avatar'/>
+          <img src={avatarUrl} alt={name} className='menu-perfil-avatar'/>
           <FontAwesomeIcon icon={faAngleDown} onClick={handleProfileClick} className='arrow-menu'/>
           {profileOpen && (
             <div className="menu-dropdown">

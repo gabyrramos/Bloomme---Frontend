@@ -4,12 +4,13 @@ import { Menu } from "../components/Menu.component";
 import avatar from '../assets/avatar.svg';
 import rabbit from '../assets/rabbit.png';
 import '../styles/QuizQuestion.style.css';
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { Title } from "../components/Title.component";
 import { Questions } from "../components/Questions.component";
 import { Modal } from "../components/Modal.component";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faChevronRight, faArrowRightFromBracket} from '@fortawesome/free-solid-svg-icons';
+import { useQuizConnection } from "../services/Quiz.service";
 
 export const QuizQuestion = () =>{
   const navigate = useNavigate();
@@ -19,6 +20,8 @@ export const QuizQuestion = () =>{
   const [isFinished, setIsFinished] = useState(false);//COMPLETO O NO
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({}); // Respuestas seleccionadas
   const [isOpen, setIsOpen] = useState(false);
+  const [question, setQuestion] = useState(false);
+  const {quizApiAI} = useQuizConnection();
 
   const handleAnswerChange = (answerText: string) => {
     setSelectedAnswers((prev) => ({
@@ -39,7 +42,7 @@ export const QuizQuestion = () =>{
         (option) => option.answerText === selectedAnswer,
       );
       if (selectedOption && selectedOption.isCorrect) {
-        questionScore = 1;
+        questionScore = 100;
       }
     }
     setScore((prevScore) => prevScore + questionScore);
@@ -59,12 +62,14 @@ export const QuizQuestion = () =>{
     navigate('/home');
     // navigate('/', { replace: true }); // Reemplaza la ruta actual en el historial
   };
-  useEffect (() =>{
-    document.body.style.backgroundImage = "linear-gradient(24deg, #fff 50%, #F29FB3 50%)";
-    return () => {
-      document.body.style.backgroundColor = "";
+  useEffect(() =>{
+    const handleQuizAI = async() => {
+      const response = await quizApiAI();
+      console.log("🚀 ~ useEffect ~ response:", response);
+      setQuestion(response);
     };
-  }, []);
+    handleQuizAI();
+  },[]);
   return(
     <>
       <div className="container-quizQuestion">
