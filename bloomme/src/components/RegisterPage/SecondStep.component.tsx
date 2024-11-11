@@ -6,23 +6,22 @@ function SecondStep({ setData, handleRegisterApi }) {
   const [assistant, setAssistant] = useState(null);
   const handleSetAssistant = (value) => {
     setAssistant(value);
-    setData((prevValue) => ({ ...prevValue, assistantSelected: value }));
+    setData((prevValue) => ({ ...prevValue, assistant_id: value }));
   };
 
   const handleButtonSubmit = () => {
-    const assistantName = document.getElementById("assistantName").value;
+    const assistant_name = document.getElementById("assistant_name").value;
 
-    if (!assistantName || !assistant) {
+    if (!assistant_name || !assistant) {
       Swal.fire({
         title: "Error!",
         text: "You must fill in all the information of your assistant",
         icon: "error",
         confirmButtonText: "Ok",
       });
-      return
+      return;
     }
 
-    setData((prevValue) => ({ ...prevValue, assistantName }));
     handleRegisterApi();
   };
 
@@ -190,10 +189,14 @@ function SecondStep({ setData, handleRegisterApi }) {
         <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
         <input
           type="text"
-          id="assistantName"
+          id="assistant_name"
           placeholder="assistant name"
           autoComplete="off"
           className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+          onChange={(e) => {
+            console.log(e.target.value);
+            setData((prevValue) => ({ ...prevValue, assistant_name: e.target.value }))
+          }}
         />
       </div>
       <button className="register-button-submit mt-6 max-w-56" onClick={handleButtonSubmit}>next</button>

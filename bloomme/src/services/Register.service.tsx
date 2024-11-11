@@ -1,6 +1,6 @@
 export const registerPost = async(data) => {
   try {
-    const response = await fetch("https://bloomme.free.beeceptor.com/users", {
+    const response = await fetch("https://bloomme-backend.onrender.com/api/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -14,6 +14,7 @@ export const registerPost = async(data) => {
     }
 
     const resData = await response.json();
+    console.log(resData);
     return resData;
   } catch (error) {
     console.log({ error });
