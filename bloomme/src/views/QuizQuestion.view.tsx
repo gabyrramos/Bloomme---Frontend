@@ -74,7 +74,7 @@ export const QuizQuestion = () =>{
     <>
       <div className="container-quizQuestion">
         <div className="container-quiz-menu">
-          <Menu title="Maria Belen" avatarUrl={avatar}/>
+          <Menu/>
         </div>
         <div className="quizQuestion-titleComponent">
           <Title title={category || "not found"}/>

@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 // import { useParams } from 'react-router-dom';
 
 export const MyProgress = () => {
+  const [name, setName] = useState("");
   const [point, setPoint] = useState(0);
   const {userIdApi} = useUserConnection();
   // const token: string = localStorage.getItem('token') || '';
@@ -33,6 +34,11 @@ export const MyProgress = () => {
   //     handlePoint();
   //   }
   // }, []);
+  useEffect(()=>{
+    const name = localStorage.getItem('username');
+    setName(name || '');
+  }, []);
+
   useEffect(() => {
     const handlePoint = async() => {
       const getUsers = await userIdApi();
@@ -45,7 +51,7 @@ export const MyProgress = () => {
     <>
       <div className="container-progress">
         <div className="container-progress-menu">
-          <Menu title="Ana María" avatarUrl={avatar} />
+          <Menu/>
         </div>
         <div className="container-progress-title">
           <Title title='My progress'/>
@@ -53,21 +59,22 @@ export const MyProgress = () => {
         <div className='container-progress-profileStat'>
           <div className="progress-profile-section">
             <img src={avatar} alt="avatar" className="profile-avatar" />
-            <p className="progress-profile-name">Ana María</p>
+            <p className="progress-profile-name">{name}</p>
             <span className="progress-edit-icon">✎</span>
           </div>
           <div className="progress-stats-section">
             <div className="progress-stat-item">
               <p className="progress-stat-value">{point}</p>
-              <p className="progress-stat-label">Points</p>
+              <p className="progress-stat-label">Total points</p>
             </div>
             <div className="progress-stat-item">
-              <p className="progress-stat-value">4/100</p>
-              <p className="progress-stat-label">Quizzes Complete</p>
+              <p className="progress-stat-value">4</p>
+              <p className="progress-stat-label">Quizzes Completes</p>
             </div>
+            <div className="vertical-line"></div>
             <div className="progress-stat-item">
               <p className="progress-stat-value">30/90</p>
-              <p className="progress-stat-label">Paths Complete</p>
+              <p className="progress-stat-label"> Points available</p>
             </div>
           </div>
         </div>
@@ -75,18 +82,22 @@ export const MyProgress = () => {
           <div className="progress-unlocked">
             <p>Unlocked</p>
             <div className="progress-avatars">
-              {/* Usa múltiples imágenes de avatar aquí */}
+              {/* Usa múltiples imágenes de avatar aquí traerlas de la base */}
               <img src={avatar} alt="avatar" />
               <img src={avatar} alt="avatar" />
-              {/* Agrega más imágenes según sea necesario */}
             </div>
           </div>
           <div className="progress-upcoming">
             <p>Upcoming awards</p>
             <div className="progress-avatars">
-              <img src={avatar} alt="avatar" className="progress-blocked" />
-              <img src={avatar} alt="avatar" className="progress-blocked" />
-              {/* Agrega más imágenes bloqueadas según sea necesario */}
+              <div className="avatar-item">
+                <img src={avatar} alt="avatar" className="progress-blocked" />
+                <p>100</p>
+              </div>
+              <div className="avatar-item">
+                <img src={avatar} alt="avatar" className="progress-blocked" />
+                <p>100</p>
+              </div>
             </div>
           </div>
         </div>
