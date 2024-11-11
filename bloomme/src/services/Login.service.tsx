@@ -14,7 +14,6 @@ export const useLoginConnection = () => {
       });
       if(!response.ok) {
         const errorData = await response.json();
-        // console.log("🚀 ~ loginUser ~ response:", errorData);
         throw new Error(errorData.message);
       }
       const data = await response.json();
@@ -23,7 +22,11 @@ export const useLoginConnection = () => {
       localStorage.setItem("token", token); // GUARDA EL TOKEN EN LOCALSTORAGE
       localStorage.setItem("email", data.user.email);
       localStorage.setItem("username", data.user.username);
-      navigate("/home"); // A DONDE TE VA A MANDAR
+      // En tu controlador de login, construye la URL completa de la imagen
+      const avatarUrl = `https://bloomme-backend.onrender.com/uploads/${data.user.current_avatar}`;
+      localStorage.setItem("avatar", avatarUrl);
+      localStorage.setItem("background", data.user.current_background);
+      navigate("/home");
     }
     catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Error inesperado';

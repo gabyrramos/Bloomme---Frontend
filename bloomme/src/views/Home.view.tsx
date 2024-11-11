@@ -8,7 +8,8 @@ import quiz from '../assets/quiz.svg';
 import '../styles/Home.style.css';
 import { Link } from 'react-router-dom';
 
-export const Home = ({title}: {title:string}) => {
+export const Home = () => {
+  const [name, setName] = useState("");
   const [selectedColor, setSelectedColor] = useState({
     color: 'white',
     backgroundColor: '#FFFFFF',
@@ -26,6 +27,11 @@ export const Home = ({title}: {title:string}) => {
       setSelectedColor(selected);
     }
   };
+  useEffect(()=>{
+    const name = localStorage.getItem('username');
+    setName(name || '');
+  }, []);
+
   useEffect(() => {
     document.body.style.backgroundImage = "";
     document.body.style.backgroundColor = "white"; // color de fondo por defecto
@@ -34,18 +40,18 @@ export const Home = ({title}: {title:string}) => {
     <>
       <div className='container-home'>
         <div className="container-home-menu">
-          <Menu title="Ana Maria" avatarUrl={avatar} />
+          <Menu/>
         </div>
         <div className="container-home-sections">
           <div className="container-home-welcome">
             <div className="container-home-sections-welcome">
-              <p className='home-text'>Welcome, {title}! Ready to start learning and growing?</p>
+              <p className='home-text'>Welcome, {name}! Ready to start learning and growing?</p>
             </div>
             <div className="container-home-subsections">
               <div className="home-sections-profile">
                 <div className="home-avatar-card" style={{ backgroundColor: selectedColor?.backgroundColor }}>
                   <img src={avatar} alt="Avatar" className="home-avatar"/>
-                  <p className="home-name">Ana María</p>
+                  <p className="home-name">{name}</p>
                 </div>
                 <div className="background-selector">
                   <p>Background</p>
@@ -58,16 +64,6 @@ export const Home = ({title}: {title:string}) => {
                         style={{ backgroundColor: color.backgroundColor }}
                       ></span>
                     ))}
-                    {/* <span className={`home-color white ${selectedColor === 'white' ? 'selected' : ''}`}
-                      onClick={() => handleColorSelect('white')}></span>
-                    <span className={`home-color yellow ${selectedColor === 'yellow' ? 'selected' : ''}`}
-                      onClick={() => handleColorSelect('yellow')}></span>
-                    <span className={`home-color blue ${selectedColor === 'blue' ? 'selected' : ''}`}
-                      onClick={() => handleColorSelect('blue')}></span>
-                    <span className={`home-color purple ${selectedColor === 'purple' ? 'selected' : ''}`}
-                      onClick={() => handleColorSelect('purple')}></span>
-                    <span className={`home-color green ${selectedColor === 'green' ? 'selected' : ''}`}
-                      onClick={() => handleColorSelect('green')}></span> */}
                   </div>
                 </div>
               </div>
