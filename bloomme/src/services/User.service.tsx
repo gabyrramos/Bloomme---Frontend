@@ -14,7 +14,6 @@ export const useUserConnection = () => {
         throw new Error(errorData.message);
       }
       const data = await response.json();
-      console.log("🚀 ~ loginConnection ~ data:", data);
       return data;
     }
     catch (error) {
@@ -22,5 +21,29 @@ export const useUserConnection = () => {
       throw new Error(errorMessage);
     }
   };
-  return { userApi };
+
+  const userIdApi = async(userId: number) => {
+    try {
+      const url = `https://bloomme-backend.onrender.com/api/user/${userId}`;
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error ${response.status}: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      return data;
+    }
+    catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Error inesperado';
+      throw new Error(errorMessage);
+    }
+  };
+
+  return { userApi, userIdApi };
 };

@@ -1,18 +1,35 @@
-import { Link, useLocation } from 'react-router-dom';//USELOCATION es un hook proporcionado por react-router-dom que devuelve el objeto location actual de la aplicación
+import { Link, useLocation, useNavigate } from 'react-router-dom';//USELOCATION es un hook proporcionado por react-router-dom que devuelve el objeto location actual de la aplicación
 import logo from '../assets/BlueLogo.png';
 import '../styles/Menu.style.css';
 import { IMenu } from '../models/Menu.model';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faArrowRightFromBracket, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useUserConnection } from '../services/User.service';
+import { useParams } from 'react-router-dom';
 
 export const Menu = ({title, avatarUrl}: IMenu) => {
+  const { userIdApi } = useUserConnection();
+  const [userId, setUserId] = useState(0);
+  const { id } = useParams(); // Obtener el ID del usuario desde la URL
   const location = useLocation();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   // const [selected, setSelected] = useState<string | null>(null);
   const [profileOpen, setProfileOpen] = useState(false);
   const handleProfileClick = () => {
     setProfileOpen(!profileOpen);
+  };
+  useEffect(() => {
+    const handleUserId = async() => {
+      const userId = parseInt(id ?? '0'); // Convertir id a número
+      const user = await userIdApi(userId); // Llamar a userIdApi con el ID del usuario
+      setUserId(user.id);
+    };
+    handleUserId();
+  }, [userIdApi, id]);
+
+  const handleNavigate = () => {
+    navigate(`/progress/${userId}`);
   };
   // const handleClick = (option: string) => {
   //   setSelected(option);
@@ -23,7 +40,7 @@ export const Menu = ({title, avatarUrl}: IMenu) => {
       <div className='container-menu-logo'> <Link to='/home'><img src={logo} alt="Logo" className='container-menu-logo' /></Link>  </div>
       <div className='container-menu-theme'>
         <div className='menu-theme-quiz'> <Link to='/quiz' className={`menu-theme-paths ${isSelected('/quiz') ? 'selected' : ''}`}> Quiz </Link></div>
-        <div className='menu-theme-quiz'> <Link to='/progress' className={`menu-theme-paths ${isSelected('/My progres') ? 'selected' : ''}`}> My progress </Link></div>
+        <div className='menu-theme-quiz'> <button onClick={handleNavigate} className={`menu-theme-paths ${isSelected('/My progres') ? 'selected' : ''}`}> My progress </button></div>
         <div className='menu-theme-quiz'> <Link to='/paths' className={`menu-theme-paths ${isSelected('/paths') ? 'selected' : ''}`}> Paths </Link></div>
         <div className='menu-theme-quiz'> <Link to='/safe' className={`menu-theme-safeZone ${isSelected('Safe area') ? 'selected' : ''}`}> Safe area </Link></div>
         {/* <div className='menu-theme-quiz'> <Link to='/safe' className={`menu-theme-safeZone ${selected === 'Safe area' ? 'selected' : ''}`} onClick={() => handleClick('Safe area')}> Safe area </Link></div> */}

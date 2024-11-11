@@ -5,20 +5,31 @@ import { Assistant } from '../components/Assistant.component';
 import rabbit from '../assets/rabbit.png';
 import '../styles/MyProgress.style.css';
 import { useUserConnection } from '../services/User.service';
+// import { useQuizConnection } from '../services/Quiz.service';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 export const MyProgress = () => {
   const [point, setPoint] = useState(0);
-  const {userApi} = useUserConnection();
+  const { userIdApi} = useUserConnection();
+  const { id } = useParams();
+  // const { quizApi } = useQuizConnection();
+
+  // const handleQuiz = () => {
+  //   console.log(quizApi);
+  // };
 
   useEffect(() => {
-    const handlePoint = async() => {
-      const getUsers = await userApi();
-      const userPoints = getUsers[0].total_point;
-      setPoint(userPoints);
-    };
-    handlePoint();
-  },[userApi]);
+    if (id !== undefined) {
+      const handlePoint = async() => {
+        const userId = parseInt(id ?? '0');
+        const getUsers = await userIdApi(userId);
+        const userPoints = getUsers.total_point;
+        setPoint(userPoints);
+      };
+      handlePoint();
+    }
+  }, [userIdApi, id]);
   return (
     <>
       <div className="container-progress">

@@ -14,7 +14,7 @@ const App: React.FC = () => {
         <Route path='/quiz' element={<div className="body-quiz"><Quiz/></div>} />
         <Route path='/quizQuestion/:category' element={<div className="body-quizQuestion"><QuizQuestion/></div>}/>
         <Route path='/search' element={<div className="body-search"><Search/></div>}/>
-        <Route path='/progress' element={<div className="body-progress"><MyProgress/></div>}/>
+        <Route path='/progress/:id' element={<div className="body-progress"><MyProgress/></div>}/> {/*aqui debe llevar el id de la persona */}
         <Route path='/register' element={<Register />} />
         <Route path='/chat' element={<Chat />} />
         <Route path='/paths' element={<Paths />} />
