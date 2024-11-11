@@ -1,17 +1,18 @@
-.container-assistent-component {
+.container-assistant-component {
   position: fixed;
   bottom: 30px; /* Ajusta el margen inferior */
   right: 30px;  /* Ajusta el margen derecho */
   display: flex;
   align-items: center;
   flex-direction: column;
+  align-items: flex-end; /* Cambia a flex-end para alinear a la derecha */
   gap: 10px;
   z-index: 1000; /* Asegura que el asistente esté siempre encima */
 }
 .assistant-image-component {
   width: 120px;
   height: 120px;
-  margin-right: 100%;
+  /* margin-right: 100%; */
   margin-top: -10px;
 }
 
@@ -29,12 +30,13 @@
 .assistant-message-component::before {
   content: "";
   position: absolute;
-  bottom: -9px; /* Ajusta para mover el "piquito" hacia abajo */
-  left: 20px; /* Ajusta la posición horizontal del "piquito" */
+  bottom: -10px; /* Ajusta para mover el "piquito" hacia abajo */
+  /* left: 20px; */
+  right: 20px; /* Cambia left por right y ajusta la posición */
   width: 0;
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-top: 10px solid white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }

@@ -20,7 +20,7 @@ export const Menu = ({title, avatarUrl}: IMenu) => {
   const isSelected = (path:string) => location.pathname === path;
   return(
     <div className="container-menu">
-      <div className='container-menu-logo'> <img src={logo} alt="Logo" className='container-menu-logo' /> </div>
+      <div className='container-menu-logo'> <Link to='/home'><img src={logo} alt="Logo" className='container-menu-logo' /></Link>  </div>
       <div className='container-menu-theme'>
         <div className='menu-theme-quiz'> <Link to='/quiz' className={`menu-theme-paths ${isSelected('/quiz') ? 'selected' : ''}`}> Quiz </Link></div>
         <div className='menu-theme-quiz'> <Link to='/progress' className={`menu-theme-paths ${isSelected('/My progres') ? 'selected' : ''}`}> My progress </Link></div>

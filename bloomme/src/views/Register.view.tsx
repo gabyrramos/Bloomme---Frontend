@@ -9,11 +9,12 @@ function Register() {
   const [data, setData] = useState(null);
   const navigate = useNavigate();
 
-  const handleRegisterApi = async () => {
+  const handleRegisterApi = async() => {
+    debugger
     const response = await registerPost(data);
     //TODO: validar si te mandan accesstoken para que guardes eso en el localstorage sino enviar al login
     // todo bien
-    navigate("/");
+    navigate("/login");
   };
 
   useEffect(() => {

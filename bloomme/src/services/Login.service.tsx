@@ -5,12 +5,10 @@ export const useLoginConnection = () => {
   const navigate = useNavigate();
   const loginUser = async({email, password}: ILogin) => {
     try {
-      const response = await fetch('https://bloomme.free.beeceptor.com/users', {
+      const response = await fetch('https://bloomme-backend.onrender.com/api/login', {
         method: 'POST',
-        // mode: 'cors',
         headers: {
           "Content-Type": "application/json",
-          // "Authorization": `Bearer ${token}`
         },
         body: JSON.stringify({email, password}), //LOS DATOS SE ENVIAN COMO JSON EN EL CUERPO DE LA SOLICITUD
       });
@@ -21,9 +19,10 @@ export const useLoginConnection = () => {
       }
       const data = await response.json();
       console.log("🚀 ~ loginConnection ~ data:", data);
-      // localStorage.setItem("username", data.email);//SE GUARDA EN LOCAL  para mantener la sesión del usuario activa
-      localStorage.setItem("username", email);//SE GUARDA EN LOCAL  para mantener la sesión del usuario activa,
-      navigate("/"); // A DONDE TE VA A MANDAR
+      const token = data.tokenUser; // OBTIENE EL TOKEN DESPUÉS DE LA AUTENTICACIÓN
+      localStorage.setItem("token", token); // GUARDA EL TOKEN EN LOCALSTORAGE
+      localStorage.setItem("username", email);
+      navigate("/home"); // A DONDE TE VA A MANDAR
     }
     catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Error inesperado';
