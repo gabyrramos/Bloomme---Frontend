@@ -7,14 +7,14 @@ import '../styles/MyProgress.style.css';
 import { useUserConnection } from '../services/User.service';
 // import { useQuizConnection } from '../services/Quiz.service';
 import { useEffect, useState } from 'react';
-// import { useParams } from 'react-router-dom';
 
 export const MyProgress = () => {
   const [name, setName] = useState("");
   // const [avatar, setAvatar] = useState("");
   const [point, setPoint] = useState(0);
   const [quiz, setQuiz] = useState(0);
-  const {userIdApi} = useUserConnection();
+  const [available, setAvailable] = useState(0);
+  const {userIdApi, userApiPoint} = useUserConnection();
   useEffect(()=>{
     // const token: string = localStorage.getItem('token') || '';
     const name = localStorage.getItem('username');
@@ -26,10 +26,14 @@ export const MyProgress = () => {
   useEffect(() => {
     const handleUserData = async() => {
       const getUsers = await userIdApi();
+      const getUserPoint = await userApiPoint();
       const userPoints = getUsers.total_point;
       const userQuiz = getUsers.quiz_completed;
+      const userAvailable = getUserPoint;
+
       setPoint(userPoints);
       setQuiz(userQuiz);
+      setAvailable(userAvailable);
     };
     handleUserData();
   },[]);
@@ -59,7 +63,7 @@ export const MyProgress = () => {
             </div>
             <div className="vertical-line"></div>
             <div className="progress-stat-item">
-              <p className="progress-stat-value">30/90</p>
+              <p className="progress-stat-value">{available}</p>
               <p className="progress-stat-label"> Points available</p>
             </div>
           </div>

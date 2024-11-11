@@ -32,7 +32,7 @@ export const Quiz = () => {
             <img src={quiz} alt="quiz background" />
             <p>{item.name}</p>
             <button className={`button-quiz-star ${item.name === 'What would happen if...?' ? 'button-quiz-if' : ''}`}>
-              <Link to={`/quizQuestion/${item.name}`} className="quiz-link"> Start Quiz </Link>
+              <Link to={`/quizQuestion/${item.name}/${item.quiz_id}`} className="quiz-link"> Start Quiz </Link>
             </button>
           </div>
         ))}
