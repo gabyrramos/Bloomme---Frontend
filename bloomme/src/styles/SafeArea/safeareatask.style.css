@@ -1,0 +1,40 @@
+.safehome-message-box {
+    width: 450px;
+    height: 250px;
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 0px 20px 0px 20px;
+    box-shadow: 0 0 10px #f3d2d2;
+    margin-bottom: 20px;
+    overflow-y: auto; /* Agrega scroll vertical */
+    overflow-x: hidden; /* Oculta scroll horizontal */
+    word-wrap: break-word; /* Rompe palabras largas */
+    text-overflow: ellipsis;
+  }
+  
+  .safehome-message {
+    font-size: 14px;
+    font-weight: 200;
+    color:  #964d4d;
+    text-align: justify;
+    max-height: 100%;
+  }
+  .safehometask-categories {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .safehometask-category-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .safehometask-category-row {
+    display: flex;
+    gap: 30px;
+  }

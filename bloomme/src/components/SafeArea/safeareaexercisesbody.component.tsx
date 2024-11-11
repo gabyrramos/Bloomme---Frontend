@@ -4,7 +4,9 @@ import sadbunny from "../../assets/safearea/sadbunny.png";
 import '../../styles/SafeArea/safeareabody.style.css';
 import { Link } from 'react-router-dom';
 
-const SafeAreaBody: React.FC = () => {
+
+const SafeAreaExercisesBody: React.FC = () => {
+  
   const [showModal, setShowModal] = useState(false);
   
   const handleEmergencyClick = () => {
@@ -14,8 +16,6 @@ const SafeAreaBody: React.FC = () => {
 
   const handleCloseModal = () => setShowModal(false);
 
-  
-  
   return (
     <div className="safehome-container">
       {/* <div className="safehome-divider">
@@ -25,17 +25,15 @@ const SafeAreaBody: React.FC = () => {
         <img src={sadbunny} alt="Sad Bunny" />
       </div>
       <div className="safehome-right">
-      <h2 className="safehome-question">How do you feel now?</h2>
+      <h2 className="safehome-question">Lets try to manage our emotions with some exercises</h2>
         <div className="safehome-categories">
           <div className="safehome-category-column">
-          <Link to="/safearea/:exercises" className="safehome-category-btn">Angry</Link>
-          <Link to="/safearea/:exercises" className="safehome-category-btn">Anxious</Link>
-          <Link to="/safearea/:exercises" className="safehome-category-btn">Sad</Link>
+          <Link to="/safearea/:exercises/:task" className="safehome-category-btn">Breathing exercise</Link>
+          <Link to="/safearea/:exercises/:task" className="safehome-category-btn">Meditation</Link>
           </div>
           <div className="safehome-category-column">
-          <Link to="/safearea/:exercises" className="safehome-category-btn">Worried</Link>
-          <Link to="/safearea/:exercises" className="safehome-category-btn">Overwhelmed</Link>
-          <Link to="/safearea/:exercises" className="safehome-category-btn">Tired</Link>
+          <Link to="/safearea/:exercises/:task" className="safehome-category-btn">Meditation</Link>
+          <Link to="/safearea/:exercises/:task" className="safehome-category-btn">Meditation</Link>
           </div>
         </div>
       </div>
@@ -47,4 +45,4 @@ const SafeAreaBody: React.FC = () => {
   );
 };
 
-export default SafeAreaBody;
+export default SafeAreaExercisesBody;
