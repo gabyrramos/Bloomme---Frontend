@@ -15,7 +15,7 @@ export const MyProgress = () => {
   const [point, setPoint] = useState(0);
   const [quiz, setQuiz] = useState(0);
   const {userIdApi} = useUserConnection();
-   useEffect(()=>{
+  useEffect(()=>{
     // const token: string = localStorage.getItem('token') || '';
     const name = localStorage.getItem('username');
     // const avatarUrl = localStorage.getItem('avatar');
