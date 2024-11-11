@@ -1,18 +1,13 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';//USELOCATION es un hook proporcionado por react-router-dom que devuelve el objeto location actual de la aplicación
 import logo from '../assets/BlueLogo.png';
 import '../styles/Menu.style.css';
-import { IMenu } from '../models/Menu.model';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faArrowRightFromBracket, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
-// import { useUserConnection } from '../services/User.service';
-// import { useParams } from 'react-router-dom';
 
-export const Menu = ({avatarUrl}: IMenu) => {
+export const Menu = () => {
   const [name, setName] = useState("");
-  // const { userIdApi } = useUserConnection();
-  // const [userId, setUserId] = useState(0);
-  // const { id } = useParams();
+  const [avatarUrl, setAvatarUrl] = useState('');
   const location = useLocation();
   const navigate = useNavigate();
   const [profileOpen, setProfileOpen] = useState(false);
@@ -21,16 +16,10 @@ export const Menu = ({avatarUrl}: IMenu) => {
   };
   useEffect(()=>{
     const name = localStorage.getItem('username');
+    const avatar = localStorage.getItem('avatar'); // Obtiene la URL del avatar desde localStorage
     setName(name || '');
+    setAvatarUrl(avatar || ''); // Establece el avatar en el estado
   }, []);
-  // useEffect(() => {
-  //   const handleUserId = async() => {
-  //     const userId = parseInt(id ?? '0');
-  //     const user = await userIdApi(userId);
-  //     setUserId(user.id);
-  //   };
-  //   handleUserId();
-  // }, [userIdApi, id]);
 
   const handleNavigate = () => {
     navigate(`/progress/`);

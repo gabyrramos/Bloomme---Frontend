@@ -10,42 +10,34 @@ import { useEffect, useState } from 'react';
 // import { useParams } from 'react-router-dom';
 
 export const MyProgress = () => {
+  const [name, setName] = useState("");
+  // const [avatar, setAvatar] = useState("");
   const [point, setPoint] = useState(0);
+  const [quiz, setQuiz] = useState(0);
   const {userIdApi} = useUserConnection();
-  // const token: string = localStorage.getItem('token') || '';
+  useEffect(()=>{
+    // const token: string = localStorage.getItem('token') || '';
+    const name = localStorage.getItem('username');
+    // const avatarUrl = localStorage.getItem('avatar');
+    setName(name || '');
+    // setAvatar(avatarUrl || '');
+  }, []);
 
-  // const { userIdApi} = useUserConnection();
-  // const { id } = useParams();
-  // const { quizApi } = useQuizConnection();
-
-  // const handleQuiz = () => {
-  //   console.log(quizApi);
-  // };
-
-  // useEffect(() => {
-  //   // if (id !== undefined) {
-  //     const handlePoint = async() => {
-  //       // const userId = parseInt(id ?? '0');
-  //       // const getUsers = await userIdApi(userId);
-  //       const userPoints = getUsers[0].total_point;
-  //       setPoint(userPoints);
-  //     };
-  //     handlePoint();
-  //   }
-  // }, []);
   useEffect(() => {
-    const handlePoint = async() => {
+    const handleUserData = async() => {
       const getUsers = await userIdApi();
-      const userPoints = getUsers;
+      const userPoints = getUsers.total_point;
+      const userQuiz = getUsers.quiz_completed;
       setPoint(userPoints);
+      setQuiz(userQuiz);
     };
-    handlePoint();
-  },[userIdApi]);
+    handleUserData();
+  },[]);
   return (
     <>
       <div className="container-progress">
         <div className="container-progress-menu">
-          <Menu title="Ana María" avatarUrl={avatar} />
+          <Menu/>
         </div>
         <div className="container-progress-title">
           <Title title='My progress'/>
@@ -53,21 +45,22 @@ export const MyProgress = () => {
         <div className='container-progress-profileStat'>
           <div className="progress-profile-section">
             <img src={avatar} alt="avatar" className="profile-avatar" />
-            <p className="progress-profile-name">Ana María</p>
+            <p className="progress-profile-name">{name}</p>
             <span className="progress-edit-icon">✎</span>
           </div>
           <div className="progress-stats-section">
             <div className="progress-stat-item">
               <p className="progress-stat-value">{point}</p>
-              <p className="progress-stat-label">Points</p>
+              <p className="progress-stat-label">Total points</p>
             </div>
             <div className="progress-stat-item">
-              <p className="progress-stat-value">4/100</p>
-              <p className="progress-stat-label">Quizzes Complete</p>
+              <p className="progress-stat-value">{quiz}</p>
+              <p className="progress-stat-label">Quizzes Completes</p>
             </div>
+            <div className="vertical-line"></div>
             <div className="progress-stat-item">
               <p className="progress-stat-value">30/90</p>
-              <p className="progress-stat-label">Paths Complete</p>
+              <p className="progress-stat-label"> Points available</p>
             </div>
           </div>
         </div>
@@ -75,18 +68,22 @@ export const MyProgress = () => {
           <div className="progress-unlocked">
             <p>Unlocked</p>
             <div className="progress-avatars">
-              {/* Usa múltiples imágenes de avatar aquí */}
+              {/* Usa múltiples imágenes de avatar aquí traerlas de la base */}
               <img src={avatar} alt="avatar" />
               <img src={avatar} alt="avatar" />
-              {/* Agrega más imágenes según sea necesario */}
             </div>
           </div>
           <div className="progress-upcoming">
             <p>Upcoming awards</p>
             <div className="progress-avatars">
-              <img src={avatar} alt="avatar" className="progress-blocked" />
-              <img src={avatar} alt="avatar" className="progress-blocked" />
-              {/* Agrega más imágenes bloqueadas según sea necesario */}
+              <div className="avatar-item">
+                <img src={avatar} alt="avatar" className="progress-blocked" />
+                <p>100</p>
+              </div>
+              <div className="avatar-item">
+                <img src={avatar} alt="avatar" className="progress-blocked" />
+                <p>100</p>
+              </div>
             </div>
           </div>
         </div>
