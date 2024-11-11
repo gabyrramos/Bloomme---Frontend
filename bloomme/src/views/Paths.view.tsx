@@ -1,45 +1,39 @@
 import { Menu } from "../components/Menu.component";
 import avatar from "../assets/avatar.svg";
 import PathCard from "../components/PathPage/PathCard.component";
-import bodyImage from "../assets/PathsPage/care-of-my-body-path.png";
-import healthImage from "../assets/PathsPage/reproductive-health-path.png";
-import boundariesImage from "../assets/PathsPage/my-boundaries-path.png";
-import selfImage from "../assets/PathsPage/self-knowledge-path.png";
 import bunny from "../assets/PathsPage/bunny-path.png";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"; // Importa useNavigate para redirección
+import { pathsGet } from "../services/Path.service";
 
 interface IPath {
   title: string;
   imageUrl: string;
 }
 
-const data: IPath[] = [
-  {
-    title: "Taking Care of My Body",
-    imageUrl: `${bodyImage}`,
-  },
-  {
-    title: "Knowing My Boundaries",
-    imageUrl: `${boundariesImage}`,
-  },
-  {
-    title: "Empowerment and Self-Knowledge",
-    imageUrl: `${selfImage}`,
-  },
-  {
-    title: "Taking Care of My Sexual and Reproductive Health",
-    imageUrl: `${healthImage}`,
-  },
-  // Add more paths as needed...
-];
-
 function Paths() {
   const [paths, setPaths] = useState<IPath[]>([]);
   const navigate = useNavigate(); // Declara el hook useNavigate
 
+  const handlePaths = async() => {
+    try {
+      const response = await pathsGet();
+      const data = response.map((path) => ({
+        title: path.name,
+        imageUrl: 'https://i.ibb.co/VQTxs8P/reproductive-health-path.png',
+      }));
+      console.log("response", response);
+      console.log("data", data);
+      setPaths(data);
+    } catch (error) {
+      console.error("Error al enviar el mensaje:", error);
+    }
+  };
+
+  console.log("paths", paths);
+
   useEffect(() => {
-    setPaths(data);
+    handlePaths();
   }, []);
 
   // Función para manejar el clic en un PathCard
@@ -55,7 +49,10 @@ function Paths() {
 
       <div className="gap-6 grid grid-cols-1 md:grid-cols-2 px-6 w-full max-w-6xl">
         {paths.map((path, index) => (
-          <div key={index} className="cursor-pointer" onClick={() => handlePathClick(index)} // Redirige al hacer clic
+          <div
+            key={index}
+            className="cursor-pointer"
+            onClick={() => handlePathClick(index)} // Redirige al hacer clic
           >
             <PathCard title={path.title} imageUrl={path.imageUrl} />
           </div>
