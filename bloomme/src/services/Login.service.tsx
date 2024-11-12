@@ -25,6 +25,7 @@ export const useLoginConnection = () => {
       localStorage.setItem("avatar", data.user.current_avatar);
       const backgrounds = data.user.current_background; // Obtén las imágenes de fondo
       localStorage.setItem("background", backgrounds);
+      localStorage.setItem("assistant", data.user.assistant_id  );
       navigate("/home");
     }
     catch (error) {

@@ -1,4 +1,4 @@
-export const useUserConnection = () => {
+export const useAssistantConnection = () => {
   const assistantApi = async() => {
     try {
       const response = await fetch('https://bloomme-backend.onrender.com/api/assistant', {

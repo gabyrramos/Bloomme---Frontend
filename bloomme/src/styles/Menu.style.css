@@ -1,5 +1,6 @@
 .container-menu {
-  background-color: #F29FB3;
+  font-weight: bold;
+  background-color: #f29fb4;
   justify-content: space-between;
   align-items: center;
   display: flex;
@@ -7,13 +8,13 @@
   width: 100%;
   top: 0;
   left: 0;
-  font-size: 1.3em; 
+  font-size: 1.2em; 
   color: white;
 }
 .container-menu-logo{/*PROVISIONAL DEL TAMAÑO PARA EL LOGO*/
   margin-left: 5px;
   width: 180px;
-  height: 10vh;  
+  height: 100px;  
 }
 .container-menu-theme{
   margin-right: 25%;
@@ -23,13 +24,14 @@
   gap: 40px; /* Espacio entre los elementos internos */
 }
 .menu-theme-quiz, .menu-theme-paths, .menu-theme-safeZone {
+  font-weight: bold;
   text-decoration: none;
   color: white;
 }
 
 .menu-theme-quiz:hover, .menu-theme-paths:hover, .menu-theme-safeZone:hover {
   background-color: rgba(255, 254, 254, 0.5);
-  border-radius: 5px;
+  border-radius: 20px;
 }
 
 .selected {
@@ -39,7 +41,11 @@
 }
 .container-menu-perfil{
   display: flex;
+  align-items: center;
   gap: 10px; /* Espacio entre los elementos internos */
+}
+.container-menu-perfil-name{
+  font-weight: bold;
 }
 .container-menu-perfil-avatar{
   display: flex;
@@ -51,7 +57,7 @@
   cursor: pointer;
 }
 .menu-perfil-avatar{
-  width: 25px;
+  width: 35px;
 }
 .menu-dropdown{
   position: absolute;
@@ -73,9 +79,9 @@
   margin-bottom: 10px;
 }
 .menu-dropdown li:hover {
-  background-color: rgba(95, 82, 82, 0.2);
+  background-color: rgba(89, 95, 82, 0.2);
   color: #fff;
-  border-radius: 8px;
+  border-radius: 20px;
 }
 .menu-dropdown a {
   text-decoration: none;

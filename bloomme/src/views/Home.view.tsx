@@ -8,11 +8,11 @@ import '../styles/Home.style.css';
 import { Link } from 'react-router-dom';
 import { useRewardConnection } from '../services/Reward.service';
 import { useQuizConnection } from '../services/Quiz.service';
-import ProfileModal from '../components/SafeArea/ProfileModal.component';
+// import ProfileModal from '../components/SafeArea/ProfileModal.component';
 const quotesImages = import.meta.glob('../assets/BloommeQuotes/*.png', { eager: true });
 
 export const Home = () => {
-  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);//BORRAR ES PARA USAR EL MODAL DE GABI
+  // const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);//BORRAR ES PARA USAR EL MODAL DE GABI
   const [category, setCategory] = useState<{name: string, quiz_id: number}[]>([]);
   const {quizApi} = useQuizConnection();
   const [name, setName] = useState("");
@@ -20,13 +20,13 @@ export const Home = () => {
   const [background, setBackground] = useState([]);
   const [randomImage, setRandomImage] = useState("");
   const {rewardApi} = useRewardConnection();
-  const handleOpenProfileModal = () => {//BORRAR ES PARA USAR EL MODAL DE GABI
-    setIsProfileModalOpen(true);
-  };
+  // const handleOpenProfileModal = () => {//BORRAR ES PARA USAR EL MODAL DE GABI
+  //   setIsProfileModalOpen(true);
+  // };
 
-  const handleCloseProfileModal = () => {//BORRAR ES PARA USAR EL MODAL DE GABI
-    setIsProfileModalOpen(false);
-  };
+  // const handleCloseProfileModal = () => {//BORRAR ES PARA USAR EL MODAL DE GABI
+  //   setIsProfileModalOpen(false);
+  // };
   // Establece una imagen por defecto y recupera la selección guardada en localStorage
   const [selectedColor, setSelectedColor] = useState({
     color: 'background',
@@ -96,9 +96,9 @@ export const Home = () => {
         </div>
         <div className="container-home-sections">
           {/* Botón para abrir el modal */}
-          <button onClick={handleOpenProfileModal}>Open Profile</button>
+          {/* <button onClick={handleOpenProfileModal}>Open Profile</button> */}
           {/* Modal con los datos del usuario */}
-          <ProfileModal isOpen={isProfileModalOpen} onClose={handleCloseProfileModal} />
+          {/* <ProfileModal isOpen={isProfileModalOpen} onClose={handleCloseProfileModal} /> */}
           <div className="container-home-welcome">
             <div className="container-home-sections-welcome">
               <p className='home-text'>Welcome, {name}! Ready to start learning and growing?</p>
