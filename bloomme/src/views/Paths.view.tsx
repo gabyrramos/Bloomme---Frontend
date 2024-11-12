@@ -18,9 +18,10 @@ function Paths() {
   const handlePaths = async() => {
     try {
       const response = await pathsGet();
+      console.log(response)
       const data = response.map((path) => ({
         title: path.name,
-        imageUrl: 'https://i.ibb.co/VQTxs8P/reproductive-health-path.png',
+        imageUrl: path.image,
       }));
       console.log("response", response);
       console.log("data", data);
