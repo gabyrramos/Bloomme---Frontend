@@ -1,6 +1,6 @@
 import React from "react";
 import cancelX from "../../assets/safearea/cancelX.png";
-import saveicon from "../../assets/safearea/saveIcon.png";
+import saveicon from "../../assets/safearea/saveicon.png";
 import toolsbunny from "../../assets/safearea/toolsbunny.png";
 import servicesarrow from "../../assets/servicesarrow.png";
 import "../../styles/SafeArea/profilemodal.style.css";
