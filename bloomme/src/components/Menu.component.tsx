@@ -17,7 +17,6 @@ export const Menu = () => {
   useEffect(()=>{
     const name = localStorage.getItem('username');
     const avatar = localStorage.getItem('avatar'); // Obtiene la URL del avatar desde localStorage
-    console.log("🚀 ~ useEffect ~ avatar:", avatar)
     setName(name || '');
     setAvatarUrl(avatar || ''); // Establece el avatar en el estado
   }, []);

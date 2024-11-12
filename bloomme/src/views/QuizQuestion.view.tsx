@@ -26,6 +26,7 @@ export const QuizQuestion = () =>{
     const handleQuizAI = async() => {
       const id = parseInt(categoryId || "");
       const response = await quizApiAI(id);
+      console.log("🚀 ~ handleQuizAI ~ response:", response);
       setQuestion(response.questions);
     };
     handleQuizAI();
@@ -120,6 +121,23 @@ export const QuizQuestion = () =>{
   );
 };
 
+/*
+currentQuestion: el índice de la pregunta actual.
+score: la puntuación acumulada del usuario.
+isFinished: un indicador de si el quiz ha terminado.
+selectedAnswers: un objeto que almacena las respuestas seleccionadas por el usuario.
+isOpen: un indicador de si el modal de resultado está abierto.
+question: un arreglo de objetos que representa las preguntas del quiz.
+El efecto useEffect se utiliza para obtener las preguntas del quiz desde la API cuando el componente se monta.
+
+
+handleAnswerChange: actualiza la respuesta seleccionada para la pregunta actual.
+handleNextQuestion: verifica la respuesta seleccionada, suma puntos si es correcta y cambia a la siguiente pregunta o finaliza el quiz.
+handleOpenModal: abre el modal de resultado.
+handleClose: cierra el modal de resultado y navega a la página de inicio.
+
+
+*/
 
 
 

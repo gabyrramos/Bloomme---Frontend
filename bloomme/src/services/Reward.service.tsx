@@ -24,5 +24,5 @@ export const useRewardConnection = (type:string) => {
       throw new Error(errorMessage);
     }
   };
-  return rewardApi;
+  return {rewardApi};
 };

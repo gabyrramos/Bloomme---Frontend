@@ -1,6 +1,5 @@
 import { Menu } from '../components/Menu.component';
 import { Title } from '../components/Title.component';
-import avatar from '../assets/avatar.svg';
 import { Assistant } from '../components/Assistant.component';
 import rabbit from '../assets/rabbit.png';
 import '../styles/MyProgress.style.css';
@@ -11,9 +10,9 @@ import { useRewardConnection } from '../services/Reward.service';
 
 export const MyProgress = () => {
   const [name, setName] = useState("");
-  // const [avatar, setAvatar] = useState("");
-  const {rewardApi} = useRewardConnection();
-  const [rewards, setRewards] = useState([]);
+  const [avatar, setAvatar] = useState("");
+  // const {rewardApi} = useRewardConnection('avatar');
+  // const [rewards, setRewards] = useState([]);
   const [point, setPoint] = useState(0);
   const [quiz, setQuiz] = useState(0);
   const [available, setAvailable] = useState(0);
@@ -21,9 +20,9 @@ export const MyProgress = () => {
   useEffect(()=>{
     // const token: string = localStorage.getItem('token') || '';
     const name = localStorage.getItem('username');
-    // const avatarUrl = localStorage.getItem('avatar');
+    const avatar = localStorage.getItem('avatar');
     setName(name || '');
-    // setAvatar(avatarUrl || '');
+    setAvatar(avatar || '');
   }, []);
 
   useEffect(() => {
@@ -40,18 +39,18 @@ export const MyProgress = () => {
     };
     handleUserData();
   },[]);
-  useEffect(() => {
-    const fetchRewards = async() => {
-      try {
-        const data = await rewardApi();
-        console.log("🚀 ~ fetchRewards ~ data:", data)
-        setRewards(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchRewards();
-  }, []);
+  // useEffect(() => {
+  //   const fetchRewards = async() => {
+  //     try {
+  //       const data = await rewardApi();
+  //       console.log(" ~ fetchRewards ~ data:", data)
+  //       setRewards(data);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
+  //   fetchRewards();
+  // }, []);
   return (
     <>
       <div className="container-progress">
@@ -89,7 +88,10 @@ export const MyProgress = () => {
             <div className="progress-avatars">
               {/* Usa múltiples imágenes de avatar aquí traerlas de la base */}
               <img src={avatar} alt="avatar" />
-              <img src={rewards} alt="avatar" />
+              <img src={avatar} alt="avatar" />
+              {/* {rewards.map((reward, index) => (
+                <img src={reward.image} alt={reward.name} key={index} />
+              ))} */}
             </div>
           </div>
           <div className="progress-upcoming">
