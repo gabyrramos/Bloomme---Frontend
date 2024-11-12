@@ -1,7 +1,7 @@
-export const getModule = async (moduleId: number) => {
+export const pathModulesGet = async(pathId: string) => {
   try {
     const response = await fetch(
-      `https://bloomme-backend.onrender.com/api/module/${moduleId}`,
+      `https://bloomme-backend.onrender.com/api/${pathId}/modules`,
       {
         method: "GET",
         headers: {
@@ -9,14 +9,17 @@ export const getModule = async (moduleId: number) => {
         },
       },
     );
+
     if (!response.ok) {
       const errorData = await response.json();
       throw new Error(errorData.message);
     }
+
     const resData = await response.json();
+    console.log(resData);
     return resData;
   } catch (error) {
-    console.log(error);
+    console.log({ error });
     const errorMessage =
       error instanceof Error ? error.message : "Error inesperado";
     throw new Error(errorMessage);

@@ -52,7 +52,7 @@ function Paths() {
           <div
             key={index}
             className="cursor-pointer"
-            onClick={() => handlePathClick(index)} // Redirige al hacer clic
+            onClick={() => handlePathClick(index + 1)} // Redirige al hacer clic
           >
             <PathCard title={path.title} imageUrl={path.imageUrl} />
           </div>
