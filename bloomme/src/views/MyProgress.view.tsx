@@ -109,7 +109,7 @@ export const MyProgress = () => {
           </div>
         </div>
         <div className="progress-assistant-section">
-          <Assistant text="¿En que puedo ayudarte?" rabbitUrl={rabbit} />
+          <Assistant text="How can I help you?" />
         </div>
       </div>
     </>
