@@ -4,7 +4,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(114, 113, 113, 0.5);
+    background: rgba(244, 219, 219, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,10 +12,11 @@
   }
   
   .profile-modal {
-    background-color:#f29fb3;
+    background-color:#fca5bc;
     padding: 20px;
     border-radius: 8px;
     width: 500px;
+    height: 650px;
     text-align: center;
     position: relative;
   }
@@ -50,8 +51,9 @@
   
   .profilemodal-buttons {
     display: flex;
-    justify-content: space-between;
+    margin-left: 10px;
     margin-top: 20px;
+    gap: 10px;
   }
   
   .profilecancel-btn,
@@ -71,7 +73,7 @@
   }
   
   .tools-bunny {
-    width: 100px;
+    width: 180px;
     position: absolute;
     bottom: -30px;
     right: -30px;
@@ -83,4 +85,8 @@
   .servicearrow img {
     display: block;
     margin: 0 auto;
+  }
+
+  .close-button{
+    margin-right: -400px;
   }
