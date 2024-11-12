@@ -10,7 +10,6 @@ function Register() {
   const navigate = useNavigate();
 
   const handleRegisterApi = async() => {
-    debugger
     const response = await registerPost(data);
     //TODO: validar si te mandan accesstoken para que guardes eso en el localstorage sino enviar al login
     // todo bien

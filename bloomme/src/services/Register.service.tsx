@@ -14,7 +14,7 @@ export const registerPost = async(data) => {
     }
 
     const resData = await response.json();
-    console.log(resData);
+    localStorage.setItem("assistant", resData.assistant_id  );
     return resData;
   } catch (error) {
     console.log({ error });

@@ -1,45 +1,85 @@
 import { useEffect, useState } from 'react';
 import { Menu } from '../components/Menu.component';
 import { Assistant } from '../components/Assistant.component';
-import avatar from '../assets/avatar.svg';
 import rabitt from '../assets/rabbit.png';
-import day from '../assets/phrases.svg';
+// import day from '../assets/phrases.svg';
 import quiz from '../assets/quiz.svg';
 import '../styles/Home.style.css';
 import { Link } from 'react-router-dom';
+import { useRewardConnection } from '../services/Reward.service';
+import { useQuizConnection } from '../services/Quiz.service';
+const quotesImages = import.meta.glob('../assets/BloommeQuotes/*.png', { eager: true });
 
 export const Home = () => {
+  const [category, setCategory] = useState<{name: string, quiz_id: number}[]>([]);
+  const {quizApi} = useQuizConnection();
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
+  const [background, setBackground] = useState([]);
+  const [randomImage, setRandomImage] = useState("");
+  const {rewardApi} = useRewardConnection();
+  // Establece una imagen por defecto y recupera la selección guardada en localStorage
   const [selectedColor, setSelectedColor] = useState({
-    color: 'white',
-    backgroundColor: '#FFFFFF',
+    color: 'background',
+    backgroundColor: localStorage.getItem('background') || 'pink)', // Ruta de la imagen por defecto
   });
-  const colors = [
-    { color: 'white', backgroundColor: '#FFFFFF' },
-    { color: 'yellow', backgroundColor: '#F2D694' },
-    { color: 'blue', backgroundColor: '#8ED2FF' },
-    { color: 'purple', backgroundColor: '#D1A1FF' },
-    { color: 'green', backgroundColor: '#A5E6C6' },
-  ];
-  const handleColorSelect = (color:string) => {
-    const selected = colors.find((c) => c.color === color);
-    if (selected) {
-      setSelectedColor(selected);
-    }
+  const handleImageSelect = (imageUrl) => {
+    const selectedBackground = {
+      color: 'background',
+      backgroundColor: `url(${imageUrl})`,
+    };
+    setSelectedColor(selectedBackground);
+    localStorage.setItem('background  ', `${imageUrl}`); // Guarda la selección en localStorage
   };
+
+  useEffect(() => {
+    const handleQuiz = async() =>{
+      const response = await quizApi();
+      console.log("🚀 ~ handleQuiz ~ response:", response);
+      setCategory(response);
+    };
+    handleQuiz();
+  },[])
+  // useEffect(() => {
+  //   const handleReward = async() =>{
+  //     const response = await rewardApiBackground();
+  //     console.log("🚀 ~ handleReward ~ response:", response);
+  //     setBackground(response);
+  //   };
+  //   handleReward();
+  // },[]);
+  useEffect(() => {
+    const handleBackground = async() => {
+      try {
+        const response = await rewardApi("background");
+        console.log("🚀 ~ handleBackground ~ response:", response.rewards[0].image)
+        setBackground(response.rewards);
+      } catch (error) {
+        console.log("🚀 ~ handleBackground ~ error:", error)
+      }
+    }
+    handleBackground();
+
+  },[]);
   useEffect(()=>{
     const name = localStorage.getItem('username');
     const avatar = localStorage.getItem('avatar');
-    console.log("🚀 ~ useEffect-home ~ avatar:", avatar)
+    // const background = localStorage.getItem('background');
     setName(name || '');
     setAvatar(avatar || '');
+    // setBackground(background || '');
   }, []);
-
   useEffect(() => {
     document.body.style.backgroundImage = "";
     document.body.style.backgroundColor = "white"; // color de fondo por defecto
   }, []);
+  useEffect(() => {
+    // Obtener todas las rutas de las imágenes
+    const imagePaths = Object.values(quotesImages).map((module) => module.default);
+    // Seleccionar una imagen aleatoria
+    const randomIndex = Math.floor(Math.random() * imagePaths.length);
+    setRandomImage(imagePaths[randomIndex]);
+  }, []); // Esto se ejecutará solo una vez al cargar la página
   return (
     <>
       <div className='container-home'>
@@ -60,13 +100,17 @@ export const Home = () => {
                 <div className="background-selector">
                   <p>Background</p>
                   <div className="home-colors">
-                    {colors.map((color) => (
+                    {background.map((bg, index) => (
                       <span
-                        key={color.color}
-                        className={`home-color ${color.color} ${selectedColor.color === color.color ? 'selected' : ''}`}
-                        onClick={() => handleColorSelect(color.color)}
-                        style={{ backgroundColor: color.backgroundColor }}
-                      ></span>
+                        key={index}
+                        onClick={() => handleImageSelect(bg.image)}
+                        style={{
+                          backgroundImage: `url(${bg.image})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                        }}
+                        className={`home-color ${selectedColor.backgroundColor === `url(${bg.image})` ? 'selected' : ''}`}
+                      />
                     ))}
                   </div>
                 </div>
@@ -85,7 +129,8 @@ export const Home = () => {
               <div className="home-sections-day">
                 <p>Phrase of the day</p>
                 <div className='home-sections-day-back'>
-                  <img src={day} alt="phrases of day" className='home-phrases'/>
+                  {/* Mostrar la imagen aleatoria seleccionada */}
+                  {randomImage && <img src={randomImage} alt="phrase of the day" className='home-phrases' />}
                 </div>
               </div>
             </div>
@@ -95,21 +140,15 @@ export const Home = () => {
               <p className='home-quiz'> Recommended quizzes</p>
             </div>
             <div className="home-quiz-cards">
-              <div className="home-quiz-card">
-                <img src={quiz} alt="Quiz Image"/>
-                <p className="home-quiz-title">Know yourself</p>
-                <button className="home-quiz-button"><Link to='/quizQuestion/Know yourself'>Start Quiz</Link></button>
-              </div>
-              <div className="home-quiz-card">
-                <img src={quiz} alt="Quiz Image"/>
-                <p className="home-quiz-title">Myths</p>
-                <button className="home-quiz-button"><Link to='/quizQuestion/Myths'>Start Quiz</Link></button>
-              </div>
-              <div className="home-quiz-card">
-                <img src={quiz} alt="Quiz Image"/>
-                <p className="home-quiz-title">Moral Dilemma</p>
-                <button className="home-quiz-button"><Link to='/quizQuestion/Moral Dilemma'>Start Quiz</Link></button>
-              </div>
+              {category.slice(0, 3).map((item)=>(
+                <div key={item.name} className="home-quiz-card">
+                  <img src={quiz} alt="quiz background" />
+                  <p className="home-quiz-title">{item.name}</p>
+                  <button className={`home-quiz-button`}>
+                    <Link to={`/quizQuestion/${item.name}/${item.quiz_id}`} className="quiz-link"> Start Quiz </Link>
+                  </button>
+                </div>
+              ))}
             </div>
           </div>
           <div className="container-home-sections-assistent">
