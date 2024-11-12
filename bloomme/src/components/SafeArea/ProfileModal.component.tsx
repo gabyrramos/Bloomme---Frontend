@@ -22,21 +22,48 @@ interface FormData {
 
 function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
   const { userIdApi } = useUserConnection();
-  const [formData, setFormData] = useState<FormData>({});
+  const [formData, setFormData] = useState<FormData>({
+    username: '',
+    password: '',
+    age: 0,
+    country: '',
+    assistant_name: '',
+  });
   const [isEditing, setIsEditing] = useState(false);
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const data = await userIdApi();
-        setFormData(data);
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchUserData = async() => {
+  //     try {
+  //       const data = await userIdApi();
+  //       console.log("🚀 ~ fetchUserData ~ data:", data);
+  //       setFormData(data);
+  //     } catch (error) {
+  //       console.error("Error fetching user data:", error);
+  //     }
+  //   };
+  //   fetchUserData();
+  // }, []);
 
-    fetchUserData();
-  }, []);
+  const fetchUserData = async() => {//yo lo puse
+    try {
+      const data = await userIdApi();
+      console.log("🚀 ~ fetchUserData ~ data:", data); // Verifica la estructura de los datos aquí
+      setFormData({
+        username: data.username || '',
+        country: data.country || '',
+        age: data.age || 0,
+        password: data.password || '',
+        assistant_name: data.assistant_name || ''
+      });
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  };
+  useEffect(() => { //yo lo puse
+    if (isOpen) {
+      fetchUserData();
+    }
+  }, [isOpen]);
 
   const handleEditToggle = () => {
     if (isEditing) {
@@ -45,15 +72,18 @@ function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
     setIsEditing(!isEditing);
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData((prevData) => ({
+  //     ...prevData,
+  //     [name]: value,
+  //   }));
+  // };
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  const handleSave = async () => {
+  const handleSave = async() => {
     try {
       await userUpdateModal(formData);
       setIsEditing(false);
