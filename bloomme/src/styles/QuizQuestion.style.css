@@ -8,6 +8,10 @@
 .container-quiz-menu{
   width: 100%;
 }
+.container-title{
+  font-size: 1.6em;
+  margin-top: 1%;
+}
 .container-quizQuestion-star{
   height: 60vh;
   width: 60%;

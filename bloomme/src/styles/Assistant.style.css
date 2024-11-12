@@ -1,42 +1,32 @@
 .container-assistant-component {
   position: fixed;
-  bottom: 30px; /* Ajusta el margen inferior */
-  right: 30px;  /* Ajusta el margen derecho */
+  bottom: 30px;
+  right: 30px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  align-items: flex-end; /* Cambia a flex-end para alinear a la derecha */
+  align-items: flex-end;
   gap: 10px;
-  z-index: 1000; /* Asegura que el asistente esté siempre encima */
+  z-index: 1000;
 }
 .assistant-image-component {
   width: 120px;
   height: 120px;
-  /* margin-right: 100%; */
+  
   margin-top: -10px;
+}
+.assistant-image-component img {
+  transform: scaleX(-1); 
 }
 
 .assistant-message-component {
-  background-color: white;
+  background-color: #F5BABA; 
+  color: #fff;
   padding: 10px 15px;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-size: 1em;
-  color: #333;
-  position: relative; /* Necesario para el pseudo-elemento */
-}
-
-/* Agrega el "piquito" */
-.assistant-message-component::before {
-  content: "";
-  position: absolute;
-  bottom: -10px; /* Ajusta para mover el "piquito" hacia abajo */
-  /* left: 20px; */
-  right: 20px; /* Cambia left por right y ajusta la posición */
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid white;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  border-radius: 20px 20px 0 20px; 
+  max-width: 200px; 
+  display: inline-block;
+  position: relative;
+  margin: -50px 102px;
+  text-align: center;
 }

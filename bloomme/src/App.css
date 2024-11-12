@@ -3,11 +3,13 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
 }
 .body-quiz{
-  background-color: #E6889F;
+  /* background-color: #E6889F; */
+  background-color: #f29fb4;
+  min-height: 100vh;
 }
 .body-search{
   background-color: #F29FB3;
