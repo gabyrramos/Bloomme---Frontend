@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getAllEmotions, addEmotion } from '../../services/safeArea.service';
+import { getAllEmotions } from '../../services/safeArea.service';
 import EmergencyModal from "./EmergencyModal.component";
 import sadbunny from "../../assets/safearea/sadbunny.png";
 import '../../styles/SafeArea/safeareabody.style.css';
@@ -56,7 +56,7 @@ const SafeAreaBody: React.FC = () => {
          </div>
        </div>
       ) : (
-        <p>Fetching...</p>
+        <p>Loading...</p>
       )}
        
       </div>
