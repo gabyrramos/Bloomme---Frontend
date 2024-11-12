@@ -44,6 +44,7 @@ export const MyProgress = () => {
     const fetchRewards = async() => {
       try {
         const data = await rewardApi();
+        console.log("🚀 ~ fetchRewards ~ data:", data)
         setRewards(data);
       } catch (error) {
         console.error(error);
