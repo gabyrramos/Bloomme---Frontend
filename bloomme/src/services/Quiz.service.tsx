@@ -53,12 +53,12 @@ export const useQuizConnection = () => {
   };
   const quizApiAnswers = async(param) => {
     try {
-      // const token = localStorage.getItem('token');
+      const token = localStorage.getItem('token');
       const response = await fetch('https://bloomme-backend.onrender.com/api/finish-quiz/category', {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
-          // "Authorization": `Bearer ${token}`,
+          "Authorization": `Bearer ${token}`,
         },
         body: JSON.stringify(param),
       });
@@ -77,5 +77,3 @@ export const useQuizConnection = () => {
   };
   return { quizApi, quizApiAI, quizApiAnswers };
 };
-
-//CONSUMIR: GET PARA TRAER LAS PREGUNTAS, MANDAR LAS RESPUESTAS, TRAER LOS PUNTOS

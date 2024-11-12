@@ -23,8 +23,8 @@ export const useLoginConnection = () => {
       localStorage.setItem("email", data.user.email);
       localStorage.setItem("username", data.user.username);
       // En tu controlador de login, construye la URL completa de la imagen
-      const avatarUrl = `https://bloomme-backend.onrender.com/uploads/${data.user.current_avatar}`;
-      localStorage.setItem("avatar", avatarUrl);
+      // const avatarUrl = `https://bloomme-backend.onrender.com/uploads/${data.user.current_avatar}`;
+      localStorage.setItem("avatar", data.user.current_avatar);
       localStorage.setItem("background", data.user.current_background);
       navigate("/home");
     }

@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 
 export const Menu = () => {
   const [name, setName] = useState("");
-  const [avatarUrl, setAvatarUrl] = useState('');
+  const [avatar, setAvatarUrl] = useState('');
   const location = useLocation();
   const navigate = useNavigate();
   const [profileOpen, setProfileOpen] = useState(false);
@@ -40,7 +40,7 @@ export const Menu = () => {
         )}
         <div className='container-menu-perfil-name'> {name} </div>
         <div className='container-menu-perfil-avatar'>
-          <img src={avatarUrl} alt={name} className='menu-perfil-avatar'/>
+          <img src={avatar} alt={name} className='menu-perfil-avatar'/>
           <FontAwesomeIcon icon={faAngleDown} onClick={handleProfileClick} className='arrow-menu'/>
           {profileOpen && (
             <div className="menu-dropdown">

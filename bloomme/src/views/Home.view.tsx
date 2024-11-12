@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 
 export const Home = () => {
   const [name, setName] = useState("");
+  const [avatar, setAvatar] = useState("");
   const [selectedColor, setSelectedColor] = useState({
     color: 'white',
     backgroundColor: '#FFFFFF',
@@ -29,7 +30,10 @@ export const Home = () => {
   };
   useEffect(()=>{
     const name = localStorage.getItem('username');
+    const avatar = localStorage.getItem('avatar');
+    console.log("🚀 ~ useEffect-home ~ avatar:", avatar)
     setName(name || '');
+    setAvatar(avatar || '');
   }, []);
 
   useEffect(() => {
