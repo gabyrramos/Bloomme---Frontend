@@ -16,7 +16,6 @@ export const useRewardConnection = () => {
         throw new Error(errorData.message);
       }
       const data = await response.json();
-      console.log("🚀 ~ rewardApi ~ data:", data)
       return data;
     }
     catch (error) {
@@ -39,7 +38,7 @@ export const useRewardConnection = () => {
         throw new Error(errorData.message);
       }
       const data = await response.json();
-      console.log("🚀 ~ rewardApi ~ data:", data);
+      // console.log("🚀 ~ rewardApi ~ data:", data);
       return data;
     }
     catch (error) {

@@ -16,7 +16,6 @@ export const useQuizConnection = () => {
         throw new Error(errorData.message);
       }
       const data = await response.json();
-      console.log("🚀 ~ loginConnection ~ data:", data);
       return data;
     }
     catch (error) {
