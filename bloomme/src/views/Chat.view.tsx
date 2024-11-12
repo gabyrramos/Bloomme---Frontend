@@ -13,16 +13,13 @@ interface Message {
   type: "user" | "assistant";
 }
 
-
-
 function Chat() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState("");
-  const token: string = localStorage.getItem('token') || '';
-
+  const token: string = localStorage.getItem("token") || "";
 
   // Función asincrónica para enviar el mensaje
-  const handleSendMessage = async() => {
+  const handleSendMessage = async () => {
     if (inputValue.trim() === "") return;
 
     const newMessage: Message = {
@@ -102,9 +99,9 @@ function Chat() {
           >
             <FaPaperPlane />
           </button>
-          <div className="absolute bottom-4 right-4">
-            <img src={bunnyIcon} alt="Bunny Icon" className="w-32" />
-          </div>
+        </div>
+        <div className="absolute bottom-4 right-4">
+          <img src={bunnyIcon} alt="Bunny Icon" className="w-32 relative right-20" />
         </div>
       </div>
     </>
