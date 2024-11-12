@@ -1,37 +1,56 @@
 import React, { useEffect, useState } from "react";
 import EmergencyModal from "./EmergencyModal.component";
+import { Assistant } from "../Assistant.component";
 import "../../styles/SafeArea/safeareabody.style.css";
 import "../../styles/SafeArea/safeareatask.style.css";
 import { Link, useParams } from "react-router-dom";
 import sadbunny from "../../assets/safearea/sadbunny.png";
+import rabbit from "../../assets/rabbit.png";
 import { generateTaskByExercises } from "../../services/safeArea.service";
 
 const SafeAreaTaskBody: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
-  const [message, setMessage]= useState("");
-  const {exercises, task} = useParams()
-  useEffect(()=>{
-    const fetchEmotions = async () =>{
-     try {
-       const response = await generateTaskByExercises(exercises||"", task||"");
-       console.log(response);
-      setMessage(response.text)
-     } catch (error) {
-       console.log(error);
-       
-     }
-    } 
+  const [showAssistant, setShowAssistant] = useState(false);
+  const [message, setMessage] = useState("");
+  const { exercises, task } = useParams();
+  useEffect(() => {
+    const fetchEmotions = async () => {
+      try {
+        const response = await generateTaskByExercises(
+          exercises || "",
+          task || ""
+        );
+        console.log(response);
+        setMessage(response.text);
+      } catch (error) {
+        console.log(error);
+      }
+    };
     fetchEmotions();
-   },[])
+  }, []);
   const handleEmergencyClick = () => {
     setShowModal(true);
     console.log("Emergency button clicked, showModal is:", showModal);
   };
 
   const handleCloseModal = () => setShowModal(false);
+  const handleAssistantClick = () => setShowAssistant(true);
 
   return (
     <div className="safehome-container">
+       <style>
+        {`
+          .emotion-btn:hover {
+            background-color: #e5c867;
+          }
+          .exercise-btn:hover {
+            background-color: #ff8a61;
+          }
+          .assistant-btn:hover {
+            background-color: #8bb284;
+          }
+        `}
+      </style>
       {/* <div className="safehome-divider">
         <img src={safearealine} alt="Divider" />
       </div>  */}
@@ -43,18 +62,10 @@ const SafeAreaTaskBody: React.FC = () => {
           Everything will be fine, I will always be here for you.
         </h2>
         <div className="safehome-message-box">
-          <p className="safehome-message">
-           {message}
-          </p>
+          <p className="safehome-message">{message}</p>
         </div>
         <div className="safehometask-categories">
-          <button
-            className="safehometask-category-btn"
-            style={{ backgroundColor: "#9dc994", color: "#ffffff" }}
-          >
-            How are you feeling?
-          </button>
-          <div className="safehometask-category-row">
+        <div className="safehometask-category-row" >
             <Link
               to="/safearea"
               className="safehometask-category-btn"
@@ -63,19 +74,32 @@ const SafeAreaTaskBody: React.FC = () => {
               Select another emotion
             </Link>
             <Link
-              to="/safearea/:exercises"
+              to={`/safearea/${exercises}`}
               className="safehometask-category-btn"
               style={{ backgroundColor: "#ffa97b", color: "#ffffff" }}
             >
               Choose another exercise
             </Link>
           </div>
+          <button
+            className="safehometask-category-btn"
+            onClick={handleAssistantClick}
+            style={{ backgroundColor: "#9dc994", color: "#ffffff" }}
+          >
+            If you need more assistance, chat with your assistant!
+          </button>
         </div>
       </div>
       <button className="safehome-emergency-btn" onClick={handleEmergencyClick}>
         Emergency Button
       </button>
       {showModal && <EmergencyModal onClose={handleCloseModal} />}
+      {showAssistant && (
+        <Assistant
+          text="Hello! I'm here to listen. Feel free to ask anything."
+          rabbitUrl={rabbit}
+        />
+      )}
     </div>
   );
 };
