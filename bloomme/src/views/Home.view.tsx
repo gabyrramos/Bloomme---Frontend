@@ -164,7 +164,7 @@ export const Home = () => {
             </div>
           </div>
           <div className="container-home-sections-assistent">
-            <Assistant text='¿En que puedo ayudarte?' rabbitUrl={rabitt}/>
+            <Assistant text='How can I help you?'/>
           </div>
         </div>
       </div>

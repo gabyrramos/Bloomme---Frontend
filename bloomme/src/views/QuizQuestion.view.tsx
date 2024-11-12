@@ -116,7 +116,7 @@ export const QuizQuestion = () =>{
           )}
         </div>
       </div>
-      <Assistant text="¿Necesitas ayuda con algo?" rabbitUrl={rabbit}/>
+      <Assistant text="How can I help you?"/>
     </>
   );
 };

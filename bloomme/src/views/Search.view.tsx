@@ -110,7 +110,7 @@ export const Search = () => {
           </div>
         </div>
         <div className="container-assistent">
-          <Assistant text="¿No encuentras lo que buscabas? Yo te ayudo" rabbitUrl={rabitt}/>
+          <Assistant text="How can I help you?"/>
         </div>
       </div>
     </>
