@@ -1,26 +1,24 @@
-export const useModuleConnection = () => {
-  const moduleApi = async() => {
-    try {
-      const response = await fetch('https://bloomme-backend.onrender.com/api/', {
-        method: 'GET',
-        // mode: 'cors',
+export const getModule = async (moduleId: number) => {
+  try {
+    const response = await fetch(
+      `https://bloomme-backend.onrender.com/api/module/${moduleId}`,
+      {
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
-          // "Authorization": `Bearer ${token}`
         },
-      });
-      if(!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message);
-      }
-      const data = await response.json();
-      console.log("🚀 ~ loginConnection ~ data:", data);
-      return data;
+      },
+    );
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message);
     }
-    catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Error inesperado';
-      throw new Error(errorMessage);
-    }
-  };
-  return { moduleApi };
+    const resData = await response.json();
+    return resData;
+  } catch (error) {
+    console.log(error);
+    const errorMessage =
+      error instanceof Error ? error.message : "Error inesperado";
+    throw new Error(errorMessage);
+  }
 };
