@@ -4,6 +4,7 @@ import { Menu } from "../components/Menu.component";
 import { pathModulesGet } from "../services/PathModule.service";
 import { useEffect, useState } from "react";
 import { Assistant } from "../components/Assistant.component";
+import SafeAreaHeader from "../components/SafeArea/safeareaheader.component";
 
 
 const myColors = [
@@ -22,7 +23,7 @@ const myColors = [
 
 function PathModules() {
   const navigate = useNavigate();
-  const { id } = useParams<{ id: string }>();
+  const { id, name } = useParams<{ id: string }>();
   const [modules, setModules] = useState<Module[]>([]); // Estado para almacenar los módulos
 
 
@@ -46,10 +47,11 @@ function PathModules() {
 
   //TODO: consumir api para traer los modulos del path
   return (
-    <div className="flex flex-col items-center bg-[#F29FB3] min-h-screen">
-      <Menu title="Ana Maria" avatarUrl={avatar} />
+    <div className="flex flex-col items-center bg-gradient-to-b from-[#f29fb4] to-[#ebc0c0] min-h-screen">
+      {/* <Menu title="Ana Maria" avatarUrl={avatar} /> */}
+      <SafeAreaHeader />
       <h1 className="mb-10 font-semibold text-3xl text-white pt-10">
-        Título del Path
+        {name}
       </h1>
       <div className="w-full max-w-5xl grid grid-cols-12 gap-6">
         {modules.map((module, index) => (
@@ -57,7 +59,7 @@ function PathModules() {
             key={index}
             module={module}
             index={index}
-            onClick={() => navigate(`/module/${index}`)} // Redirigir al hacer clic
+            onClick={() => navigate(`/module/${module.module_id}`)} // Redirigir al hacer clic
           />
         ))}
       </div>

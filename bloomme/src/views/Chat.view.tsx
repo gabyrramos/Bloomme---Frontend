@@ -6,6 +6,7 @@ import avatar from "../assets/avatar.svg";
 import { scrollToBottomAnimated } from "../helper/scroll.helper";
 import { chatPost } from "../services/Chat.service";
 import { Assistant } from "../components/Assistant.component";
+import SafeAreaHeader from "../components/SafeArea/safeareaheader.component";
 
 // Define una interfaz para el tipo de mensaje
 interface Message {
@@ -54,10 +55,11 @@ function Chat() {
 
   return (
     <>
-      <Menu title="Ana Maria" avatarUrl={avatar} />
-      <div className="bg-[#F29FB3] h-[90vh] flex flex-col items-center p-8">
+      {/* <Menu title="Ana Maria" avatarUrl={avatar} /> */}
+      <SafeAreaHeader />
+      <div className="bg-gradient-to-b from-[#f29fb4] to-[#ebc0c0] h-[90vh] flex flex-col items-center p-8">
         <header className="text-center mb-6 text-white">
-          <h2 className="text-2xl font-normal">Assistant</h2>
+          <h2 className="text-4xl font-normal">Assistant</h2>
         </header>
 
         <section
@@ -95,7 +97,7 @@ function Chat() {
             onKeyUp={(e) => e.key === "Enter" && handleSendMessage()}
           />
           <button
-            className="text-2xl text-[#f2c7d7] hover:text-[#ec94ad] p-2"
+            className="text-2xl text-[#8074c4] hover:text-[#ec94ad] p-2"
             onClick={handleSendMessage}
           >
             <FaPaperPlane />

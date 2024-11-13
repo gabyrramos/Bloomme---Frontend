@@ -8,6 +8,10 @@ import {
 } from "react-icons/fa"; // Importamos los íconos
 import { GrInstagram } from "react-icons/gr";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
+import countryList from 'react-select-country-list'
+import { useMemo, useState } from 'react';
+import Select from 'react-select';
 
 interface IRegister {
   username: string;
@@ -18,6 +22,13 @@ interface IRegister {
 }
 
 function FirstStep({ setData }: { setData: (data: IRegister) => void }) {
+  const options = useMemo(() => countryList().getData(), [])
+  const [country, setCountry] = useState('')
+
+  const changeHandler = (value) => {
+    setCountry(value.label || '')
+  }
+
   const validateForm = (data: IRegister) => {
     if (data.username === "") {
       return [false, "Username is required"];
@@ -54,7 +65,7 @@ function FirstStep({ setData }: { setData: (data: IRegister) => void }) {
       username: formData.get("username"),
       email: formData.get("email"),
       age: formData.get("age"),
-      country: formData.get("country"),
+      country: country,
       password: formData.get("password"),
     };
 
@@ -77,7 +88,7 @@ function FirstStep({ setData }: { setData: (data: IRegister) => void }) {
   return (
     <>
       <h1 className="text-4xl text-white">Sign Up</h1>
-      <h3 className="text-slate-500">Already have an account? Sign in</h3>
+      <h3 className="text-slate-500">Already have an account? <Link to={'/login'} >Sign in</Link> </h3>
       <div className="flex gap-10 text-white">
         <FaGoogle size={24} />
         <FaFacebookF size={24} />
@@ -119,16 +130,11 @@ function FirstStep({ setData }: { setData: (data: IRegister) => void }) {
               className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
             />
           </div>
-          <div className="relative mb-4 w-full">
-            <FaGlobe className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-            <input
-              name="country"
-              type="text"
-              placeholder="country"
-              autoComplete="off"
-              className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
-            />
-          </div>
+          <Select
+            options={options}
+            className="mb-4 w-full"
+            onChange={changeHandler}
+          />
           <div className="relative mb-4 w-full">
             <FaLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input

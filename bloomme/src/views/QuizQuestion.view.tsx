@@ -5,11 +5,12 @@ import rabbit from '../assets/rabbit.png';
 import '../styles/QuizQuestion.style.css';
 import { useState, useEffect } from "react";
 import { Title } from "../components/Title.component";
-import { Questions } from "../components/Questions.component";
 import { Modal } from "../components/Modal.component";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faChevronRight, faArrowRightFromBracket} from '@fortawesome/free-solid-svg-icons';
-import { useQuizConnection } from "../services/Quiz.service";
+import { fetchModuleQuiz, sendApiResult, useQuizConnection } from "../services/Quiz.service";
+import SafeAreaHeader from "../components/SafeArea/safeareaheader.component";
+import UiLoader from "../components/uiLoader.component";
 
 export const QuizQuestion = () =>{
   const navigate = useNavigate();
@@ -22,14 +23,32 @@ export const QuizQuestion = () =>{
   const [question, setQuestion] = useState([]);
   const {quizApiAI, quizApiAnswers} = useQuizConnection();
 
+
+  const getModuleQuiz = async(moduleId: number) => {
+    try {
+      const res = await fetchModuleQuiz(moduleId);
+      setQuestion(res.questions);
+    } catch (error) {
+      console.log({error});
+    }
+  };
+
+  const handleQuizAI = async() => {
+    const id = parseInt(categoryId || "");
+    const response = await quizApiAI(id);
+    setQuestion(response.questions);
+  };
+
   useEffect(() =>{
-    const handleQuizAI = async() => {
-      const id = parseInt(categoryId || "");
-      const response = await quizApiAI(id);
-      console.log("🚀 ~ handleQuizAI ~ response:", response);
-      setQuestion(response.questions);
-    };
-    handleQuizAI();
+    const pathName = window.location.pathname;
+    const isModule = pathName.startsWith('/quizQuestionModule/');
+
+    if (isModule) {
+      getModuleQuiz(parseInt(categoryId || ""));
+    } else {
+      handleQuizAI();
+    }
+
   },[categoryId]);
 
   const handleAnswerChange = (answerText: string) => {
@@ -48,19 +67,30 @@ export const QuizQuestion = () =>{
     // Sumar puntos si la respuesta seleccionada es correcta
     if (selectedAnswer) {
       const selectedOption = currentQuestionData.options.find(
-        (option) => option.answerText === selectedAnswer,
+        (option) => option.option_text === selectedAnswer,
       );
-      if (selectedOption && selectedOption.isCorrect) {
+      if (selectedOption && selectedOption.is_correct) {
         questionScore = 100;
       }
     }
-    setScore((prevScore) => prevScore + questionScore);
+    const totalScore = score + questionScore
+    setScore(totalScore);
     // Cambiar a la siguiente pregunta o finalizar el quiz
-    if (currentQuestion < Questions.length - 1) {
+    if (currentQuestion < question.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       setIsFinished(true);
+      sendResult(totalScore);
       handleOpenModal();
+    }
+  };
+
+  const sendResult = async(result: number) => {
+    try {
+      const res = await sendApiResult(categoryId, result);
+      console.log({res});
+    } catch (error) {
+      console.log({error});
     }
   };
 
@@ -73,22 +103,22 @@ export const QuizQuestion = () =>{
   };
   return(
     <>
-      <div className="container-quizQuestion">
+      <div className="container-quizQuestion h-screen">
         <div className="container-quiz-menu">
-          <Menu/>
+          <SafeAreaHeader />
         </div>
         <div className="quizQuestion-titleComponent">
           <Title title={category || "not found"}/>
         </div>
-        <div className="container-quizQuestion-star">
+        <div className="container-quizQuestion-star bg-[#fff2f2]">
           {question.length > 0 ? (
             <>
               <div className="container-quizQuestion-title">
                 <p> {currentQuestion + 1} - {question[currentQuestion].question_text}</p>
               </div>
-              <div className="container-quizQuestion-question">
+              <div className="container-quizQuestion-question flex justify-center gap-4">
                 {question.length > 0 && question[currentQuestion].options.map((answer) => (
-                  <div key={answer.option_text}>
+                  <div key={answer.option_text} className="flex items-center">
                     <input type="radio" name={`question-${currentQuestion}`} id={answer.option_text}
                       checked={selectedAnswers[currentQuestion] === answer.option_text}
                       onChange={() => handleAnswerChange(answer.option_text)} className="quiz-radio"/>
@@ -96,22 +126,21 @@ export const QuizQuestion = () =>{
                   </div>
                 ))}
                 <div className="container-quizQuestion-button">
-                  <button className="quizQuestion-button-next" onClick={handleNextQuestion}>Next<FontAwesomeIcon icon={faChevronRight}/></button>
+                  <button className="quizQuestion-button-next flex justify-center items-center p-4 gap-4 border border-gray-300 shadow-lg" onClick={handleNextQuestion}>Next<FontAwesomeIcon icon={faChevronRight}/></button>
                   {isOpen && (
                     <Modal>
                       <h1>Result</h1>
-                      <p>Total de puntos {score} {isFinished}</p>
+                      <p>Total {score} {isFinished}</p>
                       <button onClick={handleClose} className="modalQuiz-button">Send results</button>
                     </Modal>
                   )}
-                  <button className="quizQuestion-button-leave" onClick={handleClose}>Leave <FontAwesomeIcon icon={faArrowRightFromBracket} className="quiz-arrow-arc"/> </button>
+                  <button className="quizQuestion-button-leave flex justify-center items-center p-4 gap-4 border border-gray-300 shadow-lg" onClick={handleClose}>Leave <FontAwesomeIcon icon={faArrowRightFromBracket} className="quiz-arrow-arc"/> </button>
                 </div>
               </div>
             </>
           ):(
-            <div className="loader">
-              <span className="loader-text">loading</span>
-              <span className="load"></span>
+            <div className="flex w-full h-full items-center justify-center">
+              <UiLoader />
             </div>
           )}
         </div>

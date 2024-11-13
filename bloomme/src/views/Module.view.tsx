@@ -6,6 +6,7 @@ import { MdOutlineLibraryBooks } from "react-icons/md";
 import { getModule } from "../services/Module.service";
 import { useEffect, useState } from "react";
 import { Assistant } from "../components/Assistant.component";
+import SafeAreaHeader from "../components/SafeArea/safeareaheader.component";
 
 interface IModule {
   module_id: number;
@@ -46,8 +47,9 @@ function Module() {
   }
 
   return (
-    <div className="bg-[#F29FB3] min-h-screen flex flex-col items-center">
-      <Menu title="Ana Maria" avatarUrl={avatar} />
+    <div className="bg-gradient-to-b from-[#f29fb4] to-[#ebc0c0] min-h-screen flex flex-col items-center">
+      {/* <Menu title="Ana Maria" avatarUrl={avatar} /> */}
+      <SafeAreaHeader />
       <main className="w-full max-w-6xl px-10 grid grid-cols-12 gap-4 py-10">
         <div className="col-span-2 pt-4">
           <button
@@ -71,7 +73,10 @@ function Module() {
           </div>
           <div className="col-span-6 flex flex-col justify-around p-6 items-center text-white gap-14">
             <p>{module.content}</p>
-            <button className="bg-[#ADC9F0] py-3 px-6 rounded-xl flex gap-4 items-center text-white">
+            <button
+              className="bg-[#ADC9F0] py-3 px-6 rounded-xl flex gap-4 items-center text-white"
+              onClick={() => navigate(`/quizQuestionModule/${module.name}/${module.module_id}`)}
+            >
               Take Quiz
               <MdOutlineLibraryBooks size={24} />
             </button>

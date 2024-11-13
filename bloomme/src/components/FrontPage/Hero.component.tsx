@@ -7,7 +7,7 @@ import landingHero from "../../assets/landingHero.png";
 const Hero: React.FC = () => {
   return (
     <section className="hero">
-      <h1>Explore and Learn</h1>
+      <h1 className='max-w-[40rem]'>Bloom into Confidence, Bloom into You.</h1>
       <p>
         Empowering young girls to understand their bodies and minds, you can
         build confidence and gain valuable knowledge in a safe, supportive

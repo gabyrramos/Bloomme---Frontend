@@ -17,7 +17,7 @@
     border-radius: 8px;
     text-align: center;
     width: 820px;
-    height: 300px;
+    height: auto;
     position: relative;
     display: flex;
     flex-direction: column;

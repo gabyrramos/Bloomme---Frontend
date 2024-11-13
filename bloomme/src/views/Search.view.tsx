@@ -8,6 +8,7 @@ import avatar from '../assets/avatar.svg';
 import rabitt from '../assets/rabbit.png';
 import '../styles/Search.style.css';
 import { Assistant } from "../components/Assistant.component";
+import SafeAreaHeader from "../components/SafeArea/safeareaheader.component";
 
 export const Search = () => {
   const [modules, setModules] = useState<IStory[]>([]); // Aquí se guardarán
@@ -49,7 +50,8 @@ export const Search = () => {
     <>
       <div className="container-search">
         <div className="container-search-menu">
-          <Menu title="Juanita Lopez" avatarUrl={avatar}/>
+          {/* <Menu title="Juanita Lopez" avatarUrl={avatar}/> */}
+          <SafeAreaHeader />
         </div>
         <div className="container-search-filters">
           <input type="text" name="text-search" id='text-search' required onChange={(e) => setTitle(e.target.value)} placeholder='    Search for topics or questions...' />

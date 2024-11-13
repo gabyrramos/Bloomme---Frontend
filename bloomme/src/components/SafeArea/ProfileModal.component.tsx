@@ -53,13 +53,15 @@ function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
         country: data.country || '',
         age: data.age || 0,
         password: data.password || '',
-        assistant_name: data.assistant_name || ''
+        assistant_name: data.assistant_name || '',
       });
     } catch (error) {
       console.error("Error fetching user data:", error);
     }
   };
   useEffect(() => { //yo lo puse
+    console.log({isOpen});
+    console.log('open', isOpen);
     if (isOpen) {
       fetchUserData();
     }

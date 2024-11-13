@@ -5,6 +5,7 @@ import '../styles/Quiz.style.css';
 import { Title } from "../components/Title.component";
 import { useEffect, useState } from "react";
 import { useQuizConnection } from "../services/Quiz.service";
+import SafeAreaHeader from "../components/SafeArea/safeareaheader.component";
 
 export const Quiz = () => {
   const [category, setCategory] = useState<{name: string, quiz_id: number}[]>([]);
@@ -20,7 +21,7 @@ export const Quiz = () => {
   return(
     <div className="container-quiz">
       <div className="container-quiz-menu">
-        <Menu/>
+        <SafeAreaHeader />
       </div>
       <div className="container-quiz-title">
         <Title title="Quiz"/>
