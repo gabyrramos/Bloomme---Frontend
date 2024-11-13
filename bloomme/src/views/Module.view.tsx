@@ -5,6 +5,7 @@ import { MdArrowBack } from "react-icons/md";
 import { MdOutlineLibraryBooks } from "react-icons/md";
 import { getModule } from "../services/Module.service";
 import { useEffect, useState } from "react";
+import { Assistant } from "../components/Assistant.component";
 
 interface IModule {
   module_id: number;
@@ -76,6 +77,7 @@ function Module() {
             </button>
           </div>
         </div>
+        <Assistant text="How can I help you?"/>
       </main>
     </div>
   );

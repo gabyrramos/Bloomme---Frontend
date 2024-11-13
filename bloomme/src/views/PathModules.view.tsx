@@ -3,6 +3,7 @@ import avatar from "../assets/avatar.svg";
 import { Menu } from "../components/Menu.component";
 import { pathModulesGet } from "../services/PathModule.service";
 import { useEffect, useState } from "react";
+import { Assistant } from "../components/Assistant.component";
 
 
 const myColors = [
@@ -95,6 +96,7 @@ function Card({ module, index, onClick }: CardProps) {
       style={{ backgroundColor: randomColor }}
     >
       {module.name}
+      <Assistant text="How can I help you?"/>
     </div>
   );
 }
