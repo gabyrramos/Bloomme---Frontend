@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaBirthdayCake, FaUser } from "react-icons/fa";
+import {  FaUser } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 function SecondStep({ setData, handleRegisterApi }) {
@@ -33,9 +33,9 @@ function SecondStep({ setData, handleRegisterApi }) {
       <div className="grid grid-cols-2 gap-4 w-full items-center justify-items-center mt-14 mb-4">
         <div
           className={`blob-wrapper pointer relative ${
-            assistant === 1 && "assistant-selected"
+            assistant === 2 && "assistant-selected"
           }`}
-          onClick={() => handleSetAssistant(1)}
+          onClick={() => handleSetAssistant(2)}
         >
           <svg
             width="204"
@@ -94,14 +94,14 @@ function SecondStep({ setData, handleRegisterApi }) {
           <img
             src="src/assets/RegisterPage/cat.png"
             alt=""
-            className="absolute cursor-pointer top-[38px] left-[58px]"
+            className="absolute cursor-pointer top-[20px] left-[25px] w-[160px]"
           />
         </div>
         <div
           className={`blob-wrapper pointer relative ${
-            assistant === 2 && "assistant-selected"
+            assistant === 1 && "assistant-selected"
           }`}
-          onClick={() => handleSetAssistant(2)}
+          onClick={() => handleSetAssistant(1)}
         >
           <svg
             width="194"
