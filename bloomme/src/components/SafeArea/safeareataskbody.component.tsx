@@ -5,12 +5,11 @@ import "../../styles/SafeArea/safeareabody.style.css";
 import "../../styles/SafeArea/safeareatask.style.css";
 import { Link, useParams } from "react-router-dom";
 import sadbunny from "../../assets/safearea/sadbunny.png";
-import rabbit from "../../assets/rabbit.png";
 import { generateTaskByExercises } from "../../services/safeArea.service";
 
 const SafeAreaTaskBody: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
-  const [showAssistant, setShowAssistant] = useState(false);
+  const [showAssistant, setShowAssistant] = useState(true);
   const [message, setMessage] = useState("");
   const { exercises, task } = useParams();
   useEffect(() => {
@@ -81,13 +80,6 @@ const SafeAreaTaskBody: React.FC = () => {
               Choose another exercise
             </Link>
           </div>
-          <button
-            className="safehometask-category-btn"
-            onClick={handleAssistantClick}
-            style={{ backgroundColor: "#9dc994", color: "#ffffff" }}
-          >
-            If you need more assistance, chat with your assistant!
-          </button>
         </div>
       </div>
       <button className="safehome-emergency-btn" onClick={handleEmergencyClick}>
@@ -96,8 +88,7 @@ const SafeAreaTaskBody: React.FC = () => {
       {showModal && <EmergencyModal onClose={handleCloseModal} />}
       {showAssistant && (
         <Assistant
-          text="Hello! I'm here to listen. Feel free to ask anything."
-          rabbitUrl={rabbit}
+          text="If you need help I’m here to chat!"
         />
       )}
     </div>
