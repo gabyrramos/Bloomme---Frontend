@@ -10,21 +10,27 @@ import "../../styles/SafeArea/profilemodal.style.css";
 
 
 const SafeAreaHeader: React.FC = () => {
-  const [activeLink, setActiveLink] = useState("safearea");
+  const [activeLink, setActiveLink] = useState("");
   const [name, setName] = useState("")
+  const [avatar, setAvatar] = useState('')
   const [profileOpen, setProfileOpen] = useState(false);
   const [showProfileModal, setShowProfileModal] = useState(false);
   const navigate = useNavigate();
 
   const handleClick = (link: string) => {
     setActiveLink(link);
+    console.log({link})
     navigate(`/${link}`);
   };
 
   useEffect(() => {
     const username = localStorage.getItem("username");
-    setName(username || "Guest") 
-  },[])
+    setName(username || "Guest")
+    const currentPath = window.location.pathname.split("/")[1];
+    setActiveLink(currentPath);
+    const localAvatar = localStorage.getItem("avatar");
+    setAvatar(localAvatar || Avatar);
+  },[]);
   // const handleProfileClick = () => {
   //   setProfileOpen(!profileOpen);
   // };
@@ -36,9 +42,14 @@ const SafeAreaHeader: React.FC = () => {
 
 
   return (
-    <><header className="safeareaHeader">
-      <img src={BlueLogo} alt="Bloom me logo" className="safeareaLogo" />
-      <nav className="safeareaMenu">
+    <><header className="safeareaHeader pl-20">
+      <a
+        onClick={() => handleClick("home")}
+        className={'cursor-pointer ' + activeLink === "home" ? "active" : ""}
+      >
+        <img src={BlueLogo} alt="Bloom me logo" className="safeareaLogo cursor-pointer w-auto" />
+      </a>
+      <nav className="safeareaMenu m-0">
         <a
           onClick={() => handleClick("quiz")}
           className={activeLink === "quiz" ? "active" : ""}
@@ -73,7 +84,7 @@ const SafeAreaHeader: React.FC = () => {
             onClick={() => setProfileOpen(!profileOpen)}
           >
             <img
-              src={Avatar}
+              src={avatar}
               alt="Avatar"
               className="safeareaProfileAvatarImg" />
             <FontAwesomeIcon icon={faAngleDown} className="arrow-menu" />
