@@ -5,6 +5,7 @@ import { Menu } from "../components/Menu.component";
 import avatar from "../assets/avatar.svg";
 import { scrollToBottomAnimated } from "../helper/scroll.helper";
 import { chatPost } from "../services/Chat.service";
+import { Assistant } from "../components/Assistant.component";
 
 // Define una interfaz para el tipo de mensaje
 interface Message {
@@ -101,7 +102,8 @@ function Chat() {
           </button>
         </div>
         <div className="absolute bottom-4 right-4">
-          <img src={bunnyIcon} alt="Bunny Icon" className="w-32 relative right-20" />
+          <Assistant text="I love talking to you "/>
+          {/* <img src={bunnyIcon} alt="Bunny Icon" className="w-32 relative right-20" /> */}
         </div>
       </div>
     </>
