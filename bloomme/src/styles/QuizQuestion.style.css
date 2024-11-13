@@ -14,7 +14,7 @@
 }
 .container-quizQuestion-star {
   width: 60%;
-  min-height: 500px; /* Altura mínima para un tamaño base del contenedor */
+  min-height: 550px; /* Altura mínima para un tamaño base del contenedor */
   margin: 5%;
   background-color: #F3D2D2;
   color: #CC8E8E;
@@ -28,7 +28,7 @@
 }
 .container-quizQuestion-title{
   font-size: 1.5em;
-  width: 90%;
+  width: 95%;
   margin: 5%;
   color: #CC8E8E;
   border-radius: 10px; 
