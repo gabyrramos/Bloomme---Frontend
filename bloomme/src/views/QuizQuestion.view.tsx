@@ -91,7 +91,7 @@ export const QuizQuestion = () =>{
                   <div key={answer.option_text}>
                     <input type="radio" name={`question-${currentQuestion}`} id={answer.option_text}
                       checked={selectedAnswers[currentQuestion] === answer.option_text}
-                      onChange={() => handleAnswerChange(answer.option_text)} />
+                      onChange={() => handleAnswerChange(answer.option_text)} className="quiz-radio"/>
                     <label htmlFor={answer.option_text}>{answer.option_text}</label>
                   </div>
                 ))}
