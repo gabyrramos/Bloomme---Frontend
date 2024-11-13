@@ -19,7 +19,7 @@ export const Assistant = ({text}: { text:string }) =>{
 
   return(
     <div className="container-assistant-component">
-      <div className="assistant-message-component">{text}</div>
+      <div className="assistant-message-component border border-white">{text}</div>
       <Link to='/chat' className="assistant-image-component"><img src={assistantImage} alt="rabbit assistant" /></Link>
     </div>
   );
