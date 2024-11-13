@@ -1,0 +1,326 @@
+.container-search-filters{
+  text-align: center;
+}
+#text-search{
+  border-radius: 20px;
+  width: 40%;
+  cursor: pointer;
+  padding: 10px;
+  margin-top: 2%;
+  border: none;
+  background-color: #F3D2D2;
+  margin-left: 30%;
+  letter-spacing: 2px;
+}
+#text-search::placeholder{
+  font-size: 1.2em;
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 600;
+  left: 20px;
+  color: #A49898;
+}
+#text-search-filter{
+  border-radius: 20px;
+  width: 8%;
+  cursor: pointer;
+  padding: 10px;
+  margin-top: 2%;
+  border: none;
+  background-color: #CADBF3;
+  margin-left: 15%  ;
+}
+#text-search-filter::placeholder{
+  font-size: 1.2em;
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900;
+  color: white;
+}
+hr {
+  border: 1px solid #fff;
+  margin: 20px 50px;
+}
+.container-search-filters-select{
+display: flex;
+justify-content: space-between;
+}
+.checkbox-filter{
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 3%;
+  font-size: 1.2em;
+}
+.checkbox-filter label {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+.checkbox-filter label input {
+  margin-right: 8px;
+}
+.container-checkbox-filter-button{
+  position: relative;
+  justify-content: space-around;
+  right: 20px;
+}
+#sexuality, #methods, #menstruation, #ets, #hygiene{
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  color: white;
+}
+.container-search-buttons{
+  padding: 0 50px;
+  align-items: center;
+}
+#button-filter-check{
+  font-weight: 400;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 8px 20px;
+  margin-top: 2%;
+  margin-left: 20px;
+  border: 1px solid #CADBF3;
+  background-color: transparent;
+  color: white;
+}
+.arrow-search{
+   font-size: 1.5em;
+   margin-left: 10px;
+}
+.search-span{
+  font-weight: 600;
+  font-size: 1.5em;
+}
+.container-search-result{
+  margin-top: 2%;
+  width: 95%;
+  margin-left: 30px;
+}
+.container-search-result-ind{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding: 20px;
+}
+.search-card{
+  text-align: center;
+  width: calc(25% - 20px);
+  padding: 20px 10px;
+  border-radius: 4px;
+  background-color: #D9D9D9;
+}
+.button-filter-check{
+  border-radius: 20px;
+  width: 8%;
+  cursor: pointer;
+  padding: 10px;
+  margin-top: 2%;
+  border: none;
+  background-color: #CADBF3;
+  margin-left: 15%  ;
+}
+.filter-search{
+  font-size: 1.5em;
+   margin-left: 10px;
+   color: white;
+}
+.search-span{
+  color: white;
+}
+.container-assistent{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #f8b8c3;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .highlight {
+    color: #ff6f8f;
+  }
+  
+  .navbar nav a {
+    margin: 0 15px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .navbar .active {
+    background-color: #fff;
+    color: #ff6f8f;
+    padding: 5px 15px;
+    border-radius: 20px;
+  }
+  
+  .profile {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-icon {
+    font-size: 1.5rem;
+    margin-left: 10px;
+  }
+  
+  /* Contenedor de la página *
+  .container-routes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Barra de búsqueda *
+  .search-bar {
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+    margin: 20px 0;
+  }
+  
+  .search-bar input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    border-radius: 30px;
+    border: none;
+    font-size: 1rem;
+    background-color: #ffdfe1;
+  }
+  
+  .filter-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #b7e4c7;
+    color: #555;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  /* Filtros *
+  .filters {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .filter-item {
+    background-color: #fff;
+    color: #555;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  
+  .filter-item:hover {
+    background-color: #ffdfe1;
+  }
+  
+  /* Botones de selección *
+  .selection-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    width: 80%;
+    max-width: 800px;
+    margin-bottom: 20px;
+  }
+  
+  .selection-button {
+    background-color: #fff;
+    color: #555;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .selection-button:hover {
+    background-color: #ffdfe1;
+  }
+  
+  /* Grilla de contenido *
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 80%;
+    max-width: 1200px;
+    margin-bottom: 30px;
+  }
+  
+  .content-card {
+    background-color: #d9d9d9;
+    height: 150px;
+    border-radius: 15px;
+  }
+  
+  /* Estilo del asistente *
+  .assistant {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .assistant-speech {
+    background-color: #ffffff;
+    color: #555;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .assistant-icon {
+    font-size: 3rem;
+  }
+   */

@@ -1,0 +1,96 @@
+.profile-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(244, 219, 219, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .profile-modal {
+    background-color:#fca5bc;
+    padding: 20px;
+    border-radius: 8px;
+    width: 500px;
+    height: 650px;
+    text-align: center;
+    position: relative;
+  }
+
+  .profile-modal h2{
+    color: white;
+    font-size: 28px;
+  }
+  
+  .profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .profileform-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .profileform-group label {
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .profileform-group input {
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+  }
+  
+  .profilemodal-buttons {
+    display: flex;
+    margin-left: 10px;
+    margin-top: 20px;
+    gap: 10px;
+  }
+  
+  .profilecancel-btn,
+  .profilesave-btn {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #d4e3fa;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .profilecancel-btn img,
+  .profilesave-btn img {
+    margin-right: 8px;
+  }
+  
+  .tools-bunny {
+    width: 180px;
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+  }
+  .servicearrow {
+    margin: 20px 0;
+  }
+  
+  .servicearrow img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .close-button{
+    margin-right: -400px;
+  }
+
+  .open {
+    display: flex
+  }

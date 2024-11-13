@@ -1,1 +1,27 @@
-
+.body-login{
+  background-image: url(./assets/signIn.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  min-height: 100vh;
+  display: flex;
+}
+.body-quiz{
+  background-color: #f29fb4;
+  min-height: 100vh;
+}
+.body-search{
+  background-color: #F29FB3;
+  min-height: 100vh;
+}
+.body-home{
+  min-height: 100vh;
+}
+.body-progress{
+  background-color: #F29FB3;
+  min-height: 100vh;
+}
+.body-quizQuestion{
+  background-image: linear-gradient(24deg, #fff 50%, #F29FB3 50%);
+  min-height: 100vh;
+}

@@ -1,0 +1,17 @@
+.landingpage {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.landingpage-body {
+  background-color: white;
+}
+
+.landingpage-container {
+  position: relative;
+}
+
+.clearfix {
+  clear: both;
+}

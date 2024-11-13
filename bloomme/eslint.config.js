@@ -23,13 +23,12 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
-      'no-console': 'warn', // Lanza una advertencia cuando se usa console
-      'no-trailing-spaces': 'error', // Error si hay espacios en blanco innecesarios al final de la línea
-      'indent': ['error', 2], // Enforce 2-space indentation
-      // 'quotes': ['error', 'single'], // Preferencia de comillas simples
-      'semi': ['error', 'always'], // Enforce semicolons punto y como al final
-      'space-before-function-paren': ['error', 'never'], // Espacio antes de paréntesis de función
-      'comma-dangle': ['error', 'always-multiline'], // Coma al final en multilineas
+      'no-console': 'warn',
+      'no-trailing-spaces': 'error',
+      'indent': ['error', 2],
+      'semi': ['error', 'always'], 
+      'space-before-function-paren': ['error', 'never'], 
+      'comma-dangle': ['error', 'always-multiline'],
     },
   },
 )

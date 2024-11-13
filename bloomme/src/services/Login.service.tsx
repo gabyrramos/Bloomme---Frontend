@@ -5,24 +5,27 @@ export const useLoginConnection = () => {
   const navigate = useNavigate();
   const loginUser = async({email, password}: ILogin) => {
     try {
-      const response = await fetch('http://localhost:4000/user/login', {//SOLICITUD AL BACK
-        method: 'POST', //VERBO DE PETCIÓN
-        // mode: 'cors',
+      const response = await fetch('https://bloomme-backend.onrender.com/api/login', {
+        method: 'POST',
         headers: {
           "Content-Type": "application/json",
-          // "Authorization": `Bearer ${token}`
         },
-        body: JSON.stringify({email, password}), //LOS DATOS SE ENVIAN COMO JSON EN EL CUERPO DE LA SOLICITUD
+        body: JSON.stringify({email, password}),
       });
       if(!response.ok) {
         const errorData = await response.json();
-        // console.log("🚀 ~ loginUser ~ response:", errorData);
         throw new Error(errorData.message);
       }
       const data = await response.json();
-      console.log("🚀 ~ loginConnection ~ data:", data);
-      localStorage.setItem("username", data.email);//SE GUARDA EN LOCAL
-      navigate("/home"); // A DONDE TE VA A MANDAR
+      const token = data.tokenUser;
+      localStorage.setItem("token", token);
+      localStorage.setItem("email", data.user.email);
+      localStorage.setItem("username", data.user.username);
+      localStorage.setItem("avatar", data.user.current_avatar);
+      const backgrounds = data.user.current_background;
+      localStorage.setItem("background", backgrounds);
+      localStorage.setItem("assistant", data.user.assistant_id  );
+      navigate("/home");
     }
     catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Error inesperado';

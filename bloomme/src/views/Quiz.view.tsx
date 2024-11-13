@@ -1,40 +1,39 @@
 import { Link } from "react-router-dom";
-import { Menu } from "../components/Menu.component";
-import { useStars } from "../hooks/UseStars.hook";
+import quiz from '../assets/quiz.svg';
 import '../styles/Quiz.style.css';
+import { Title } from "../components/Title.component";
+import { useEffect, useState } from "react";
+import { useQuizConnection } from "../services/Quiz.service";
+import SafeAreaHeader from "../components/SafeArea/safeareaheader.component";
 
 export const Quiz = () => {
-  useStars();
-  //TENGO QUE ADAPTAR AL DAR CLIC DEBE APARECER EL TITULO SELECCIONADO
+  const [category, setCategory] = useState<{name: string, quiz_id: number}[]>([]);
+  const {quizApi} = useQuizConnection();
+  useEffect(() => {
+    const handleQuiz = async() =>{
+      const response = await quizApi();
+      setCategory(response);
+    };
+    handleQuiz();
+  },[]);
   return(
     <div className="container-quiz">
       <div className="container-quiz-menu">
-        <Menu />
+        <SafeAreaHeader />
       </div>
       <div className="container-quiz-title">
-        <h1>Quiz</h1>
+        <Title title="Quiz"/>
       </div>
       <div className="container-quiz-star">
-        <div>
-          <p>Conoce tu cuerpo</p>
-          <button className="button-quiz-star">comenzar quiz</button>
-        </div>
-        <div>
-          <p>Conoce tu cuerpo</p>
-          <button className="button-quiz-star">comenzar quiz</button>
-        </div>
-        <div>
-          <p>Conoce tu cuerpo</p>
-          <button className="button-quiz-star">comenzar quiz</button>
-        </div>
-        <div>
-          <p>Conoce tu cuerpo</p>
-          <button className="button-quiz-star"> <Link to='/quizQuestion'> comenzar quiz </Link></button>
-        </div>
-        <div>
-          <p>Conoce tu cuerpo</p>
-          <button className="button-quiz-star">comenzar quiz</button>
-        </div>
+        {category.map((item)=>(
+          <div key={item.name} className="quiz-star-know">
+            <img src={quiz} alt="quiz background" />
+            <p>{item.name}</p>
+            <button className={`button-quiz-star ${item.name === 'What would happen if...?' ? 'button-quiz-if' : ''}`}>
+              <Link to={`/quizQuestion/${item.name}/${item.quiz_id}`} className="quiz-link"> Start Quiz </Link>
+            </button>
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -1,0 +1,133 @@
+.safeareaHeader {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #f29fb4;
+  justify-content: space-between; 
+  overflow-visible: true;
+}
+
+.safeareaLogo {
+  width: 300px;
+  height: 60px;
+  object-fit: contain;
+  margin-right: 20px;
+}
+
+.safeareaMenu {
+  display: flex;
+  margin-right: 400px;
+  gap: 10px;
+}
+
+.safeareaProfile {
+  position: relative;
+}
+
+.safeareaMenu a,
+.safeareaProfile a {
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.safeareaMenu a:hover {
+  background-color: white;
+  color: #fdbec8;
+}
+
+.safeareaProfile a.active {
+  background-color: white;
+  color: #fdbec8;
+}
+.safeareaMenu a.active {
+  background-color: white;
+  color: #fdbec8;
+}
+
+.safeareaDropdown {
+  z-index: 1;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: rgba(
+    242,
+    159,
+    179,
+    0.9
+  );
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3); 
+  width: 150px; 
+}
+.safeareaDropdown a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.safeareaDropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.safeareaDropdown li:not(:last-child) {
+  margin-bottom: 5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); 
+}
+
+.safeareaDropdown li {
+  padding: 5px;
+  border-radius: 15px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+.safeareaDropdown li:hover {
+  background-color: #f3d2d2; 
+}
+.arrow-menu {
+  color: #f49cb4;
+  margin-left: 5px;
+}
+.safeareaProfileAvatar {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.safeareaProfileAvatarImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.safeareaProfileAvatar.active {
+  background-color: white;
+  color: #fdbec8;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+.safeareaProfileName span {
+  vertical-align: middle;
+}
+.safeareaProfileContainer {
+  display: flex;
+  align-items: center;
+}
+.safeareaProfileName {
+  margin-right: 10px;
+  font-weight: bold;
+  color: #ffffff;
+}
