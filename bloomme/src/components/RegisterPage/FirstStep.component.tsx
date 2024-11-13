@@ -3,9 +3,8 @@ import {
   FaUser,
   FaEnvelope,
   FaBirthdayCake,
-  FaGlobe,
   FaLock,
-} from "react-icons/fa"; // Importamos los íconos
+} from "react-icons/fa";
 import { GrInstagram } from "react-icons/gr";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
@@ -22,12 +21,12 @@ interface IRegister {
 }
 
 function FirstStep({ setData }: { setData: (data: IRegister) => void }) {
-  const options = useMemo(() => countryList().getData(), [])
-  const [country, setCountry] = useState('')
+  const options = useMemo(() => countryList().getData(), []);
+  const [country, setCountry] = useState('');
 
   const changeHandler = (value) => {
-    setCountry(value.label || '')
-  }
+    setCountry(value.label || '');
+  };
 
   const validateForm = (data: IRegister) => {
     if (data.username === "") {

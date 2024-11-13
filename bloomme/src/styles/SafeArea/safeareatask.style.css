@@ -6,8 +6,8 @@
   border-radius: 0px 20px 0px 20px;
   box-shadow: 0 0 10px #f3d2d2;
   margin-bottom: 20px;
-  overflow-y: auto; /* Adds vertical scroll */
-  overflow-x: hidden; /* Hides horizontal scroll */
+  overflow-y: auto;
+  overflow-x: hidden;
   word-wrap: break-word;
   text-overflow: ellipsis;
 }

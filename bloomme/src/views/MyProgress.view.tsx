@@ -1,11 +1,9 @@
-import { Menu } from "../components/Menu.component";
 import { Title } from "../components/Title.component";
 import { Assistant } from "../components/Assistant.component";
 import "../styles/MyProgress.style.css";
 import { useUserConnection } from "../services/User.service";
 import { useEffect, useState } from "react";
-import { jwtDecode } from "jwt-decode";
-import { Reward, TokenPayload } from "../models/MyProgress.model";
+import { Reward } from "../models/MyProgress.model";
 import SafeAreaHeader from "../components/SafeArea/safeareaheader.component";
 import { fetchRewardsApi, getAllRewardsApi, getUserRewardsApi, getUserUnlockedRewardsApi } from "../services/MyProgress.service";
 
@@ -36,7 +34,6 @@ export const MyProgress = () => {
   const handleUserData = async() => {
     const getUsers = await userIdApi();
     const getUserPoint = await userApiPoint();
-    console.log({getUserPoint});
     const userPoints = getUsers.total_point;
     const userQuiz = getUsers.quiz_completed;
     const userAvailable = getUserPoint;
@@ -46,28 +43,11 @@ export const MyProgress = () => {
     setAvailable(userAvailable);
   };
 
-  // useEffect(() => {
-  //   const handleUserData = async() => {
-  //     const getUsers = await userIdApi();
-  //     const getUserPoint = await userApiPoint();
-  //     const userPoints = getUsers.total_point;
-  //     const userQuiz = getUsers.quiz_completed;
-  //     const userAvailable = getUserPoint;
-
-  //     setPoint(userPoints);
-  //     setQuiz(userQuiz);
-  //     setAvailable(userAvailable);
-  //   };
-  //   handleUserData();
-  // }, [userIdApi, userApiPoint]);
-
   const fetchRewards = async() => {
     const data = await fetchRewardsApi();
     setRewards(data.rewards || []);
   };
-
-
-  const handleClickInsert = async (reward_id: number) => {
+  const handleClickInsert = async(reward_id: number) => {
     try {
       const response = await fetch(
         `https://bloomme-backend.onrender.com/api/user-reward?reward_id=${reward_id}&reward_type=avatar`,
@@ -77,7 +57,7 @@ export const MyProgress = () => {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           },
-        }
+        },
       );
 
       if (!response.ok) {
@@ -89,20 +69,19 @@ export const MyProgress = () => {
 
       fetchRewards();
       setAvailableRewards((prevRewards) =>
-        prevRewards.filter((reward) => reward.reward_id !== reward_id)
+        prevRewards.filter((reward) => reward.reward_id !== reward_id),
       );
     } catch (error) {
-      console.error("Error in fetch:", error);
+      const errorMessage = error instanceof Error ? error.message : 'Unexpected error';
+      throw new Error(errorMessage);
     }
   };
-  //seleccionar un reward
   const handleImageClick = async (rewardId: number) => {
     setFilteredRewards((prevRewards) =>
-      prevRewards.filter((reward) => reward.reward_id !== rewardId)
+      prevRewards.filter((reward) => reward.reward_id !== rewardId),
     );
     try {
       if (!token) {
-        console.error("Authentication token not found.");
         return;
       }
       const response = await fetch(
@@ -113,9 +92,8 @@ export const MyProgress = () => {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           },
-        }
+        },
       );
-      console.log(rewardId);
       if (!response.ok) {
         throw new Error(`Error en la solicitud: ${response.statusText}`);
       }
@@ -127,7 +105,7 @@ export const MyProgress = () => {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           },
-        }
+        },
       );
 
       if (!profileResponse.ok) {
@@ -138,14 +116,12 @@ export const MyProgress = () => {
       localStorage.setItem("current_avatar", currentAvatar);
       localStorage.setItem("avatar", currentAvatar);
       setAvatar(currentAvatar);
-
-      console.log("Current profile avatar:", currentAvatar);
     } catch (error) {
-      console.error("Error clicking on the image:", error);
+      const errorMessage = error instanceof Error? error.message : 'Unexpected error';
+      throw new Error(errorMessage);
     }
   };
 
-  //los que aun estan bloqueados
   const getRewards = async() => {
     const allRewards = await getAllRewardsApi();
     const avatarRewards = allRewards.filter( (reward) => reward.type === "avatar" );
@@ -161,13 +137,9 @@ export const MyProgress = () => {
     if (Array.isArray(availableRewardsData)) {
       setAvailableRewards(availableRewardsData);
     }  else {
-      console.error( "The rewards property is not an arrangement", availableRewardsData );
       setAvailableRewards([]);
     }
   };
-
-
-
   return (
     <>
       <div className="container-progress">
@@ -212,10 +184,10 @@ export const MyProgress = () => {
               ))}
             </div>
           </div>
-          <div className="progress-upcoming grid grid-cols-1 xl:grid-cols-2">
-            <div>
+          <div className="progress-upcoming flex flex-col items-center">
+            <div className="flex flex-col items-center mb-4 xl:mb-0 xl:mr-4">
               <p>Available Rewards</p>
-              <div className="progress-avatars">
+              <div className="progress-avatars flex flex-wrap justify-center">
                 {Array.isArray(availableRewards) &&
                   availableRewards.map((reward) => (
                     <div key={reward.reward_id} className="avatar-item">
@@ -229,9 +201,9 @@ export const MyProgress = () => {
                   ))}
               </div>
             </div>
-            <div>
+            <div className="flex flex-col items-center">
               <p>Rewards</p>
-              <div className="flex justify-center">
+              <div className="flex justify-center flex-wrap">
                 {filteredRewards.map((reward) => (
                   <div key={reward.reward_id} className="reward-item">
                     <img

@@ -1,4 +1,3 @@
-/* Virtual Assistant Section */
 .landingassistant {
   text-align: left;
   padding: 50px;
@@ -92,20 +91,20 @@ ul {
 
 .chat-button {
   position: absolute;
-  top: 70%; /* Ajusta la posición vertical para que esté debajo del conejo */
-  left: 40%; /* Ajusta la posición horizontal para que esté dentro del vector */
+  top: 70%; 
+  left: 40%;
   background-color: #faaabb;
   color: #ffffff;
-  box-shadow: 0px 4px 8px rgba(245, 109, 132, 0.5); /* Sombra rosa oscuro */
+  box-shadow: 0px 4px 8px rgba(245, 109, 132, 0.5);
   border: none;
   border-radius: 20px;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
-  z-index: 3; /* Asegúrate de que el botón esté encima del vector */
+  z-index: 3;
 }
 .chat-button:hover {
-  background-color: #ffffff; /* Cambia a blanco al hacer hover */
-  color: #ffd1dc; /* Cambia el texto a rosa claro */
-  box-shadow: 0px 4px 12px rgba(245, 109, 132, 0.7); /* Sombra más oscura al hacer hover */
+  background-color: #ffffff; 
+  color: #ffd1dc; 
+  box-shadow: 0px 4px 12px rgba(245, 109, 132, 0.7);
 }

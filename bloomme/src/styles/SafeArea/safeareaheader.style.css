@@ -1,7 +1,6 @@
-/* Header */
 .safeareaHeader {
   display: flex;
-  align-items: center; /* Vertically aligns header elements */
+  align-items: center;
   padding: 15px 20px;
   background-color: #f29fb4;
   justify-content: space-between; 
@@ -18,7 +17,7 @@
 .safeareaMenu {
   display: flex;
   margin-right: 400px;
-  gap: 10px; /* Space between links */
+  gap: 10px;
 }
 
 .safeareaProfile {
@@ -60,12 +59,12 @@
     159,
     179,
     0.9
-  ); /* Slightly transparent pink background */
+  );
   padding: 10px;
-  border-radius: 20px; /* Rounded corners */
+  border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
-  width: 150px; /* Adjust width if needed */
+  border: 1px solid rgba(255, 255, 255, 0.3); 
+  width: 150px; 
 }
 .safeareaDropdown a {
   text-decoration: none;
@@ -83,7 +82,7 @@
 }
 .safeareaDropdown li:not(:last-child) {
   margin-bottom: 5px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Soft divider */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); 
 }
 
 .safeareaDropdown li {
@@ -95,7 +94,7 @@
   transition: background-color 0.3s;
 }
 .safeareaDropdown li:hover {
-  background-color: #f3d2d2; /* Hover effect */
+  background-color: #f3d2d2; 
 }
 .arrow-menu {
   color: #f49cb4;

@@ -1,10 +1,9 @@
-/* Header */
 .landingHeader {
   display: flex;
-  align-items: center; /* Alinea verticalmente los elementos del header */
+  align-items: center;
   padding: 30px;
   background-color: #f29fb4;
-  justify-content: space-between; /* Distribuye los elementos en el eje principal */
+  justify-content: space-between;
   cursor: pointer;
 }
 
@@ -15,19 +14,14 @@
   margin-right: 20px;
 }
 
-/* .landingMenuContainer {
-  display: flex;
-  align-items: center;
-} */
-
 .landingMenu {
   display: flex;
-  gap: 15px; /* Espacio entre los enlaces */
+  gap: 15px;
 }
 
 .landingRegisterOptions {
   display: flex;
-  gap: 15px; /* Espacio entre los enlaces */
+  gap: 15px; 
   flex-grow: 1;
   justify-content: flex-end;
 }

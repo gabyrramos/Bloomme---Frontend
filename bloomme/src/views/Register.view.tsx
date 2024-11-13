@@ -12,13 +12,9 @@ function Register() {
 
   const handleRegisterApi = async() => {
     const response = await registerPost(data);
-    //TODO: validar si te mandan accesstoken para que guardes eso en el localstorage sino enviar al login
-    // todo bien
     navigate("/login");
   };
-
   useEffect(() => {
-    console.log(data);
   }, [data]);
 
   return (

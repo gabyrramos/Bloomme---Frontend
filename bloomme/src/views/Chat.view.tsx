@@ -1,14 +1,10 @@
 import { useState } from "react";
 import { FaPaperPlane } from "react-icons/fa";
-import bunnyIcon from "../assets/ChatPage/bunny-chat.png";
-import { Menu } from "../components/Menu.component";
-import avatar from "../assets/avatar.svg";
 import { scrollToBottomAnimated } from "../helper/scroll.helper";
 import { chatPost } from "../services/Chat.service";
 import { Assistant } from "../components/Assistant.component";
 import SafeAreaHeader from "../components/SafeArea/safeareaheader.component";
 
-// Define una interfaz para el tipo de mensaje
 interface Message {
   id: string;
   text: string;
@@ -20,8 +16,7 @@ function Chat() {
   const [inputValue, setInputValue] = useState("");
   const token: string = localStorage.getItem("token") || "";
 
-  // Función asincrónica para enviar el mensaje
-  const handleSendMessage = async () => {
+  const handleSendMessage = async() => {
     if (inputValue.trim() === "") return;
 
     const newMessage: Message = {
@@ -35,7 +30,6 @@ function Chat() {
     setInputValue("");
 
     try {
-      // Envía el mensaje al servidor y espera la respuesta
       const response = await chatPost(inputValue, token);
       const assistantMessage: Message = {
         id: Date.now().toString(),
@@ -43,10 +37,8 @@ function Chat() {
         type: "assistant",
       };
 
-      // Agrega el mensaje de respuesta del asistente al chat
       setMessages((prevMessages) => [...prevMessages, assistantMessage]);
 
-      // Ejecuta el scroll para mostrar el último mensaje del asistente
       setTimeout(() => scrollToBottomAnimated("chat-window"), 100);
     } catch (error) {
       console.error("Error al enviar el mensaje:", error);
@@ -55,7 +47,6 @@ function Chat() {
 
   return (
     <>
-      {/* <Menu title="Ana Maria" avatarUrl={avatar} /> */}
       <SafeAreaHeader />
       <div className="bg-gradient-to-b from-[#f29fb4] to-[#ebc0c0] h-[90vh] flex flex-col items-center p-8">
         <header className="text-center mb-6 text-white">
@@ -105,7 +96,6 @@ function Chat() {
         </div>
         <div className="absolute bottom-4 right-4">
           <Assistant text="I love talking to you "/>
-          {/* <img src={bunnyIcon} alt="Bunny Icon" className="w-32 relative right-20" /> */}
         </div>
       </div>
     </>

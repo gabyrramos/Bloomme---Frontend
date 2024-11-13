@@ -1,5 +1,3 @@
-//https://bloomme-backend.onrender.com/api/unlocked-rewards?type=avatar
-
 export const useRewardConnection = () => {
   const rewardApi = async(type:string) => {
     try {
@@ -38,7 +36,6 @@ export const useRewardConnection = () => {
         throw new Error(errorData.message);
       }
       const data = await response.json();
-      // console.log("🚀 ~ rewardApi ~ data:", data);
       return data;
     }
     catch (error) {

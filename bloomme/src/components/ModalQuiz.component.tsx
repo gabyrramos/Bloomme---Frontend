@@ -10,7 +10,7 @@ interface ModalProps {
 export const ModalQuiz: React.FC<ModalProps> = ({ isOpen, children }) => {
   const navigate = useNavigate();
   const handleClose = () => {
-    navigate('/quiz', { replace: true }); // Reemplaza la ruta actual en el historial
+    navigate('/quiz', { replace: true });
   };
   if (!isOpen) return null;
   return (
@@ -22,5 +22,3 @@ export const ModalQuiz: React.FC<ModalProps> = ({ isOpen, children }) => {
     </div>
   );
 };
-
-//mejor uso componente modal

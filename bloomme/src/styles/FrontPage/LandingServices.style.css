@@ -1,8 +1,7 @@
-/* Our Services */
 .landingservices {
   text-align: center;
   margin: 50px 0;
-  height: 100vh; /* Toma todo el alto de la pantalla */
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,7 +32,7 @@
   background-color: #ffe0e9;
   color: white;
   text-align: center;
-  position: relative; /* Posición relativa para la elipse */
+  position: relative;
   top: 90px;
 }
 
@@ -47,7 +46,6 @@
   font-weight: 450;
 }
 
-/* Elipse redonda encima de los cuadrados */
 .landingservice-item::before {
   content: "";
   position: absolute;
@@ -57,5 +55,5 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background-color: inherit; /* Mismo color que el cuadrado */
+  background-color: inherit; 
 }

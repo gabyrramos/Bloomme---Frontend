@@ -16,9 +16,7 @@ export const getModule = async (moduleId: number) => {
     const resData = await response.json();
     return resData;
   } catch (error) {
-    console.log(error);
-    const errorMessage =
-      error instanceof Error ? error.message : "Error inesperado";
+    const errorMessage = error instanceof Error ? error.message : "Error inesperado";
     throw new Error(errorMessage);
   }
 };

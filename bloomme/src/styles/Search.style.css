@@ -94,18 +94,6 @@ justify-content: space-between;
   font-weight: 600;
   font-size: 1.5em;
 }
-/* .search-dropdown{ //para quiz y routes
-  position: absolute;
-  top: 60px;
-  background-color: transparent;
-  border: 1px solid #F29FB3;
-  padding: 10px;
-  border-radius: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-.search-ul{
-  list-style: none;
-} */
 .container-search-result{
   margin-top: 2%;
   width: 95%;
@@ -114,7 +102,6 @@ justify-content: space-between;
 .container-search-result-ind{
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: space-evenly; */
   gap: 25px;
   padding: 20px;
 }

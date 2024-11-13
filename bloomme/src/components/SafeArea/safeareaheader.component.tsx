@@ -11,15 +11,14 @@ import "../../styles/SafeArea/profilemodal.style.css";
 
 const SafeAreaHeader: React.FC = () => {
   const [activeLink, setActiveLink] = useState("");
-  const [name, setName] = useState("")
-  const [avatar, setAvatar] = useState('')
+  const [name, setName] = useState("");
+  const [avatar, setAvatar] = useState('');
   const [profileOpen, setProfileOpen] = useState(false);
   const [showProfileModal, setShowProfileModal] = useState(false);
   const navigate = useNavigate();
 
   const handleClick = (link: string) => {
     setActiveLink(link);
-    console.log({link})
     navigate(`/${link}`);
   };
 
@@ -31,9 +30,6 @@ const SafeAreaHeader: React.FC = () => {
     const localAvatar = localStorage.getItem("avatar");
     setAvatar(localAvatar || Avatar);
   },[]);
-  // const handleProfileClick = () => {
-  //   setProfileOpen(!profileOpen);
-  // };
 
   const handleProfileModal = () => {
     setShowProfileModal(true);
@@ -74,7 +70,6 @@ const SafeAreaHeader: React.FC = () => {
         >
           Safe Area
         </a>
-        {/* "Safe Area" link is always active */}
       </nav>
       <div className="safeareaProfile">
         <div className="safeareaProfileContainer">
@@ -93,7 +88,7 @@ const SafeAreaHeader: React.FC = () => {
             <div className="safeareaDropdown">
               <ul>
                 <li>
-                <a onClick={handleProfileModal}>Profile</a>
+                  <a onClick={handleProfileModal}>Profile</a>
                 </li>
                 <li>
                   <a href="/login">

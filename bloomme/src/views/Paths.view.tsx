@@ -1,9 +1,6 @@
-import { Menu } from "../components/Menu.component";
-import avatar from "../assets/avatar.svg";
 import PathCard from "../components/PathPage/PathCard.component";
-import bunny from "../assets/PathsPage/bunny-path.png";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; // Importa useNavigate para redirección
+import { useNavigate } from "react-router-dom"; 
 import { pathsGet } from "../services/Path.service";
 import { Assistant } from "../components/Assistant.component";
 import SafeAreaHeader from "../components/SafeArea/safeareaheader.component";
@@ -15,39 +12,31 @@ interface IPath {
 
 function Paths() {
   const [paths, setPaths] = useState<IPath[]>([]);
-  const navigate = useNavigate(); // Declara el hook useNavigate
+  const navigate = useNavigate();
 
-  const handlePaths = async () => {
+  const handlePaths = async() => {
     try {
       const response = await pathsGet();
-      console.log(response);
       const data = response.map((path) => ({
         path_id: path.path_id,
         title: path.name,
         imageUrl: path.image,
       }));
-      console.log("response", response);
-      console.log("data", data);
       setPaths(data);
     } catch (error) {
-      console.error("Error al enviar el mensaje:", error);
+      throw new Error(`Error en la solicitud: ${error}`);
     }
   };
-
-  console.log("paths", paths);
 
   useEffect(() => {
     handlePaths();
   }, []);
 
-  // Función para manejar el clic en un PathCard
   const handlePathClick = (index: number, title: string) => {
     navigate(`/paths/${title}/${index}`);
   };
-
   return (
     <div className="flex flex-col bg-gradient-to-b from-[#f29fb4] to-[#ebc0c0] min-h-screen">
-      {/* <Menu title="Ana Maria" avatarUrl={avatar} /> */}
       <SafeAreaHeader />
       <div className="flex flex-col items-center">
         <h1 className="mb-10 font-semibold text-3xl text-white">Routes</h1>
@@ -57,7 +46,7 @@ function Paths() {
             <div
               key={index}
               className="cursor-pointer"
-              onClick={() => handlePathClick(path?.path_id, path.title)} // Redirige al hacer clic
+              onClick={() => handlePathClick(path?.path_id, path.title)}
             >
               <PathCard title={path.title} imageUrl={path.imageUrl} />
             </div>
@@ -65,12 +54,8 @@ function Paths() {
         </div>
         <p className="mt-12 text-lg text-slate-700">More coming soon</p>
       </div>
-
-      
-
       <div className="right-0 bottom-0 absolute p-4">
         <Assistant text="How can I help you?"/>
-        {/* <img src={bunny} alt="Bunny Icon" className="w-16 h-16" /> */}
       </div>
     </div>
   );

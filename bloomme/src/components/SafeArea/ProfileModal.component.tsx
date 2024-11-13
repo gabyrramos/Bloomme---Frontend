@@ -17,7 +17,6 @@ interface FormData {
   age: number;
   country: string;
   assistant_name: string;
-  // Add other fields as needed
 }
 
 function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
@@ -31,23 +30,9 @@ function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
   });
   const [isEditing, setIsEditing] = useState(false);
 
-  // useEffect(() => {
-  //   const fetchUserData = async() => {
-  //     try {
-  //       const data = await userIdApi();
-  //       console.log("🚀 ~ fetchUserData ~ data:", data);
-  //       setFormData(data);
-  //     } catch (error) {
-  //       console.error("Error fetching user data:", error);
-  //     }
-  //   };
-  //   fetchUserData();
-  // }, []);
-
-  const fetchUserData = async() => {//yo lo puse
+  const fetchUserData = async() => {
     try {
       const data = await userIdApi();
-      console.log("🚀 ~ fetchUserData ~ data:", data); // Verifica la estructura de los datos aquí
       setFormData({
         username: data.username || '',
         country: data.country || '',
@@ -56,12 +41,11 @@ function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
         assistant_name: data.assistant_name || '',
       });
     } catch (error) {
-      console.error("Error fetching user data:", error);
+      const errorMessage = error instanceof Error ? error.message : 'Error inesperado';
+      throw new Error(errorMessage);
     }
   };
-  useEffect(() => { //yo lo puse
-    console.log({isOpen});
-    console.log('open', isOpen);
+  useEffect(() => {
     if (isOpen) {
       fetchUserData();
     }
@@ -74,13 +58,6 @@ function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
     setIsEditing(!isEditing);
   };
 
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setFormData((prevData) => ({
-  //     ...prevData,
-  //     [name]: value,
-  //   }));
-  // };
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
@@ -89,9 +66,9 @@ function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
     try {
       await userUpdateModal(formData);
       setIsEditing(false);
-      console.log("User data updated successfully.");
     } catch (error) {
-      console.error("Error updating user data:", error);
+      const errorMessage = error instanceof Error ? error.message : 'Error inesperado';
+      throw new Error(errorMessage);
     }
   };
 

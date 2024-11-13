@@ -16,12 +16,9 @@ export const pathsGet = async() => {
     }
 
     const resData = await response.json();
-    console.log(resData);
     return resData;
   } catch (error) {
-    console.log({ error });
-    const errorMessage =
-      error instanceof Error ? error.message : "Error inesperado";
+    const errorMessage = error instanceof Error ? error.message : "Error inesperado";
     throw new Error(errorMessage);
   }
 };

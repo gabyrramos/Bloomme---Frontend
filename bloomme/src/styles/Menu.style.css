@@ -4,14 +4,14 @@
   justify-content: space-between;
   align-items: center;
   display: flex;
-  padding: 0.2%; /* Añade un poco de espacio interno */
+  padding: 0.2%;
   width: 100%;
   top: 0;
   left: 0;
   font-size: 1.2em; 
   color: white;
 }
-.container-menu-logo{/*PROVISIONAL DEL TAMAÑO PARA EL LOGO*/
+.container-menu-logo{
   margin-left: 5px;
   width: 180px;
   height: 100px;  
@@ -21,7 +21,7 @@
   justify-content: space-between;
   align-items: center;
   display: flex;
-  gap: 40px; /* Espacio entre los elementos internos */
+  gap: 40px;
 }
 .menu-theme-quiz, .menu-theme-paths, .menu-theme-safeZone {
   font-weight: bold;
@@ -42,7 +42,7 @@
 .container-menu-perfil{
   display: flex;
   align-items: center;
-  gap: 10px; /* Espacio entre los elementos internos */
+  gap: 10px;
 }
 .container-menu-perfil-name{
   font-weight: bold;

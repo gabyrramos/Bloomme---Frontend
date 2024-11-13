@@ -3,10 +3,8 @@ export const useSearchConnection = () => {
     try {
       const response = await fetch('https://bloomme.free.beeceptor.com/users', {
         method: 'GET',
-        // mode: 'cors',
         headers: {
           "Content-Type": "application/json",
-          // "Authorization": `Bearer ${token}`
         },
       });
       if(!response.ok) {
@@ -14,7 +12,6 @@ export const useSearchConnection = () => {
         throw new Error(errorData.message);
       }
       const data = await response.json();
-      console.log("🚀 ~ loginConnection ~ data:", data);
       return data;
     }
     catch (error) {

@@ -22,29 +22,15 @@ interface EmergencyNumbers {
 
 const EmergencyModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const [emergencyNumbers, setEmergencyNumbers] = useState<EmergencyNumbers | null>(null);
-  const emergencyPhoneNumber = "+1234567890"; // Replace with dynamic data as needed
 
-  const fetchEmergencyNumbers = async() => {//yo lo puse
-    //TODO: create the api function to fetch data and save it into emergencyNumbers state
+  const fetchEmergencyNumbers = async() => {
     try {
       const data:IEmergencyNumbersData = await getEmergencyNum();
       setEmergencyNumbers(data.data.emergencyNumbers);
     } catch (error) {
-      console.error("Error fetching user data:", error);
+      const errorMessage = error instanceof Error ? error.message : 'Error inesperado';
+      throw new Error(errorMessage);
     }
-  //   try {
-  //     const data = await userIdApi();
-  //     console.log("🚀 ~ fetchUserData ~ data:", data); // Verifica la estructura de los datos aquí
-  //     setFormData({
-  //       username: data.username || '',
-  //       country: data.country || '',
-  //       age: data.age || 0,
-  //       password: data.password || '',
-  //       assistant_name: data.assistant_name || ''
-  //     });
-  //   } catch (error) {
-  //     console.error("Error fetching user data:", error);
-  //   }
   };
 
   useEffect(() => {

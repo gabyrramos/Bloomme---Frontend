@@ -1,17 +1,17 @@
 
 .logocontainer {
     background-image: url('../assets/BlueLogo.png');
-    position: relative; /* Make the container relative for absolute positioning inside it */
-    height: 100vh; /* Example to fill the full viewport */
+    position: relative;
+    height: 100vh;
     width: 100%;
   }
   
   .logo {
-    position: absolute; /* Allows positioning in the top-left */
-    top: 10px; /* Adjust as needed for spacing from the top */
-    left: 10px; /* Adjust as needed for spacing from the left */
-    width: 50px; /* Set exact width */
-    height: 50px; /* Set exact height */
-    object-fit: contain; /* Ensure the logo maintains its aspect ratio within the set dimensions */
+    position: absolute;
+    top: 10px; 
+    left: 10px; 
+    width: 50px; 
+    height: 50px;
+    object-fit: contain;
   }
   

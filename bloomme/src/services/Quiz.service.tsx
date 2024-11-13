@@ -1,10 +1,7 @@
 export const useQuizConnection = () => {
-  const quizApi = async(/*category: string, id: string*/) => {
+  const quizApi = async() => {
     try {
-      const url = `https://bloomme-backend.onrender.com/api/quiz-categories`;//OBTENER TODAS LAS CATEGORIAS
-      // if (id !== "") {
-      //   url += `${category}/${id}`;
-      // }
+      const url = `https://bloomme-backend.onrender.com/api/quiz-categories`;
       const response = await fetch(url, {
         method: "GET",
         headers: {
@@ -26,10 +23,7 @@ export const useQuizConnection = () => {
   const quizApiAI = async(categoryId: number) => {
     try {
       const token = localStorage.getItem('token');
-      const url = `https://bloomme-backend.onrender.com/api/quiz/category/${categoryId}`;//OBTENER PREGUNTAS DE LA IA
-      // if (id !== "") {
-      //   url += `${category}/${id}`;
-      // }
+      const url = `https://bloomme-backend.onrender.com/api/quiz/category/${categoryId}`;
       const response = await fetch(url, {
         method: "GET",
         headers: {
@@ -42,7 +36,6 @@ export const useQuizConnection = () => {
         throw new Error(errorData.message);
       }
       const data = await response.json();
-      console.log("🚀 ~ quizApiAI ~ data:", data)
       return data;
     }
     catch (error) {
@@ -66,7 +59,6 @@ export const useQuizConnection = () => {
         throw new Error(errorData.message);
       }
       const data = await response.json();
-      console.log("🚀 ~ quizApiAnswers ~ data:", data);
       return data;
     }
     catch (error) {
@@ -79,7 +71,6 @@ export const useQuizConnection = () => {
 
 export const sendApiResult = async(categoryid: any, results: number) => {
   try {
-    console.log(results)
     const token = localStorage.getItem('token');
     const response = await fetch(`https://bloomme-backend.onrender.com/api/submit-score/category/${categoryid}`, {
       method: "POST",

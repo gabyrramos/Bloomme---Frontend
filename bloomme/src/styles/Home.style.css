@@ -12,7 +12,6 @@
   max-width: 1200px;
   margin-top: 20px;
 }
-/* Estilo de bienvenida */
 .container-home-welcome{
   background-color: #E699AC;
   height: 55vh;
@@ -23,14 +22,14 @@
 .container-home-welcome:after {
   content: "";
   position: absolute;
-  top: 15%; /* Deja un espacio en la parte superior */
-  bottom: 10%; /* Deja un espacio en la parte inferior */
-  left: 30%; /* Centra la línea */
-  width: 2px; /* Ancho de la línea */
+  top: 15%;
+  bottom: 10%;
+  left: 30%;
+  width: 2px; 
   height: 70%;
-  background-color: #FFFFFF; /* Color blanco */
-  transform: translateX(-50%); /* Centrar exactamente en el medio */
-  z-index: 0; /* Asegura que la línea esté en el fondo */
+  background-color: #FFFFFF; 
+  transform: translateX(-50%);
+  z-index: 0;
 }
 .container-home-sections-welcome {
   text-align: center;
@@ -38,11 +37,11 @@
 }
 .home-text {
   font-size: 1.5rem;
-  color: white; /* Color de texto de bienvenida */
+  color: white; 
   margin-top: 10px;
 }
 
-/* Subsecciones principales */
+
 .container-home-subsections {
   display: flex;
   justify-content: space-between;
@@ -57,7 +56,7 @@
   width: 32%;
   height: 40vh;
 }
-/* Fondo de los colores de perfil */
+
 .home-sections-profile .background-color-option {
   width: 20px;
   height: 20px;
@@ -67,7 +66,7 @@
 }
 
 
-/* Estilos específicos de subsecciones */
+
 .home-sections-profile {
   display: flex;
   flex-direction: column;
@@ -79,7 +78,7 @@
   margin-top: 10px;
 }
 .home-avatar-card{
-  /* background-color: #F2D694; */
+ 
   padding: 20px;
   border-radius: 20px;
   display: flex;
@@ -113,7 +112,7 @@
   display: flex;
   gap: 10px;
 }
-/* Circle color options */
+
 .home-color {
   width: 20px;
   height: 20px;
@@ -128,7 +127,7 @@
 .home-color.purple { background-color: #D1A1FF; }
 .home-color.green { background-color: #A5E6C6; }
 
-/* Selected color border */
+
 .home-color.home-selected {
   border-color: #FFF;
 }
@@ -140,7 +139,7 @@
   padding: 20px;
   margin-top: -20px;
 }
-/* Title styling */
+
 .home-title {
   color: #FFF;
   font-size: 16px;
@@ -148,7 +147,7 @@
   text-align: center;
 }
 
-/* Modules styling */
+
 .home-modules {
   display: flex;
   justify-content: space-evenly;
@@ -156,7 +155,7 @@
   gap: 20px;
 }
 
-/* Individual module styling */
+
 .home-module {
   display: flex;
   flex-direction: column;
@@ -165,8 +164,8 @@
 
 .home-circle {
   border-radius: 10px;
-  background-color: #C2E1F2; /* Circle background color */
-  /* border-radius: 50%; */
+  background-color: #C2E1F2; 
+  
   width: 250px;
   height: 150px;
   display: flex;
@@ -178,7 +177,7 @@
 .home-circle img {
   width: 85%;
   height: 85%;
-  /* border-radius: 50%; */
+  
   object-fit: cover;
 }
 .homeOne{
@@ -193,16 +192,16 @@
   text-align: center;
 }
 
-/* Arrow styling */
+
 .home-arrow {
   font-size: 30px;
   color: #FFF;
   margin-top: -60px;
 }
 
-/* Continue button styling */
+
 .home-continue-button {
-  background-color: #F2DADA; /* Button background color */
+  background-color: #F2DADA; 
   border: none;
   border-radius: 20px;
   padding: 10px 20px;
@@ -228,13 +227,13 @@
 .home-sections-day:after {
   content: "";
   position: absolute;
-  top: 8%; /* Deja un espacio en la parte superior */
-  bottom: 10%; /* Deja un espacio en la parte inferior */
-  left: 0; /* Centra la línea */
-  width: 2px; /* Ancho de la línea */
+  top: 8%; 
+  bottom: 10%; 
+  left: 0;
+  width: 2px; 
   height: 100%;
-  background-color: #FFFFFF; /* Color blanco */
-  transform: translateX(-50%); /* Centrar exactamente en el medio */
+  background-color: #FFFFFF;
+  transform: translateX(-50%);
   z-index: 0;
 }
 .home-sections-day-back{
@@ -251,7 +250,6 @@
   width: 200px;
   height: 200px;
 }
-/* Estilos de la sección de quizzes */
 .container-home-quiz {
   border-radius: 10px;
   flex-wrap: wrap;
@@ -259,7 +257,6 @@
   margin-top: 20px;
   background-color: #E699AC;
 }
-/* Cards container */
 .home-quiz-cards {
   display: flex;
   justify-content: center;
@@ -267,12 +264,10 @@
   margin-bottom: 40px;
   gap: 20px;
   justify-content: space-around;
-  /* gap: 80px; */
 }
 
-/* Individual quiz card styling */
 .home-quiz-card {
-  background-color: #FFF7F0; /* Card background color */
+  background-color: #FFF7F0;
   border-radius: 10px;
   padding: 15px;
   width: 200px;
@@ -284,7 +279,6 @@
   margin-bottom: 5%;
 }
 
-/* Quiz image styling */
 .home-quiz-card img {
   width: 100%;
   height: 130px;
@@ -292,7 +286,6 @@
   object-fit: cover;
 }
 
-/* Quiz title styling */
 .home-quiz-title {
   color: #AD5C51;
   font-size: 14px;
@@ -301,9 +294,8 @@
   text-align: center;
 }
 
-/* Start Quiz button styling */
 .home-quiz-button {
-  background-color: #FFDADA; /* Button background color */
+  background-color: #FFDADA;
   border: none;
   border-radius: 20px;
   padding: 8px 16px;
@@ -316,7 +308,7 @@
   }
 
 .home-quiz-button:hover {
-  background-color: #E8B6B6; /* Button hover color */
+  background-color: #E8B6B6;
 }
 
 .container-home-sections-quiz {
@@ -342,11 +334,7 @@
   }
 }
 
-@media (min-width: 1440px) {
-  /* .container-home {
-    max-width: 1400px;
-  } */
-  
+@media (min-width: 1440px) {  
   .container-home-sections {
     width: 80%;
   }

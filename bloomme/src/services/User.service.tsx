@@ -83,8 +83,6 @@ export const useUserConnection = () => {
         throw new Error('Error al actualizar el avatar');
       }
       const data = await response.json();
-      console.log("🚀 ~ userUpdate ~ data:", data);
-      console.log("🚀 ~ userUpdate ~ data:", data.user.current_avatar);
       localStorage.setItem('avatar', data.user.current_avatar);
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Error inesperado';

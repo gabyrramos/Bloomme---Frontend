@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';//USELOCATION es un hook proporcionado por react-router-dom que devuelve el objeto location actual de la aplicación
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../assets/BlueLogo.png';
 import '../styles/Menu.style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -16,9 +16,9 @@ export const Menu = () => {
   };
   useEffect(()=>{
     const name = localStorage.getItem('username');
-    const avatar = localStorage.getItem('avatar'); // Obtiene la URL del avatar desde localStorage
+    const avatar = localStorage.getItem('avatar');
     setName(name || '');
-    setAvatarUrl(avatar || ''); // Establece el avatar en el estado
+    setAvatarUrl(avatar || '');
   }, []);
 
   const handleNavigate = () => {
@@ -34,8 +34,8 @@ export const Menu = () => {
         <div className='menu-theme-quiz'> <Link to='/paths' className={`menu-theme-paths ${isSelected('/paths') ? 'selected' : ''}`}> Paths </Link></div>
         <div className='menu-theme-quiz'> <Link to='/safearea' className={`menu-theme-safeZone ${isSelected('Safe area') ? 'selected' : ''}`}> Safe area </Link></div>
       </div>
-      <div className='container-menu-perfil' >{/*startsWith: si la ruta actual comienza con */}
-        {location.pathname !== '/search' && !location.pathname.startsWith('/quizQuestion') && (//SI LA RUTA ACTUAL ES DIFERENTE DE SEARCH, RENDERIZA EL ICONO DE LUPA
+      <div className='container-menu-perfil' >
+        {location.pathname !== '/search' && !location.pathname.startsWith('/quizQuestion') && (
           <Link to='/search'> <FontAwesomeIcon icon={faMagnifyingGlass} className='menu-perfil-search'/> </Link>
         )}
         <div className='container-menu-perfil-name'> {name} </div>
@@ -50,7 +50,7 @@ export const Menu = () => {
                     <span>Log Out</span><FontAwesomeIcon icon={faArrowRightFromBracket} />
                   </Link>
                 </li>
-                <li><Link to="#" onClick={() => console.log("Configuración")}>Profile</Link></li>
+                <li><Link to="#">Profile</Link></li>
               </ul>
             </div>
           )}
@@ -59,17 +59,3 @@ export const Menu = () => {
     </div>
   );
 };
-
-
-
-
-/*
-El objeto location contiene información sobre la ruta actual, incluyendo:
-pathname: la ruta actual (por ejemplo, /search)
-search: la cadena de consulta (por ejemplo, ?query=abc)
-state: el estado asociado con la ruta actual (opcional)
-hash: el fragmento de la URL (por ejemplo, #anchor)
-
-location.pathname devuelve la ruta actual sin la cadena de consulta ni el fragmento.
-
-*/

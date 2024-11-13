@@ -14,7 +14,7 @@ const App: React.FC = () => {
         <Route path='/quiz' element={<div className="body-quiz bg-gradient-to-b from-[#f29fb4] to-[#ebc0c0]"><Quiz/></div>} />
         <Route path='/quizQuestion/:category/:categoryId' element={<div className="body-quizQuestion bg-gradient-to-b from-[#f29fb4] to-[#ebc0c0]"><QuizQuestion/></div>}/>
         <Route path='/search' element={<div className="body-search"><Search/></div>}/>
-        <Route path='/progress/' element={<div className="body-progress bg-gradient-to-b from-[#f29fb4] to-[#ebc0c0]"><MyProgress/></div>}/> {/*aqui debe llevar el id de la persona */}
+        <Route path='/progress/' element={<div className="body-progress bg-gradient-to-b from-[#f29fb4] to-[#ebc0c0]"><MyProgress/></div>}/>
         <Route path='/register' element={<Register />} />
         <Route path='/chat' element={<Chat />} />
         <Route path='/paths' element={<Paths />} />

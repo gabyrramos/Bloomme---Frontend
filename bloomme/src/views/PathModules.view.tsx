@@ -1,6 +1,4 @@
 import { useParams, useNavigate } from "react-router-dom";
-import avatar from "../assets/avatar.svg";
-import { Menu } from "../components/Menu.component";
 import { pathModulesGet } from "../services/PathModule.service";
 import { useEffect, useState } from "react";
 import { Assistant } from "../components/Assistant.component";
@@ -24,31 +22,28 @@ const myColors = [
 function PathModules() {
   const navigate = useNavigate();
   const { id, name } = useParams<{ id: string }>();
-  const [modules, setModules] = useState<Module[]>([]); // Estado para almacenar los módulos
+  const [modules, setModules] = useState<Module[]>([]);
 
 
   useEffect(() => {
     const fetchModules = async() => {
       if (!id) {
-        console.log("Por favor, proporciona un ID válido para el módulo.");
         return;
       }
 
       try {
         const modulesData = await pathModulesGet(id);
-        setModules(modulesData.modules); // Asigna los módulos obtenidos al estado
+        setModules(modulesData.modules);
       } catch (err) {
-        console.log('Hubo un error', err);
+        throw new Error(`Error en la solicitud: ${err}`);
       }
     };
 
     fetchModules();
   }, [id]);
 
-  //TODO: consumir api para traer los modulos del path
   return (
     <div className="flex flex-col items-center bg-gradient-to-b from-[#f29fb4] to-[#ebc0c0] min-h-screen">
-      {/* <Menu title="Ana Maria" avatarUrl={avatar} /> */}
       <SafeAreaHeader />
       <h1 className="mb-10 font-semibold text-3xl text-white pt-10">
         {name}
@@ -59,7 +54,7 @@ function PathModules() {
             key={index}
             module={module}
             index={index}
-            onClick={() => navigate(`/module/${module.module_id}`)} // Redirigir al hacer clic
+            onClick={() => navigate(`/module/${module.module_id}`)}
           />
         ))}
       </div>
@@ -91,7 +86,7 @@ function Card({ module, index, onClick }: CardProps) {
 
   return (
     <div
-      onClick={onClick} // Manejar el clic para redirigir
+      onClick={onClick}
       className={`h-32 rounded-2xl flex items-center justify-center cursor-pointer shadow-lg shadow-red-500/40 ${
         colSpan === 4 ? "col-span-4" : "col-span-8"
       }`}

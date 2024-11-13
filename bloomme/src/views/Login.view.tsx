@@ -4,20 +4,19 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import './../styles/Login.style.css';
-// import background from '../assets/SignIn.svg';
 import google from '../assets/Google.svg';
 import facebook from '../assets/Facebook.svg';
 import instagram from '../assets/Instagram.svg';
 
 export const Login = () => {
-  const [ email, setEmail] = useState('');//SE INICIALIZA EL CAMPO VACIO, CON SET SE ACTUALIZA A LO QUE ESCRIBA EL USUARIO
+  const [ email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(''); // Variable para mostrar el error en caso de que ocurra
+  const [error, setError] = useState('');
   const { loginUser} = useLoginConnection();
-  const handleLogin = async() =>{//LLAMA A LA FUNCIÓN LOGIN USER UBICADA EN USELOGINCONNECTION Y PASA EL EMAIL Y PASSWORD
+  const handleLogin = async() =>{
     try {
       await loginUser({ email, password });
-      setError(''); // Limpia cualquier error previo si es exitoso
+      setError('');
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Unexpected error';
       setError(errorMessage);
@@ -25,7 +24,6 @@ export const Login = () => {
   };
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Llama a la función handleLogin aquí
     handleLogin();
   };
   return(
@@ -44,7 +42,6 @@ export const Login = () => {
             <input type="text" name="email-login" id='email-login' required placeholder='Username/Email' value={email} onChange={(e) => setEmail(e.target.value)}/>
             <label htmlFor='password-login' className='label-password-login'> </label>
             <input type="password" name="password-login" id='password-login' required placeholder='Password           ' value={password} onChange={(e) => setPassword(e.target.value)}/>
-            {/* <input type="password" name="password-login" id='password-login' required placeholder=' Password' value={password} onChange={(e) => setPassword(e.target.value)}/> */}
             {error && <p className="error-message">{error}</p>}
             <button type="submit" className='button-form-login'> SIGN IN NOW <FontAwesomeIcon icon={faChevronRight} /> </button>
           </form>

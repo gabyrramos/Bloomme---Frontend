@@ -1,41 +1,40 @@
-/* Footer */
 .landingfooter {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 100px 40px;
   background: linear-gradient(to top, rgba(242,159,180,255), #ebc0c0);
-  text-align: center; /* Centra el texto */
+  text-align: center;
 }
 
 .landingfooter .subscribe,
 .landingfooter .follow-us,
 .landingfooter .contact-info {
   color: white;
-  margin-bottom: 20px; /* Agrega espacio entre los elementos */
+  margin-bottom: 20px;
 }
 .landingfooter h3 {
-  font-size: 28px; /* Aumenta el tamaño de fuente de los títulos */
+  font-size: 28px;
   font-weight: 500;
-  margin-bottom: 20px; /* Agrega espacio entre los títulos y el contenido */
+  margin-bottom: 20px;
 }
 .landingfooter input[type="email"] {
   padding: 10px;
   margin-top: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  width: 100%; /* Asegura que el input ocupe todo el ancho disponible */
+  width: 100%;
 }
 .landingplaceholder {
   color: #d5999f;
 }
 .landingfooter .social-icons {
   display: flex;
-  justify-content: space-around; /* Centra los iconos horizontalmente */
+  justify-content: space-around;
 }
 
 .landingfooter .social-icons img {
-  width: 50px; /* Establece el ancho de las imágenes */
-  height: 50px; /* Establece la altura de las imágenes */
-  margin: 0 10px; /* Agrega espacio entre los iconos */
+  width: 50px;
+  height: 50px;
+  margin: 0 10px; 
 }

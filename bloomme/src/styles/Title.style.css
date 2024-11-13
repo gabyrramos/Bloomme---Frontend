@@ -13,8 +13,8 @@
 .container-title-diamond::before,
 .container-title-diamond::after {
   content: "";
-  width: 300px; /* ajusta el ancho de las líneas */
+  width: 300px; 
   height: 1px;
   background-color: rgb(255, 255, 255);
-  margin: 20px 10px; /* ajusta el espacio entre las líneas y el icono */
+  margin: 20px 10px;
 }

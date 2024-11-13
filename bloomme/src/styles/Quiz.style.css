@@ -11,7 +11,7 @@
 .quizQuestion-titleComponent{
   color: white;
 }
-.container-quiz-title{/*TITULO QUIZ*/
+.container-quiz-title{
   font-size: 1.6em;
   margin-top: 1%;
   color: white;
@@ -51,11 +51,10 @@
   width: 30%;
   height: 48vh;
   justify-content: space-between;
-  /*flex-basis: 40%;*/ /* Ancho fijo para cada contenedor */
-  margin: 15px; /* Espacio entre contenedores */
-  padding: 20px; /* Espacio interior */
-  border-radius: 10px; /* Esquinas redondeadas */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+  margin: 15px;
+  padding: 20px;
+  border-radius: 10px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
 .quiz-star-know{
   background-color: #FBF8EF;

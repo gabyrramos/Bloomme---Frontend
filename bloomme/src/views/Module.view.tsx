@@ -1,6 +1,4 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { Menu } from "../components/Menu.component";
-import avatar from "../assets/avatar.svg";
 import { MdArrowBack } from "react-icons/md";
 import { MdOutlineLibraryBooks } from "react-icons/md";
 import { getModule } from "../services/Module.service";
@@ -27,33 +25,29 @@ function Module() {
     const getModuleData = async() => {
       try {
         if (!id) {
-          console.log("Invalid module ID");
           return;
         }
         const moduleApi = await getModule(parseInt(id));
         setModule(moduleApi);
       } catch (error) {
-        console.error(error);
+        const errorMessage = error instanceof Error ? error.message : 'Unexpected error';
+        setModule(errorMessage);
       }
     };
     getModuleData();
   }, [id]);
 
-  console.log(module);
-
-  // Redirigir si el módulo no existe
   if (!module) {
     return <p>Módulo no encontrado</p>;
   }
 
   return (
     <div className="bg-gradient-to-b from-[#f29fb4] to-[#ebc0c0] min-h-screen flex flex-col items-center">
-      {/* <Menu title="Ana Maria" avatarUrl={avatar} /> */}
       <SafeAreaHeader />
       <main className="w-full max-w-6xl px-10 grid grid-cols-12 gap-4 py-10">
         <div className="col-span-2 pt-4">
           <button
-            onClick={() => navigate(-1)} // Botón para regresar a la pantalla anterior
+            onClick={() => navigate(-1)}
             className="bg-[#ADC9F0] py-3 px-6 rounded-xl flex gap-4 items-center text-white"
           >
             <MdArrowBack size={24} />

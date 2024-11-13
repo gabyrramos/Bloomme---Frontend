@@ -13,23 +13,22 @@ const SafeAreaTaskBody: React.FC = () => {
   const [message, setMessage] = useState("");
   const { exercises, task } = useParams();
   useEffect(() => {
-    const fetchEmotions = async () => {
+    const fetchEmotions = async() => {
       try {
         const response = await generateTaskByExercises(
           exercises || "",
-          task || ""
+          task || "",
         );
-        console.log(response);
         setMessage(response.text);
       } catch (error) {
-        console.log(error);
+        const errorMessage = error instanceof Error ? error.message : 'Error inesperado';
+        throw new Error(errorMessage);
       }
     };
     fetchEmotions();
   }, []);
   const handleEmergencyClick = () => {
     setShowModal(true);
-    console.log("Emergency button clicked, showModal is:", showModal);
   };
 
   const handleCloseModal = () => setShowModal(false);
@@ -37,7 +36,7 @@ const SafeAreaTaskBody: React.FC = () => {
 
   return (
     <div className="safehome-container">
-       <style>
+      <style>
         {`
           .emotion-btn:hover {
             background-color: #e5c867;
@@ -50,9 +49,6 @@ const SafeAreaTaskBody: React.FC = () => {
           }
         `}
       </style>
-      {/* <div className="safehome-divider">
-        <img src={safearealine} alt="Divider" />
-      </div>  */}
       <div className="safehome-left">
         <img src={sadbunny} alt="Sad Bunny" />
       </div>
@@ -64,7 +60,7 @@ const SafeAreaTaskBody: React.FC = () => {
           <p className="safehome-message">{message}</p>
         </div>
         <div className="safehometask-categories">
-        <div className="safehometask-category-row" >
+          <div className="safehometask-category-row" >
             <Link
               to="/safearea"
               className="safehometask-category-btn"
@@ -88,7 +84,7 @@ const SafeAreaTaskBody: React.FC = () => {
       {showModal && <EmergencyModal onClose={handleCloseModal} />}
       {showAssistant && (
         <Assistant
-          text="If you need help I’m here to chat!"
+          text="If you need help I'm here to chat!"
         />
       )}
     </div>

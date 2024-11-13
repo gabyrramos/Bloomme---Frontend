@@ -14,7 +14,7 @@
 }
 .container-quizQuestion-star {
   width: 60%;
-  min-height: 550px; /* Altura mínima para un tamaño base del contenedor */
+  min-height: 550px;
   margin: 5%;
   background-color: #F3D2D2;
   color: #CC8E8E;
@@ -52,7 +52,7 @@
   flex-wrap: wrap;
 }
 .quizQuestion-button-next svg, .quizQuestion-button-leave svg {
-  font-size: 1.2em; /* Ajusta el tamaño del icono */
+  font-size: 1.2em;
 }
 .quizQuestion-button-next, .quizQuestion-button-leave{
   background-color: #CADBF3;

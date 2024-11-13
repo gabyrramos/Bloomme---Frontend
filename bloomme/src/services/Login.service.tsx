@@ -10,20 +10,19 @@ export const useLoginConnection = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({email, password}), //LOS DATOS SE ENVIAN COMO JSON EN EL CUERPO DE LA SOLICITUD
+        body: JSON.stringify({email, password}),
       });
       if(!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.message);
       }
       const data = await response.json();
-      console.log("🚀 ~ loginConnection ~ data:", data);
-      const token = data.tokenUser; // OBTIENE EL TOKEN DESPUÉS DE LA AUTENTICACIÓN
-      localStorage.setItem("token", token); // GUARDA EL TOKEN EN LOCALSTORAGE
+      const token = data.tokenUser;
+      localStorage.setItem("token", token);
       localStorage.setItem("email", data.user.email);
       localStorage.setItem("username", data.user.username);
       localStorage.setItem("avatar", data.user.current_avatar);
-      const backgrounds = data.user.current_background; // Obtén las imágenes de fondo
+      const backgrounds = data.user.current_background;
       localStorage.setItem("background", backgrounds);
       localStorage.setItem("assistant", data.user.assistant_id  );
       navigate("/home");
