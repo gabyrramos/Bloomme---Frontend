@@ -5,6 +5,7 @@
   padding: 30px;
   background-color: #f29fb4;
   justify-content: space-between; /* Distribuye los elementos en el eje principal */
+  cursor: pointer;
 }
 
 .landingLogo {
